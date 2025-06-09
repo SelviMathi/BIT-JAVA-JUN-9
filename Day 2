@@ -1,0 +1,267 @@
+***********************Practise Questions********************
+Q1.Write a program to fi nd the square, cube, and square root of a number.
+Input Format
+To get the integer from user.
+Output Format
+Displays the square, cube, and square root of the number. Refer sample output.
+Constraints
+Read Integers input value.
+Input Format
+To get the integer from user.
+Output Format
+Displays the square, cube, and square root of the number. Refer sample output.
+Sample Input
+5
+Sample Output
+Square of 5 is: 25.0
+Cube of 5 is: 125.0
+Square Root of 5 is: 2.23606797749979
+***************************************************************************************************
+
+
+***************************************************************************************************
+Q2.Write a program to print the power of m raised to n.
+Input Format
+The input consists of the m and n values.
+Output Format
+The output prints the result.
+Note: Round off the output to two decimal places.
+Sample Input
+2 3
+Sample Output
+8.00
+Sample Input
+3 4
+Sample Output
+81.00
+
+
+**************************************************************************************
+
+
+**************************************************************************************
+
+
+Q3.Find the total customers:
+Jeevan is running a sports club. He already had N number of customers and due to the offer that he declared yesterday a lot of new members have joined the club today. Your task here is to write a program to fi nd the total number of customers that he has.
+Question Instructions:
+1.Create a driver class named Main.
+2.The solution code should be written inside the main method() of the Main class
+Input Format
+N1 denotes the customers that he already has N2 denotes the customer added today separated by a space.
+Output Format
+The output prints the total number of customers that Jeevan has.
+Constraints
+Integers only.
+Sample Input
+10 11
+Sample Output
+21
+Sample Input
+4 5
+Sample Output
+9
+
+**************************************************************************************
+
+
+**************************************************************************************
+
+Q4.If the marks of Alice in 3 subjects are mark1, mark2, mark3. Calculate the total and average.
+Input Format
+The input consists of the three subject marks.
+Output Format
+The output prints the sum and average.
+Note: Round off the output to two decimal places.
+Sample Input
+96 98 94
+Sample Output
+Total : 288
+Average : 96.00
+
+
+**************************************************************************************
+
+**************************************************************************************
+Q5.The Acme Tennis Ball Company is designing a new box to ship its products. The marketing department wants a triangular box that can hold 4 balls, as in the illustration below. The balls fi t exactly inside the box, just touching all three walls and the end caps of the container. All 3 walls of the box are the same size (equilateral triangle). Assume a tennis ball is 6 cm in diameter, and ignore the thickness of the box material. What will be the length and breadth of the material used to make the box? Write a program that fi nds the measure of a side of the box. Program must also display the length and breadth of the material used to make the triangular box.
+The formula to be applied for the above problem is:
+side = sqrt(3)*diameter
+length = side*3
+breadth = 4*diameter
+Input Format
+The input consists of the diameter of the box.
+Output Format
+The output displays the side of the box, length and breadth of the material used to make the triangular box separated by a space.
+Round off the fl oat values to two decimal places.
+Sample Input
+Sample Output
+6
+Side : 10.39
+Length : 31.18
+Breadth : 24.00
+
+**************************************************************************************
+
+**************************************************************************************
+
+Q6.Pranav and his Challenge
+
+Pranav, an enthusiastic kid visited the "Fun Fair 2017" along with his family. His father wanted him to purchase entry tickets from the counter for his family members. Being a little kid, he is just learning to understand units of money. Pranav has paid some amount of money for the tickets but he wants your help to give him back the change of Rs. N using the minimum number of rupee notes.
+Consider a currency system in which there are notes of seven denominations, namely, Rs. 1, Rs. 2, Rs. 5, Rs. 10, Rs. 50, Rs. 100. If the change is given to Pranav Rs. N is input, write a program to computer smallest number of notes that will combine to give Rs. N.
+Input Format
+The fi rst line of the input is an integer N, the change to be given to Pranav.
+Output Format
+The output should display the smallest number of notes that will combine to give N.
+Refer sample input and output for formatting specifi cations.
+Constraints
+Do not use any looping structures.
+Sample Input
+1200
+Sample Output
+12
+Sample Input
+242
+Sample Output
+7
+
+**************************************************************************************
+
+
+**************************************************************************************
+
+
+Q7.Trade Fair:
+
+Trade Fairs are important for companies to present their products and to get in touch with its customers and business parties. One such grandeur Trade Fair Event was organized by the Confederation of National Large Scale Industry.
+Number of people who attended the event on the fi rst day was x. But as days progressed, the event gained good response and the number of people who attended the event on the second day was twice the number of people who attended on the fi rst day. Unfortunately due to heavy rains on the third day, the number of people who attended the event was exactly half the number of people who attended on the fi rst day.
+Given the total number of people who have attended the event in the fi rst 3 days, fi nd the number of people who have attended the event on day 1, day 2 and day 3.
+Input Format
+First line of the input is an integer value that corresponds to the total number of people.
+Output Format
+First line of the output should display the number of attendees on day 1.
+Second line of the output should display the number of attendees on day 2.
+Third line of the output should display the number of attendees on day 3.
+Sample Input
+10500
+Sample Output
+Number of attendees on day 1 : 3000
+Number of attendees on day 2 : 6000
+Number of attendees on day 3 : 1500
+
+*************************************************************************************
+
+
+*************************************************************************************
+
+
+Q8.Alice wanted to start a business and she was looking for a venture capitalist. Through her friend Bob, she met the owner of a construction company who is interested to invest in an emerging business. Looking at the business proposal, the owner was very much impressed with Alice's work. So he decided to invest in Alice's business and hence gave a green signal to go ahead with the project. Alice bought Rs. X for a period of Y years from the owner at R% interest per annum. Find the rate of interest and the total amount to be given by Alice to the owner. The owner impressed by the proper repayment of the fi nanced amount decides to give a special offer of 2% discount on the total interest at the end of the settlement. Find the amount given back by Alice and also fi nd the total amount. (Note: All rupee values should be in two decimal points).
+Example 1
+Input
+100
+1
+10
+Output
+10.00
+110.00
+0.20
+109.80
+Explanation
+When we substitute the values of the principal amount, rate of interest, and number of years in the Simple Interest formula we get the output values.
+Example 2
+Input
+40
+1
+10
+Output
+4.00
+44.00
+0.08
+43.92
+Explanation
+When we substitute the values of the principal amount, rate of interest, and a number of years in the Simple Interest formula in order to get the output values.
+
+Input Format
+Input consists of 3 integers.
+The fi rst integer corresponds to the principal amount borrowed by Alice.
+The second integer corresponds to the rate of interest
+The third integer corresponds to the number of years.
+Output Format
+The output consists of 4 fl oating-point values.
+The fi rst value corresponds to the interest.
+The second corresponds to the amount.
+The third value corresponds to the discount.
+The last value corresponds to the fi nal settlement.
+All fl oating-point values are to be rounded off to two decimal places
+Sample Input
+800
+3
+4
+Sample Output
+96.00
+896.00
+1.92
+894.08
+
+*************************************************************************************
+import java.util.Scanner;
+
+**************************************************************************************
+Q9. Ramu and Somu are going on a picnic. Ramu packs m apples, n oranges. Somu packs
+m1 more apples than Ramu and n1 more oranges than Ramu. If Somu eats x of his apples and Ramu eats y of Somu's oranges, how many apples and oranges are left in total?
+Input Format
+
+Input consists of 6 integers m,n,m1,n1,x,y.
+1.m - corresponds to the apples brought by Ramu.
+2.n - corresponds to the oranges brought by Ramu.
+3.m1 – Apples brought by Somu.
+4.n1 – Oranges brought by Somu.
+5.x - apples ate by Somu.
+6.y – oranges ate by Ramu.
+Output Format
+Print two integers representing remaining apples and oranges.
+Sample Input
+4 3 2 8 3 2
+Sample Output
+7 12
+
+**************************************************************************************
+
+
+*************************************************************************************
+
+Q10.
+Write a program to perform bitwise OR operation.
+Input Format
+Input to get two values n1,n2.
+Output Format
+The output displays the result after performing bitwise or operation.
+Sample Input
+78 90
+Sample Output
+94
+
+**************************************************************************************
+
+
+
+**************************************************************************************
+
+
+
+
+*******************Operator Precedence (Highest to Lowest)***********
+(), [], .
+++, -- (Post-increment, Post-decrement)
+++, -- (Pre-increment, Pre-decrement)
++, -, ~, ! (Unary plus, Unary minus, Bitwise NOT, Logical NOT)
+*, /, % (Multiplicative operators)
++, - (Additive operators)
+<<, >>, >>> (Shift operators)
+<, <=, >, >=, ==, != (Relational operators)
+& (Bitwise AND)
+^ (Bitwise XOR)
+| (Bitwise OR)
+&& (Logical AND)
+|| (Logical OR)
+?: (Ternary/Conditional operator)
+=, +=, -=, *=, /=, %= (Assignment operators)

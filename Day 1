@@ -1,6 +1,77 @@
 Programming VS Coding
 Compiler VS INterpreter
 LOW VS HIGH level language
+********************Variables*****************
+
+A variable is a named storage location in the memory that holds a value, which can be modified during program execution. The type of data a variable can hold is determined by its data type.
+
+int age = 25;
+String name = "Megna";
+
+****************Data Types****************
+
+Primitive Data Types
+byte:
+Size: 1 byte (8 bits)
+Range: -128 to 127
+short:
+Size: 2 bytes (16 bits)
+Range: -32,768 to 32,767
+int:
+Size: 4 bytes (32 bits)
+Range: -2,147,483,648 to 2,147,483,647
+long:
+Size: 8 bytes (64 bits)
+Range: -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807
+float:
+Size: 4 bytes (32 bits)
+Range: Approximately ±3.40282347E+38
+double:
+Size: 8 bytes (64 bits)
+Range: Approximately ±1.7976931348623157E+308
+char:
+Size: 2 bytes (16 bits)
+Range: 0 to 65,535 (Unicode values)
+boolean:
+Size: 1 bit
+Values: true or false
+Non-Primitive Data Types
+String, Array, Objects:
+Size depends on content and memory allocation by JVM.
+
+
+
+Input methods for each data type:
+
+byte: scanner.nextByte();
+short: scanner.nextShort();
+int: scanner.nextInt();
+long: scanner.nextLong();
+float: scanner.nextFloat();
+double: scanner.nextDouble();
+char: scanner.next().charAt(0); (Reads the first character of a string.)
+boolean: scanner.nextBoolean();
+String:
+Single word: scanner.next();
+Full line: scanner.nextLine();
+
+*****************Identifiers********************
+
+An identifier is a name used to identify a variable, method, class, or any other user-defined item. Identifiers must begin with a letter (A-Z or a-z), an underscore (_), or a dollar sign ($). The rest of the identifier can contain digits (0-9).
+
+int _age = 30;    // Valid identifier
+int $amount = 50; // Valid identifier
+int 1number = 10; // Invalid identifier (starts with a number)
+
+
+
+************Comments***************
+Single line comments(//)
+Multiline comments(/*…..*/)
+Documentation comments(/**….)
+
+
+
 HELLO WORLD
 ------------------
 class FirstJavaProgram

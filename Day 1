@@ -84,7 +84,12 @@ NA
 Output Format:
 Let's learn 'JAVA' together with Selvi
 
-
+public class Main{
+public static void main(String[] args) 
+{
+ System.out.println("Let's learn 'JAVA' together with Selvi");
+}
+}
 
 
 2.Problem Statement:
@@ -93,6 +98,13 @@ Input Format:
 NA
 Output Format:
 If you want to shine like a "Sun",first burn like a "Sun".
+
+public class Main{
+public static void main(String[] args) 
+{
+ System.out.println("If you want to shine like a \"Sun\",first burn like a \"Sun\".");
+}
+}
 
 
 
@@ -104,7 +116,12 @@ NA
 Output Format:
 \n
 
-
+public class Main{
+public static void main(String[] args) 
+{
+ System.out.println("\\n");
+}
+}
 
 4.Problem Statement:
 Declare 2 integer variables and initialize their values as 20 and 10
@@ -112,6 +129,15 @@ Input Format:
 NA
 Output Format:
 Print the stored the values as space separated.
+
+
+public class Main{
+public static void main(String[] args) {
+    int num1=20;
+    int num2=10;
+    System.out.println(num1+" "+num2);
+}
+}
 
 
 
@@ -123,6 +149,14 @@ Accept  a character as a input.
 Output Format:
 Print the Character
 
+import java.util.*;
+public class Main{
+public static void main(String[] args) {
+    Scanner sc= new Scanner(System.in);
+    char character= sc.next().charAt(0);
+    System.out.println(character);
+}
+}
 
 6.Problem Statement:
 Given 2 numbers, print the first number as a 5-digit number and print the second number in the next line with 5 width space
@@ -132,6 +166,15 @@ Accept the two integer as a input
 Output Format:
 5 digit number format followed by number with 5 width space in new line.
 
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int firstNumber = scanner.nextInt();
+        int secondNumber = scanner.nextInt();
+        System.out.printf("%05d \n %5d", firstNumber, secondNumber);
+    }
+}
 
 
 7.Problem Statement:
@@ -141,30 +184,116 @@ Accept a character as input.
 Output Format:
 Input character:ASCII value
 
-
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc= new Scanner(System.in);
+        char character= sc.next().charAt(0);
+        int ASCIIvalue= character;
+        System.out.println(character+":"+ASCIIvalue);
+}
+}
 
 8.Accept an integer value and print the corresponding character associated with the integer value.
 
-
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc= new Scanner(System.in);
+        int Ascii= sc.nextInt();
+           char character= (char)Ascii; 
+           System.out.println(Ascii+":"+character);
+}
+}
 
 9.Accept a floating point value and print it with 20 width space and round off to 4 decimal places.
-
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        float inputValue = scanner.nextFloat();
+        System.out.printf("%20.4f\n", inputValue);
+    }
+}
 
 
 10.Accept a floating point  value and precision value and print the floating point  value according to the precision given.
 
-
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        float floatValue = scanner.nextFloat();
+        int precision = scanner.nextInt();
+                 System.out.printf("%." + precision + "f", floatValue);
+    }
+}
 
 11.Display the given floating point value to its nearest integer value
 
-
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        float inputValue = scanner.nextFloat();
+                System.out.println(Math.round(inputValue));
+    }
+}
 
 
 12.Accept a number that starts with 0x it indicates that the number is a hexadecimal value. Print the corresponding decimal value.
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+         String input = scanner.next();
+        
+            long decimalValue = Long.parseLong(input.substring(2), 16);
+                System.out.println(decimalValue);
+    }
+}
 
+or
+
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+         String input = scanner.next();
+        
+           
+                System.out.println(Integer.decode(input));
+    }
+}
 13.Get a value and print its corresponding hexadecimal number
-
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int input = scanner.nextInt();
+        
+        System.out.println(Integer.toHexString(input));
+    }
+}
 14.Get a floating point value and print the floating point value without any trailing zeros.
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String input = sc.next();
+        System.out.println(input.replaceAll("0*$", "").replaceAll("\\.$", ""));
+    }
+}
 
 
 15.Print the statement using concatenation
+
+public class ConcatenationExample {
+    public static void main(String[] args) {
+        String part1 = "Hello";
+        String part2 = "World";
+        String result = part1 + " " + part2; // Concatenation
+        System.out.println(result); // Output: Hello World
+    }
+}

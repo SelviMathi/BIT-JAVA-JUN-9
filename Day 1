@@ -1,0 +1,91 @@
+1.Problem Statement:
+Print the following output : Let's learn 'JAVA' together with Selvi
+Input Format:
+NA
+Output Format:
+Let's learn 'JAVA' together with Selvi
+
+
+
+
+2.Problem Statement:
+Print the following output : If you want to shine like a "Sun",first burn like a "Sun".
+Input Format:
+NA
+Output Format:
+If you want to shine like a "Sun",first burn like a "Sun".
+
+
+
+
+3.Problem Statement:
+Print the following output : \n ,%%, \
+Input Format:
+NA
+Output Format:
+\n
+
+
+
+4.Problem Statement:
+Declare 2 integer variables and initialize their values as 20 and 10
+Input Format:
+NA
+Output Format:
+Print the stored the values as space separated.
+
+
+
+
+5.Problem Statement:
+Accept a character and print the character
+Input Format:
+Accept  a character as a input.
+Output Format:
+Print the Character
+
+
+6.Problem Statement:
+Given 2 numbers, print the first number as a 5-digit number and print the second number in the next line with 5 width space
+Explanation: If numbers are 25 and 98,print the first number as 00025 and second number as 3 space and 98(   98).
+Input Format:
+Accept the two integer as a input
+Output Format:
+5 digit number format followed by number with 5 width space in new line.
+
+
+
+7.Problem Statement:
+Accept a character and print its corresponding ASCII value.
+Input Format:
+Accept a character as input.
+Output Format:
+Input character:ASCII value
+
+
+
+8.Accept an integer value and print the corresponding character associated with the integer value.
+
+
+
+9.Accept a floating point value and print it with 20 width space and round off to 4 decimal places.
+
+
+
+10.Accept a floating point  value and precision value and print the floating point  value according to the precision given.
+
+
+
+11.Display the given floating point value to its nearest integer value
+
+
+
+
+12.Accept a number that starts with 0x it indicates that the number is a hexadecimal value. Print the corresponding decimal value.
+
+13.Get a value and print its corresponding hexadecimal number
+
+14.Get a floating point value and print the floating point value without any trailing zeros.
+
+
+15.Print the statement using concatenation

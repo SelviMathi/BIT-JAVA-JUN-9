@@ -1,3 +1,82 @@
+Programming VS Coding
+Compiler VS INterpreter
+LOW VS HIGH level language
+HELLO WORLD
+------------------
+class FirstJavaProgram
+{
+public static void main(String args[])
+{
+System.out.println(“Hello world..”);
+}
+}
+
+OPERATOR-------------->
+ARITHMETIC OPERATOR
+
+ORDER OF PRECEDENCE
+* / %(START FROM LEFT SIDE)
++ -
+
+10+5/2%2=10
+12%10=2
+small no/larger no=0
+small no%larger no=small no
+5/2=2
+5%2=1
+5.0/2=2.5
+5/2.0=2.5
+5.0%2=1.0
+-5/2=-2
+-5.0/2=-2.5
+-5.0%2=-1.0
+5/-2=-2
+5.0/-2=-2.5
+************AREA OF CIRCLE***********
+i/p:
+5
+o/p:
+78.50
+
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	   Scanner ob=new Scanner(System.in);
+	   float rad=ob.nextFloat();
+		System.out.printf("%.2f",(3.14*rad*rad));
+	}
+}
+*********************NO OF DAYS**************
+i/p:num=390 
+o/p
+year:1
+month:0
+days:25
+
+i/p:1000
+o/p:
+year:2
+month:9
+days:0
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	   Scanner ob=new Scanner(System.in);
+	   int num=ob.nextInt();
+	   int year,month,days;
+	   year=num/365;
+month=(num%365)/30;
+days=(num%365)%30;
+System.out.println("year: "+year+"\n"+"month: "+month+"\n"+"day: "+days);
+	}
+}
+
+
+
+*********************PRACTICE PROBLEM***************************
+
 1.Problem Statement:
 Print the following output : Let's learn 'JAVA' together with Selvi
 Input Format:

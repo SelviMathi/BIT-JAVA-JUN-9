@@ -1,3 +1,120 @@
+Operator 
+Arithmetic ---> * / % 
+                + -
+
+Relational ---> > < >= <= 
+                == !=
+                
+Logical    ---> !
+                && || 
+
+Bitwise    ---> >> <<
+                & | ^ ~ 
+
+Binary base 2
+	2^7 2^6 2^5 2^4    2^3	2^2 2^1 2^0
+
+3--->0000 0011
+	
+5--->0000 0101
+	--------------
+&	0000 0001
+
+
+11--->0000 1011
+8  --->0000  1000
+	----------------
+&	  0000 1000
+
+
+7--->0000 0111
+8--->0000 1000
+| 	--------------
+	0000 1111
+
+
+3--->0000 0011
+4--->0000 0100
+^	--------------
+	0000 0111
+
+~ Add 1 change 
+ Change the sign
+
+i/p = 5
+o/p= -6
+
+i/p=-5
+o/p=4
+
+
+Shift Operator
+Right shift(num1 / 2^num2)
+
+5>>1=2
+
+0101
+0010
+
+8>>3=1
+
+1000
+0001
+
+64>>6=1
+
+0100 0000
+0000 0001
+
+left shift(num1 * 2^num2)
+5<<1=10
+
+0000 0101
+0000 1010
+
+8<<3=64
+
+0000 1000
+0100 0000
+
+Mul with 8 without using 8 & '*'
+Sol--> input<<3
+
+Unary Operators
+@@@@@@@@@@@@@@@@
+
+
++  - 
+++  --
+
+
+*******************Operator Precedence (Highest to Lowest)***********
+(), [], .
+++, -- (Post-increment, Post-decrement)
+++, -- (Pre-increment, Pre-decrement)
++, -, ~, ! (Unary plus, Unary minus, Bitwise NOT, Logical NOT)
+*, /, % (Multiplicative operators)
++, - (Additive operators)
+<<, >>, >>> (Shift operators)
+<, <=, >, >=, ==, != (Relational operators)
+& (Bitwise AND)
+^ (Bitwise XOR)
+| (Bitwise OR)
+&& (Logical AND)
+|| (Logical OR)
+?: (Ternary/Conditional operator)
+=, +=, -=, *=, /=, %= (Assignment operators)
+
+
+
+
+
+
+
+
+
+ 
+
 ***********************Practise Questions********************
 Q1.Write a program to fi nd the square, cube, and square root of a number.
 Input Format
@@ -249,19 +366,4 @@ Sample Output
 
 
 
-*******************Operator Precedence (Highest to Lowest)***********
-(), [], .
-++, -- (Post-increment, Post-decrement)
-++, -- (Pre-increment, Pre-decrement)
-+, -, ~, ! (Unary plus, Unary minus, Bitwise NOT, Logical NOT)
-*, /, % (Multiplicative operators)
-+, - (Additive operators)
-<<, >>, >>> (Shift operators)
-<, <=, >, >=, ==, != (Relational operators)
-& (Bitwise AND)
-^ (Bitwise XOR)
-| (Bitwise OR)
-&& (Logical AND)
-|| (Logical OR)
-?: (Ternary/Conditional operator)
-=, +=, -=, *=, /=, %= (Assignment operators)
+

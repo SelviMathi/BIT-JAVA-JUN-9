@@ -1,0 +1,27 @@
+1.Given 2 integer input check whether the 2 input are "Equal" or "Not Equal" and print the corresponding message.
+
+2.Given an integer value, check the given input is divisible by 3. If it is divisible print the message "The number is divisible by 3".if it is not divisible print the message "The number is not divisible by 3 and gives a remainder _".
+
+3.Given a student's mark as input,print output as Pass/Fail based on the input  
+mark < 35 print Fail  
+mark>=35 print Pass
+
+4.Given an integer value, if it is divisible by 3 print “HI”, if it is divisible by 5 print “HELLO”. If it is divisible by both print “HIHELLO”, else  print "NONE"
+
+5.Check whether the given character is a Vowel or Consonant
+
+6.Write a program to print corresponding day based on given input
+
+7.Check whether the given character is in upper case or lower case or none 
+
+8.Check whether the given character is an alphabet or a number or special character
+
+9.Get three inputs in the format-integer, character, integer. The inputs are all separated by spaces. Perform the operation with the integer values based on the character(+,-,*,/). Display the calculated value as the output.
+Ex : 23 + 45
+o/p : 68
+
+10.Write a program to check whether the given three sides can form a triangle or not.
+
+11.Arrange the given 4 input numbers in descending order
+
+12.Write a program to read the choice and print respective min and max values of the data types that is given in the choice

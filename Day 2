@@ -199,6 +199,84 @@ public class Main {
 2469
 231 
 
+Without IF ELSE
+EVEN/ODD
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner ob=new Scanner(System.in);
+        int n1=ob.nextInt();
+         System.out.println(n1%2==0?"EVEN":"ODD");
+    }
+}
+
+POS/NEG
+
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner ob=new Scanner(System.in);
+        int n1=ob.nextInt();
+         System.out.println(n1>0?"POSITIVE":"NEGATIVE");
+    }
+}
+
+*******************************************************************************
+MAX of 2 numbers
+
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner ob=new Scanner(System.in);
+        int n1=ob.nextInt();
+        int n2=ob.nextInt();
+         System.out.println(n1>n2?n1:n2);
+         }
+}
+*******************************************************************************
+MAX of 3 numbers
+
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner ob=new Scanner(System.in);
+        int n1=ob.nextInt();
+        int n2=ob.nextInt();
+        int n3=ob.nextInt();
+                 System.out.println((n1>n2 && n1>n3)?n1:(n2>n3)?n2:n3);
+         }
+}
+
+*******************************************************************************
+MAX of 4 numbers
+
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner ob=new Scanner(System.in);
+        int n1=ob.nextInt();
+        int n2=ob.nextInt();
+        int n3=ob.nextInt();
+        int n4=ob.nextInt();
+                 System.out.println((n1>n2 && n1>n3 && n1>n4)?n1:(n2>n3 && n2>n4)?n2:(n3>n4)?n3:n4);
+         }
+}
+USING INBUILT METHOD
+
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner ob=new Scanner(System.in);
+        int n1=ob.nextInt();
+        int n2=ob.nextInt();
+        int n3=ob.nextInt();
+        int n4=ob.nextInt();
+        
+         System.out.println(Math.max(Math.max(n1,n2),Math.max(n3,n4)));
+         }
+}
+
+
 ***********************Practise Questions********************
 Q1.Write a program to fi nd the square, cube, and square root of a number.
 Input Format

@@ -296,7 +296,15 @@ Square of 5 is: 25.0
 Cube of 5 is: 125.0
 Square Root of 5 is: 2.23606797749979
 ***************************************************************************************************
-
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int num=sc.nextInt();
+        System.out.println("Square of "+num+" is: "+(float)(num*num)+"\nCube of "+num+" is: "+(float)(num*num*num)+"\nSquare root of "+num+" is: "+Math.sqrt(num));
+    }
+}
+       
 
 ***************************************************************************************************
 Q2.Write a program to print the power of m raised to n.
@@ -316,7 +324,14 @@ Sample Output
 
 
 **************************************************************************************
-
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.printf("%.2f",Math.pow(sc.nextDouble(),sc.nextDouble()));
+        
+    }
+}
 
 **************************************************************************************
 
@@ -342,7 +357,16 @@ Sample Output
 9
 
 **************************************************************************************
-
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n1=sc.nextInt();
+        int n2=sc.nextInt();
+        System.out.println(n1+n2);
+        
+    }
+}
 
 **************************************************************************************
 
@@ -360,7 +384,21 @@ Average : 96.00
 
 
 **************************************************************************************
-
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner s=new Scanner(System.in);
+        int mark1=s.nextInt();
+        int mark2=s.nextInt();
+        int mark3=s.nextInt();
+        int total=mark1+mark2+mark3;
+        float avg=(float)total/3;
+        System.out.println("Total:"+total);
+        System.out.printf("Average:%.2f",avg);
+        
+    }
+}
+       
 **************************************************************************************
 Q5.The Acme Tennis Ball Company is designing a new box to ship its products. The marketing department wants a triangular box that can hold 4 balls, as in the illustration below. The balls fi t exactly inside the box, just touching all three walls and the end caps of the container. All 3 walls of the box are the same size (equilateral triangle). Assume a tennis ball is 6 cm in diameter, and ignore the thickness of the box material. What will be the length and breadth of the material used to make the box? Write a program that fi nds the measure of a side of the box. Program must also display the length and breadth of the material used to make the triangular box.
 The formula to be applied for the above problem is:
@@ -380,7 +418,22 @@ Length : 31.18
 Breadth : 24.00
 
 **************************************************************************************
-
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner s=new Scanner(System.in);
+        
+        double diameter =s.nextDouble();
+        double side=Math.sqrt(3)*diameter;
+        double length=side*3;
+        double breadth =4*diameter;
+        
+        System.out.printf("Side : %.2f\n",+side);
+        System.out.printf("Length : %.2f\n",+length);
+        System.out.printf("Breadth : %.2f\n",+breadth);
+        
+    }
+}
 **************************************************************************************
 
 Q6.Pranav and his Challenge

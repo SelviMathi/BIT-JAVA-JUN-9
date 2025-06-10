@@ -1,6 +1,37 @@
+1.What is JAVA?
+
+Java is a high-level, object-oriented programming language designed for portability, reliability, and ease of use. It follows the "Write Once, Run Anywhere" principle, meaning Java code can run on any device with a Java Virtual Machine (JVM).
+
+2.C vs Java vs Python
+
+C: Procedural language, platform-dependent, manual memory management.
+Java: Object-oriented, platform-independent, automatic memory management via garbage collection.
+Python: Interpreted, dynamically-typed, and known for simplicity.
+
+3.JVM Works
+ How JVM works - JVM Architecture
+The JVM executes Java bytecode. It consists of:
+
+Class Loader: Loads .class files.
+Bytecode Verifier: Ensures code security.
+Execution Engine: Converts bytecode into machine code.
+
+4.Differences between JDK, JRE, and JVM
+JDK: Includes tools for development and the JRE.
+JRE: Provides the libraries and JVM to run Java applications.
+JVM: Executes the Java bytecode.
+Analogy: JDK = Kitchen, JRE = Cooking tools, JVM = Stove.
+
+5.Difference between Bytecode and Machine Code
+Bytecode: Intermediate code executed by the JVM.
+Machine Code: Hardware-specific binary instructions.
+Example: Bytecode (.class) is portable, while machine code is platform-dependent.
+
 Programming VS Coding
 Compiler VS INterpreter
 LOW VS HIGH level language
+
+
 ********************Variables*****************
 
 A variable is a named storage location in the memory that holds a value, which can be modified during program execution. The type of data a variable can hold is determined by its data type.

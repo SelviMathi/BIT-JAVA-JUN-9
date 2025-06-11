@@ -1,3 +1,381 @@
+Conditional
+
+Selection 									Looping 			Jumping
+if(condition)
+{
+//body to be executed
+}
+
+Example:
+if(num>0)
+{
+Print positive;
+}
+
+***************
+if else
+
+if(condition)
+{
+//body to be executed
+}
+else
+{
+//body to be executed
+}
+**************
+Nested if else
+if(condition)
+{
+if
+//
+else
+//
+}
+else
+{
+if
+//
+else
+//
+}
+}
+
+Example:
+if(num>0)
+Print positive;
+
+else
+{
+if(num==0)
+Print Zero
+else
+Print negative;
+}
+
+Ladder if else
+Syntax
+if(condt)
+//
+else if(condt)
+//
+else if(condt)
+//
+.
+.
+.
+else
+//
+
+Example:
+if(num>0)
+Print pos
+else if(num<0)
+Print neg
+else
+Print zero
+
+Switch case
+
+Syntax
+
+switch(condt)
+{
+case 1:
+Print Bal Enq
+break;
+case 2:
+Deposit
+break;
+case 3:
+Withdrawal
+break;
+case 4:
+Pin change
+break;
+default:
+ 
+Invalid
+
+}
+
+
+***********************************************
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner ob=new Scanner(System.in);
+	    int num1=ob.nextInt();
+	    if(num1>0)
+		System.out.println("Positive Number");
+		else if(num1==0)
+		System.out.println("Zero");
+		else
+		System.out.println("Negative Number");
+		
+	}
+}
+
+
+LEAP YEAR
+
+2024%4==0
+
+2000%4==0
+
+1900%4==0---->NON LEAP YEAR
+
+Century year 
+year % 400==0
+
+Non Century year
+year % 4==0 && year %100 !=0
+
+
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner ob=new Scanner(System.in);
+	    int year=ob.nextInt();
+	    if((year%4==0 && year%100!=0)||(year%400==0))
+	          	System.out.println("LY");
+	    else
+	    System.out.println("NLY");
+		
+	}
+}
+
+
+****************************************
+
+Switch Example
+
+
+C CSK
+R RCB
+S SRH
+
+
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner ob=new Scanner(System.in);
+	    char ch=ob.next().charAt(0);
+	    switch(ch)
+	    {
+	        case 'R':
+	            System.out.println("RCB");
+	            break;
+	        case 'C':
+	            System.out.println("CSK");
+	            break;
+	        case 'S':
+	          System.out.println("SRH");
+	          break;
+	          
+	        default:
+	        	System.out.println("Invalid Enter either R C S");
+
+	    }
+	}
+}
+
+********************************************
+Equilateral,Isoceles,Scalene
+
+s1==s2==s3 wrong--->comparing Boolean with int
+
+
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner ob=new Scanner(System.in);
+	   int s1=ob.nextInt();
+	   int s2=ob.nextInt();
+	   int s3=ob.nextInt();
+	   if(s1==s2 && s2==s3 && s1==s3)
+            System.out.println("Equilateral");
+	   else if(s1==s2 || s2==s3 || s1==s3)
+	   	   System.out.println("Isoceles");
+       else
+	        System.out.println("Scalene");
+
+	   
+	}
+}
+
+************************
+Right Angle,Acute,Obtuse
+
+
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner ob=new Scanner(System.in);
+	   int s1=ob.nextInt();
+	   int s2=ob.nextInt();
+	   int s3=ob.nextInt();
+	   if(s1+s2+s3==180 && (s1==90 || s2==90 || s3==90))
+            System.out.println("Right angle");
+	   else if(s1+s2+s3==180 && (s1<90 && s2<90 && s3<90))
+	   	   System.out.println("Acute");
+       else
+	        System.out.println("Obtuse");
+
+	   
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+**************************
+
+1.
+public class Main{
+    public static void main(String[] args) {
+        int a = 10;
+        int b = 0;
+
+        if (b != 0 && (a / b > 1)) {
+            System.out.println("Condition met!");
+        } else {
+            System.out.println("Short-circuit AND avoided division by zero.");
+        }
+
+        if (a > 5 || b > 0) {
+            System.out.println("Short-circuit OR evaluated only the first condition.");
+        }
+    }
+}
+
+2.
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args {
+int a = 5;
+if (a++ > 5 && ++a > 6) 
+    a++;
+System.out.println(a);
+}
+}
+
+OUTPUT: 6
+
+3.import java.util.Scanner;
+public class Main
+{
+public static void main(String[] args) {
+int a = 5;
+if (a++ == 5 && ++a > 6)
+    a++;
+System.out.println(a);
+	}
+}
+
+OUTPUT: 8
+********************************************************************************************************************************
+Check Vowel or Consonant
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        char letter = scanner.next().charAt(0);
+        if (letter == 'a' || letter == 'e' || letter == 'i' || letter == 'o' || letter == 'u' || 
+            letter == 'A' || letter == 'E' || letter == 'I' || letter == 'O' || letter == 'U') {
+            System.out.println("Vowel");
+        } else {
+            System.out.println("Consonant");
+        }
+    }
+}
+
+
+********************************************************************************************************************************
+
+Get a 2 input from a user, first one for count of step and 2nd one for direction(only right and left). Find the position after moving by left or right by the specified number of steps
+
+
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        //Fill your code
+        Scanner ob=new Scanner(System.in);
+        long s=ob.nextLong();
+        char d=ob.next().charAt(0);
+        int x=0,y=0;
+        if(d=='R')
+        x+=s;
+        else
+        x-=s;
+              System.out.println("("+x+","+y+")");
+        
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+********************************************************************************************************************************
+UPPERCASE OR LOWERCASE OR NONE 
+
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        char letter = scanner.next().charAt(0);
+
+        if (letter >= 'a' && letter <= 'z') {
+            System.out.println("LOWERCASE");
+        } else if (letter >= 'A' && letter <= 'Z') {
+            System.out.println("UPPERCASE");
+        } else {
+            System.out.println("NONE");
+        }
+    }
+}
+
+
+
+********************************************************************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+***********************PRACTISE******************************
 1.Given 2 integer input check whether the 2 input are "Equal" or "Not Equal" and print the corresponding message.
 
 2.Given an integer value, check the given input is divisible by 3. If it is divisible print the message "The number is divisible by 3".if it is not divisible print the message "The number is not divisible by 3 and gives a remainder _".

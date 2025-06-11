@@ -316,12 +316,10 @@ public class Main {
         Scanner ob=new Scanner(System.in);
         long s=ob.nextLong();
         char d=ob.next().charAt(0);
-        int x=0,y=0;
         if(d=='R')
-        x+=s;
+	System.out.println("("+s+",0)");
         else
-        x-=s;
-              System.out.println("("+x+","+y+")");
+        System.out.println("("+-s+",0)");
         
     }
 }

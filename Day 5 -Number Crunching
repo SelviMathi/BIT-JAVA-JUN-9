@@ -1,0 +1,86 @@
+*****************************
+Write a program to accept an integer range and print the sum of number that are divisible by either 3 or 5
+
+
+*****************************
+MIN/MAX of given digit
+
+
+*********************************
+Print all Factors
+
+*****************************
+Count of factors
+
+*****************************
+Sum of factors
+
+*****************************
+Factorial
+
+
+Reverse of a number
+
+*****************************
+Palindrome number
+
+
+*****************************
+prime number or not
+
+*****************************
+Find whether the given number is Harshad Number
+Harshad Number : if the number is divisible by sum of digits of the number
+1 to 10,12,18....
+
+*********************************
+Perfect number or not
+A perfect number is a positive integer that is equal to the sum of its positive proper divisors, excluding the number itself.
+6,28,496
+
+
+
+************************************
+Armstrong number 153,371,9474
+
+
+
+
+
+*********************************
+Harshad number-18,156
+
+
+
+****************************
+Strong number-145
+
+
+
+
+
+*****************************
+Adam number-12
+
+
+
+
+
+Happy number 19,7
+***********************************
+
+
+
+Amicable pair 220,284
+***********************************************
+
+
+
+Betrothed numbers 48,75
+***********************************************
+
+
+********************************************
+Triperfect Number: A Number is a Triperfect Number if it is equal to three times the sum of its divisors, that is, 3 times sum of its positive divisors.
+120
+

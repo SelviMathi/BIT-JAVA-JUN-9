@@ -1,0 +1,379 @@
+Looping
+
+for(inti;condt;inc/dec){
+}
+
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	    for(int i=0;i<5;i++)
+		System.out.println("Hello World");
+	}
+}
+
+******************************************************************
+inti;
+while(condt)
+{
+inc/dec;
+}
+
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	    int i=0;
+	    while(i<5)
+		System.out.println("Hello World");
+		i++;
+	}
+}
+OUTPUT: INFINITE PRINT
+
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	    int i=0;
+	    while(i<5){
+		System.out.println("Hello World");
+		i++;
+}
+	}
+}
+OUTPUT: 5 times PRINT
+
+inti;
+do
+{
+inc/dec;
+}while(condt);
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	    int i=0;
+	    do{
+		System.out.println("Hello World");
+		i++;
+	    }while(i<5);
+	}
+}
+
+*********************************************************
+
+num=123
+
+
+num=num/10		count
+
+num=12			1
+
+num=1			2
+
+num=0			3
+
+
+
+
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	   Scanner ob=new Scanner(System.in);
+	   int num=ob.nextInt();
+	   int count=0;
+	   for(;num>0;num=num/10,count++);
+	   System.out.println(count);
+	}
+}
+
+
+INFINITE LOOP
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	   Scanner ob=new Scanner(System.in);
+	   for(;;)
+	   System.out.println("END");
+	}
+}
+
+DELAY LOOP
+
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	   Scanner ob=new Scanner(System.in);
+	   for(int i=0;i<10000;i++);
+	   System.out.println("END");
+	}
+}
+
+*******************************************************
+
+Separate 1st & last digit of any number
+
+
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	   Scanner ob=new Scanner(System.in);
+	   int num=ob.nextInt();
+	   int count=0,n=num;
+	   while(num>0){
+	       num/=10;
+	       count++;}
+	   	   System.out.println(n/((int)Math.pow(10,count-1))+" "+n%10);
+	}
+}
+
+*************************************************************
+
+SUM OF THE DIGITS
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	   Scanner ob=new Scanner(System.in);
+	   int num=ob.nextInt();
+	   int dig,sum=0;
+	   	   while(num>0){
+	   	    dig=num%10;  
+	   	    sum=sum+dig;
+	        num/=10;
+	       }
+		    System.out.println(sum);
+	}
+}
+
+*****************************************************
+PRODUCT OF DIGITS
+
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	   Scanner ob=new Scanner(System.in);
+	   int num=ob.nextInt();
+	   int pro=1;
+	   	   while(num>0){
+	   	    pro*=num%10;
+	        num/=10;
+	       }
+		    System.out.println(pro);
+	}
+}
+36-->9
+38-->2
+
+****************************PATTERN********************
+n*n
+
+public class Main
+{
+	public static void main(String[] args) {
+	    for(int row=0;row<3;row++,System.out.println()){
+	    for(int col=0;col<3;col++)
+		System.out.print("*");}
+	}
+}
+
+Left triangle
+
+public class Main
+{
+	public static void main(String[] args) {
+	    for(int row=0;row<3;row++,System.out.println()){
+	    for(int col=0;col<=row;col++)
+		System.out.print("*");}
+	}
+}
+
+Right triangle
+
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+        Scanner ob=new Scanner(System.in);
+        int limit=ob.nextInt();
+	    for(int row=1;row<=limit;row++,System.out.println()){
+	    
+	    for(int col=1;col<=limit-row;col++)
+		System.out.print(" ");
+	        
+	    for(int col=1;col<=row;col++)
+		System.out.print("*");
+	        
+	    }
+	}
+}
+
+
+Butterfly Pattern
+
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+        Scanner ob=new Scanner(System.in);
+        int limit=ob.nextInt();
+	    for(int row=1;row<=limit;row++,System.out.println()){
+	    for(int col=1;col<=row;col++)
+		System.out.print("*");
+		for(int col=1;col<=2*(limit-row);col++)
+		System.out.print(" ");
+		for(int col=1;col<=row;col++)
+		System.out.print("*");
+	  
+	    }
+	    for(int row=limit-1;row>0;row--,System.out.println()){
+	    for(int col=1;col<=row;col++)
+		System.out.print("*");
+		for(int col=1;col<=2*(limit-row);col++)
+		System.out.print(" ");
+		for(int col=1;col<=row;col++)
+		System.out.print("*");
+	  
+	    }
+	    
+	}
+}
+
+
+Diamond Pattern
+
+
+
+Sand Clock Pattern
+
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+        Scanner ob=new Scanner(System.in);
+        int limit=ob.nextInt();
+	    for(int row=limit;row>0;row--,System.out.println()){
+	    for(int col=1;col<=(limit-row);col++)
+		System.out.print(" ");
+		for(int col=1;col<=row;col++)
+		System.out.print("* ");
+	    }
+	    for(int row=2;row<=limit;row++,System.out.println()){
+	    for(int col=1;col<=(limit-row);col++)
+		System.out.print(" ");
+		for(int col=1;col<=row;col++)
+		System.out.print("* ");
+	    }
+	    
+	    
+	}
+}
+
+
+HOLLOW SQUARE
+
+*****
+*    *
+*    *
+*    *
+*****
+
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+        Scanner ob=new Scanner(System.in);
+        int limit=ob.nextInt();
+        for(int row=1;row<=limit;row++,System.out.println()){
+            for(int col=1;col<=limit;col++){
+                if(row==1 || row==limit || col==1 || col==limit)
+                System.out.print("*");
+                else
+                System.out.print(" ");
+            }
+	   }
+	   }
+}
+
+
+HOLLOW TRIANGLE
+
+*
+* *
+*   *
+*      *
+* * * * *
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+        Scanner ob=new Scanner(System.in);
+        int limit=ob.nextInt();
+        for(int row=1;row<=limit;row++,System.out.println()){
+            for(int col=1;col<=row;col++){
+                if( row==limit || col==1 || col==row)
+                System.out.print("*");
+                else
+                System.out.print(" ");
+            }
+	   }   
+	}
+}
+
+INVERTED TRIANGLE 
+
+*****
+****
+***
+**
+*
+
+
+
+
+X PATTERN
+
+*   *
+ * *
+  *
+ * *
+*   *
+
+
+V PATTERN
+
+ *       *
+  *     *
+   *   *
+    * *
+     *
+
+n=5
+
+1 1 1 1 1 1 1 1 1
+1 2 2 2 2 2 2 2 1
+1 2 3 3 3 3 3 2 1
+1 2 3 4 4 4 3 2 1
+1 2 3 4 5 4 3 2 1
+1 2 3 4 4 4 3 2 1
+1 2 3 3 3 3 3 2 1
+1 2 2 2 2 2 2 2 1
+1 1 1 1 1 1 1 1 1
+
+
+
+
+
+
+
+
+
+
+
+

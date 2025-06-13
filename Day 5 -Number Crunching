@@ -1,12 +1,3 @@
-*****************************
-Write a program to accept an integer range and print the sum of number that are divisible by either 3 or 5
-
-
-*****************************
-MIN/MAX of given digit
-
-
-*********************************
 Print all Factors
 
 *****************************
@@ -64,6 +55,15 @@ Adam number-12
 
 
 
+*****************************
+Write a program to accept an integer range and print the sum of number that are divisible by either 3 or 5
+
+
+*****************************
+MIN/MAX of given digit
+
+
+*********************************
 
 
 Happy number 19,7

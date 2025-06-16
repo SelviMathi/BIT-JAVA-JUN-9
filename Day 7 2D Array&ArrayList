@@ -765,3 +765,34 @@ public class TwoDArray {
             System.out.println("The given matrix is NOT a square band matrix.");
     }
 }
+
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner ob=new Scanner(System.in);
+	    int s=ob.nextInt();
+	    List<Integer> BIT=new Vector<>(s);
+	    for(int i=0;i<s;i++)
+	    BIT.add(ob.nextInt());
+	    BIT.addLast(100);
+	    
+	   // BIT.add(10);
+	   // BIT.add(20);
+	   // BIT.add(1,100);
+	    /*BIT.addFirst(5);
+	    BIT.addLast(200);	    BIT.set(1,100);
+	    */
+	   // BIT.add(30);
+	   // BIT.add(40);
+	   for(int val:BIT)
+        System.out.println(val);
+	   // System.out.println(BIT.indexOf(20));
+	   // System.out.println(BIT.contains(100));
+	    //BIT.clear();
+	   // Collections.rotate(BIT,-3);
+	   // BIT.remove(1);
+	    System.out.println(BIT.isEmpty());
+		 }
+}

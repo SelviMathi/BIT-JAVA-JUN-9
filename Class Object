@@ -1,3 +1,10 @@
+What is OOPS in Java?
+OOPs (Object-Oriented Programming System) is a programming model that organizes software design around objects, which are instances of classes.
+
+Java is a pure object-oriented language (except for primitive types)
+
+
+
 A class is a user-defined data type that acts as a blueprint for creating objects.
 
 Syntax:
@@ -113,12 +120,39 @@ class Main{
 
 **************Class with mulitple objects Using ArrayList
 
+import java.util.*;
 
+class Student {
+    String name;
+    char gender;
+    int age;
+}
 
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        ArrayList<Student> studentList = new ArrayList<>();
 
+        System.out.print("Enter number of students: ");
+        int size = Integer.parseInt(scan.nextLine());
 
+        for (int i = 0; i < size; i++) {
+            Student s = new Student();
 
+            s.name = scan.nextLine();           // Read name
+            s.gender = scan.next().charAt(0);   // Read gender
+            s.age = scan.nextInt();             // Read age
+            scan.nextLine();                    // Clear buffer
 
+            studentList.add(s);
+        }
+
+        for (int i = 0; i < studentList.size(); i++) {
+            Student s = studentList.get(i);
+            System.out.println(s.name + " " + s.gender + " " + s.age);
+        }
+    }
+}
 
 
 METHODS
@@ -199,19 +233,50 @@ public class Main
 	}
 }
 
+*********************************************************************
+class A{
+int a=40;	/ / non s t a t i c
 
+public static void main(String args[]){ System.out.println(a);
+}
+}
+
+*********************************************************************
+class A{
+static {
+System.out.println("static block is invoked");
+}
+public static void main(String args[]){ System.out.println("Hello main");
+}
+}
 
 Constructor:
 It has the same name as the class and does not have a return type. A constructor is called automatically when an object of the class is created.
 
 Types of Constructors
-Default Constructor (No-Argument Constructor)
+Default Constructor
+A constructor is called "Default Constructor" when it doesn’t have any parameter. Rule: If there is no constructor in a class, then compiler automatically creates a default constructor.
+
+c l a s s Student{
+i n t id;
+String name;
+//method to display t he value of id and name
+void display(){System.out.println(id+" "+name);}
+public s t a t i c void main(String args[]){
+/ / c r eating  objects Student s1=new Student(); Student s2=new Student();
+/ / d i splaying values of t he object
+s1.display();
+s2.display();
+}
+}
+
+No-Argument Constructor
 Parameterized Constructor
 copy constructor
 
 
 class ADD {
-    ADD() //Default constructor
+    ADD() //No args constructor
     {
     System.out.println(30);
     }
@@ -235,4 +300,261 @@ public class Main {
     }
 }
 
+*********this Keyword**********
+class exam
+{
+   private int x;
+   public void set(int x)
+   {
+     this.x=x;
+   }
+   public void get()
+   {
+       System.out.println(x);
+   }
+}
 
+public class Main
+{
+	public static void main(String[] args) {
+	    int a=10;
+	    	   exam ob1=new exam();
+	    	   ob1.set(a);
+	    	   ob1.get();
+	    
+		
+	}
+}
+this to invoke current class method******************************
+class A{
+void m(){	System.out.println("hello m");	}
+void n(){
+System.out.println("hello n");
+this.m();
+}
+}
+class Main{
+public static void main(String args[]){ A a=new A();
+a.n();
+}
+}
+
+this to invoke class Default constructor******************************
+
+class A{
+A(){  System.out.println("hello a"); } A( int  x){
+this (); 
+System.out.println(x);
+}
+}
+class Main {
+public static void main(String args[]){
+A a=new A(10);
+}
+}
+this to invoke class Parameterised constructor******************************
+
+class A{
+A(){
+this ( 5); System.out.println("hello a");
+}
+A( int x){  System.out.println(x);  }
+}
+class Main {
+public static void main(String args[]){
+A a=new A();
+}
+}
+********************REAL USAGE OF THIS
+
+class Student{
+int rollno;  String name,course;
+float fee;
+Student(int rollno,String name,String course){
+this .rollno=rollno;	this .name=name;
+this.course=course;
+}
+Student(int rollno,String name,String course,float fee){ this(rollno,name,course);	
+this.fee=fee;
+}
+void display(){
+System.out.println(rollno+" "+name+" "+course+" "+fee);
+}
+}
+class Main {
+public s t a t i c void main(String args[]){
+Student s1=new Student(111,"ankit","java"); Student s2=new Student(112,"sumit","java",6000f); s1.display(); s2.display();
+}
+
+
+******Encapsulation: The idea that some components of an object should be restricted from direct access
+Binding data (variables) and code (methods) together in one unit (class).*******
+
+Protect data from unauthorized access
+
+Improve modularity
+
+Allow controlled access through getters/setters
+
+
+
+Example:
+
+class BankAccount {
+    private double balance;
+    private String accountNumber;
+
+    public BankAccount(String accNo, double initialBalance) {
+        accountNumber = accNo;
+        balance = initialBalance;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void deposit(double amount) {
+        if(amount > 0)
+            balance += amount;
+    }
+
+    public void withdraw(double amount) {
+        if(amount <= balance)
+            balance -= amount;
+    }
+}
+
+
+Inheritance
+Inheritance is one of the key concepts in Object-Oriented Programming (OOP). It allows a child class (subclass) to acquire the properties and behaviors (fields and methods) of a parent class (superclass). This promotes code reusability and hierarchical relationships between classes.
+
+Single Inheritance → One class inherits another.
+
+Multi-level Inheritance → A class inherits another, which inherits another.
+
+Hierarchical Inheritance → Multiple classes inherit from one base class.
+
+Hybrid Inheritance → Combination of multiple inheritance types. (Not directly supported in Java due to ambiguity issues.)
+
+Why Java Does Not Support Multiple Inheritance?
+Java does not support multiple inheritance with classes because it causes the Diamond Problem (method ambiguity if inherited from two classes with the same method). Instead, Java supports multiple inheritance through interfaces.
+
+Polymorphism:
+Polymorphism allows objects to be treated as instances of their parent class rather than their actual class. This means a single function can process objects differently based on their class.
+Method Overloading (Compile-time Polymorphism)
+Multiple methods in the same class with the same name but different parameters.
+ Method Overriding (Run-time Polymorphism)
+A subclass provides a specific implementation of a method already defined in its superclass
+
+Can we overload java main() method?
+Answer : Yes
+
+class Main{
+public static void main(String[] args){ System.out.println("main with String[]");
+}
+public static void main(String args){ System.out.println("main with String");
+}
+public static void main(){
+System.out.println("main without args");
+}
+}
+
+Abstraction
+Hiding internal details and showing only the functionality.
+
+abstract class Student {
+    abstract void writeExam(); // Abstract method
+}
+
+class John extends Student {
+    void writeExam() {
+        System.out.println("John writes the exam in pen.");
+    }
+}
+
+class Mary extends Student {
+    void writeExam() {
+        System.out.println("Mary writes the exam using a laptop.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Student s1 = new John();
+        Student s2 = new Mary();
+
+        s1.writeExam();  // John’s version
+        s2.writeExam();  // Mary’s version
+    }
+}
+
+
+
+Interface
+
+Another way to achieve abstraction in Java, is with interfaces.
+An interface is a completely "abstract class" that is used to group related
+methods with empty bodies
+An interface is a reference type. It is similar to class.
+It is a collection of abstract methods.
+interface vehicle
+{
+    void start();
+}
+class car implements vehicle{
+    public void start()
+    {
+System.out.println("Car started");
+    }
+}
+class bike implements vehicle{
+    public void start()
+    {
+System.out.println("Bike started");
+    }
+}
+public class inte {
+    public static void main(String[] args) {
+        
+vehicle ob=new car();
+ob.start();
+vehicle ob1=new bike();
+ob1.start();
+    }
+}
+
+
+
+Abstract Class → When classes are related and share some behavior.
+Interface → When classes are unrelated but need a common ability.
+
+
+
+
+1.Write a Java program to create a class called "Person" with a name and age attribute. Create two instances of the "Person" class, set their attributes using the constructor, and print their name and age.
+
+
+2.Create a class Rectangle with attributes length and width. Write a method to calculate and return the area of the rectangle. Instantiate an object of the Rectangle class, set the values of length and width, and display the area.
+
+
+3.Write a program to welcome a person using the default constructor.
+Create a class Welcome with a default constructor which prints "Welcome ".
+Create a class Hello with a default constructor which prints "Hello ".
+In the main method prompt the user to enter the name of the person and create objects for classes Welcome and Hello.
+
+
+4.Write a program to find the area of the wall. Create a class Wall with the following private attributes
+length - double
+height - double
+Include parameterized constructor Wall(double length, double height) and a method calculateArea() which returns the area of the wall. In the main method get the length and breadth of two walls from the user.
+
+5.Liam needs a program to manage box dimensions. He wants to create a program that allows him to set the dimensions of a box and then make a copy of it.
+
+
+
+Write a program that creates a class named Box, takes input for the dimensions of a box and creates a copy of it using shallow copy. Ensure that the copied box retains the same dimensions as the original.
+
+Input 1 :
+14 16 15
+Output 1 :
+Original Set: Length = 14, Breadth = 16, Height = 15

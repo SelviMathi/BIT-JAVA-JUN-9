@@ -82,7 +82,33 @@ Student S2=new Student();
 
 **************Class with mulitple objects Using Array
 
-
+import java.util.*;
+class Student{
+    String name;
+    char gender;
+    int age;
+    
+}
+class Main{
+    
+    public static void main(String args[])
+    {
+        Scanner scan = new Scanner(System.in);
+        Student S[]=new Student[2];
+        for(int i =0;i<2;i++){
+        S[i]=new Student();
+        S[i].name=scan.nextLine();
+        S[i].gender=scan.next().charAt(0);
+        S[i].age=scan.nextInt();
+        scan.nextLine();
+        //System.out.println(S[i].name+" "+S[i].gender+" "+S[i].age);
+        }
+        //Here i have printed the object in the 0th index
+        System.out.print("Object in 0th index: ");
+        System.out.print(S[0].name+" "+S[0].gender+" "+S[0].age);
+    
+    }
+}
 
 
 **************Class with mulitple objects Using ArrayList
@@ -136,6 +162,42 @@ Without parameters
 With parameters
 With return type
 Without return type (void)
+import java.util.*;
+public class Main
+{
+	//WITHOUT PARAMETER WITHOUT return
+	
+// 	 void add(){
+// 	    int n=10,m=20;
+// 	    System.out.print(n+m);
+// 	}
+	
+	//WITHOUT PARAMETER WITH return
+	
+// 	 int add(){
+// 	    int n=10,m=20;
+// 	    System.out.print("*");
+// 	    return n+m;
+// 	}
+
+
+	//WITH PARAMETER WITHOUT return
+	
+// 	 void add(int n,int m){
+// 	   	    System.out.print(n+m);
+// 	}
+	
+	//WITH PARAMETER WITH return
+	
+	 int add(int z,int x){
+	    return (z+x);
+	}
+	
+	public static void main(String[] args) {
+	  Main ob=new Main();
+	  System.out.print( ob.add(10,20));
+	}
+}
 
 
 

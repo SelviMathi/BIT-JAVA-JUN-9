@@ -1,0 +1,234 @@
+
+Collections
+List
+    ArrayList
+    Vector
+    LinkedList
+    Stack
+
+
+Feature                  	ArrayList 🟢	            Vector 🔵                        	LinkedList 🟠
+Structure                	Uses dynamic array      	Uses dynamic array	              Uses doubly linked list
+Thread Safety	            ❌ Not synchronized      ✅ Synchronized                 	❌ Not synchronized (not thread-safe)
+Performance	              ✅ Faster               	⏳ Slower            	            ⚡ Fast insert/delete but slow access
+Growth Rate	              Expands 50% when full	    Expands 2x when full	            Grows dynamically
+Best Use Case	            ✅ When fast access     	✅ When thread safety is required	  ✅ When frequent insertions/deletions are needed
+Access Speed	             O(1) (random access)	     O(1) (random access)	            🐢 O(n) (slow, sequential search)
+Insert/Delete Speed	       O(n) (slow )	             O(n) (same as ArrayList)	         O(1) at head/tail, O(n) otherwise*******************************Array ADT - display , append, insert, delete*****************
+
+
+***********************Array ADT - display, append, insert,delete*******************************
+import java.util.ArrayList;
+
+public class ArrList {
+    public static void main(String[] args) {
+        ArrayList<Integer> arr = new ArrayList<>();
+//getting input from user
+//for(int i=0;i<5;i++)
+//arr.add(obj.nextInt());
+        // Append elements
+        arr.add(10);
+        arr.add(20);
+        arr.add(30);
+        arr.add(40);
+        System.out.println("Array: " + arr); // Output: [10, 20, 30, 40]
+
+        // Insert element at index 2
+        arr.add(2, 25);
+        System.out.println("After insertion: " + arr); // Output: [10, 20, 25, 30, 40]
+
+        // Delete element at index 3
+        arr.remove(3);
+        System.out.println("After deletion: " + arr); // Output: [10, 20, 25, 40]
+
+    }
+}
+***********************Array ADT - get, set, search*******************************
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class ArrList1 {
+    public static void main(String[] args) {
+        ArrayList<Integer> arr = new ArrayList<>();
+
+        // Append elements
+        arr.add(10);
+        arr.add(20);
+        arr.add(30);
+        arr.add(40);
+        System.out.println("Array: " + arr); // Output: [10, 20, 30, 40]
+
+        // // Get element at index 2
+        // System.out.println("Element at index 2: " + arr.get(2)); // Output: 25
+
+        // // Set (update) element at index 2
+        // arr.set(2, 35);
+        // System.out.println("After updating index 2: " + arr); // Output: [10, 20, 35, 40]
+
+        // // Search for an element
+        // int index = arr.indexOf(40);
+        // System.out.println("Index of 40: " + index); // Output: 3
+   }}
+*******************************Array ADT - shift / rotate******************************
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class ArrList1 {
+    public static void main(String[] args) {
+        ArrayList<Integer> arr = new ArrayList<>();
+
+        // Append elements
+        arr.add(10);
+        arr.add(20);
+        arr.add(30);
+        arr.add(40);
+        System.out.println("Array: " + arr); // Output: [10, 20, 30, 40]
+        
+        // Left Rotate
+        Collections.rotate(arr, -2);
+        System.out.println("After left rotation: " + arr); // Output: [20, 35, 40, 10]
+
+        // Right Rotate
+        Collections.rotate(arr, 1);
+        System.out.println("After right rotation: " + arr); // Output: [10, 20, 35, 40]
+
+        
+    }}
+
+*************************Converting Between Array and ArrayList***************
+1. Convert ArrayList to Array
+String[] array = names.toArray(new String[0]);
+
+2. Convert Array to ArrayList
+
+import java.util.Arrays;
+import java.util.List;
+
+String[] arr = {"Red", "Blue", "Green"};
+List<String> list = new ArrayList<>(Arrays.asList(arr));
+
+
+**********Methods of ArrayList, Vector, and LinkedList**********
+Below are some common methods available in all three classes:
+
+1. Common Methods (Available in All)
+Method                  	Description
+add(E e)              	Adds an element at the end.
+add(int index, E e)	    Inserts an element at a specific index.
+remove(int index)	      Removes an element at a specific index.
+remove(Object o)	      Removes the first occurrence of a specified element.
+get(int index)	        Retrieves an element at the specified index.
+size()                	Returns the number of elements.
+contains(Object o)	    Checks if an element exists.
+indexOf(Object o)	      Returns the first index of an element.
+clear()                	Removes all elements.
+
+2. Unique Methods
+Each class has some additional methods:
+
+✅ ArrayList & Vector (Methods not in LinkedList)
+ensureCapacity(int minCapacity) – Ensures minimum capacity.
+trimToSize() – Reduces size to match elements.
+
+✅ Vector-Specific Methods
+capacity() – Returns the current capacity.
+firstElement() – Returns the first element.
+lastElement() – Returns the last element.
+removeElement(Object obj) – Removes an element.
+
+✅ LinkedList-Specific Methods
+
+addFirst(E e), addLast(E e) – Adds elements at the beginning or end.
+removeFirst(), removeLast() – Removes first or last element.
+getFirst(), getLast() – Retrieves first or last element.
+poll(), peek() – Retrieves/removes elements from the head.
+
+************Programs*************
+Array Operation	        Manual Implementation	            Built-in Method
+Append	                arr[size++] = value;	          ArrayList.add(value);
+Insert	                Shift elements, then insert	    ArrayList.add(index, value);
+Delete	                Shift elements left	            ArrayList.remove(index);
+Get	                    arr[index]	                    ArrayList.get(index);
+Update                    arr[index] = value;	            ArrayList.set(index, value);
+Search	                Loop through array	            ArrayList.indexOf(value);
+Shift Left	            Loop and shift	                System.arraycopy()
+Shift Right            	Loop and shift	                Collections.rotate(arr, -1);
+Rotate Left	            Loop and swap	                  Collections.rotate(arr, -1);
+Rotate Right	          Loop and swap                  	Collections.rotate(arr, 1);
+
+
+1.Segregating positive and negative numbers
+
+Using Arraylist
+import java.util.*;
+
+public class Main {
+    public static void segregateArray(int[] arr) {
+        List<Integer> positive = new ArrayList<>();
+        List<Integer> negative = new ArrayList<>();
+
+        for (int num : arr) {
+            if (num >= 0)
+                positive.add(num);
+            else
+                negative.add(num);
+        }
+
+        // Merge both lists back to array
+        int i = 0;
+        for (int num : negative) arr[i++] = num;
+        for (int num : positive) arr[i++] = num;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {12, -7, 5, -3, 9, -6, 8, -2};
+        segregateArray(arr);
+       System.out.println("Segregated Array: " + Arrays.toString(arr));
+    
+    }
+}
+
+
+Using pointers
+import java.util.Arrays;
+
+public class SegregateNumbers {
+    public static void segregate(int[] arr) {
+        int left = 0, right = arr.length - 1;
+
+        while (left < right) {
+            // Move left if it is negative
+            if (arr[left] < 0) {
+                left++;
+            }
+            // Move right if it is positive
+            else if (arr[right] > 0) {
+                right--;
+            }
+            // Swap when left is positive and right is negative
+            else {
+                int temp = arr[left];
+                arr[left] = arr[right];
+                arr[right] = temp;
+                left++;
+                right--;
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {10, -1, 20, 4, -6, -9, 8, -3};
+        System.out.println("Before segregation: " + Arrays.toString(arr));
+        segregate(arr);
+        System.out.println("After segregation: " + Arrays.toString(arr));
+    }
+}
+
+2.Inserting in a sorted Array and checking if an Array is sorted
+
+3.Merging two sorted arrays
+
+4.Finding duplicate elements in a Integer array
+
+5.Finding missing elements in Arrays - Different Methods
+

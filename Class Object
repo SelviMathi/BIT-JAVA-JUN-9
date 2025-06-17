@@ -1,0 +1,176 @@
+A class is a user-defined data type that acts as a blueprint for creating objects.
+
+Syntax:
+class ClassName {
+    // Fields (Variables)
+    dataType variableName;
+
+    // Methods (Functions)
+    returnType methodName() {
+        // method body
+    }
+}
+
+
+Object
+An object is a runtime instance of a class.
+When you create an object, memory is allocated and class members can be accessed
+
+How to Instantiate an Object
+Use the new keyword to create (instantiate) an object.
+
+ClassName objectName = new ClassName();
+
+***********************Class with Single object
+class Student{
+    String name;
+    char gender;
+    int age;
+    void display()
+    {
+        System.out.println(name+" "+gender+" "+age);
+    }
+}
+class Main{
+    
+    public static void main(String args[])
+    {
+        Student S1=new Student();
+        S1.name="BIT";
+        S1.gender='F';
+        S1.age=20;
+        S1.display();
+}
+}
+******************Class with multiple objects
+
+
+
+class Student{
+    String name;
+    char gender;
+    int age;
+    void display()
+    {
+        System.out.println(name+" "+gender+" "+age);
+    }
+}
+
+
+class Main{
+    
+    public static void main(String args[])
+    {
+        Student S1=new Student();
+        S1.name="BIT";
+        S1.gender='F';
+        S1.age=20;
+        S1.display();
+Student S2=new Student();
+        S2.name="BIT2";
+        S2.gender='M';
+        S2.age=21;
+        S2.display();
+        
+    }
+}
+
+******************Class without methods
+
+
+
+
+**************Class with mulitple objects Using Array
+
+
+
+
+**************Class with mulitple objects Using ArrayList
+
+
+
+
+
+
+
+
+
+METHODS
+
+A method is a block of code that performs a specific task.
+It helps in code reusability and modular programming.
+Syntax:
+returnType methodName(parameter1, parameter2, ...) {
+    // method body
+}
+
+
+1. Predefined (Built-in) Methods
+These are methods already provided by Java libraries.
+System.out.println("Hello");   
+Math.sqrt(16);              
+
+2. User-defined Methods
+These are custom methods created by the programmer.
+
+
+What are Parameters
+
+Parameters are placeholders/variables listed in a method definition.
+They define what type of data the method accepts.
+Example:
+void greet(String name) {   // 'name' is a parameter
+    System.out.println("Hello " + name);
+}
+
+
+
+What are Arguments
+Arguments are actual values passed to the method when it is called.
+Example:
+greet("Sweety");  // "Sweety" is an argument
+
+
+TYPES:
+Without parameters
+With parameters
+With return type
+Without return type (void)
+
+
+
+Constructor:
+It has the same name as the class and does not have a return type. A constructor is called automatically when an object of the class is created.
+
+Types of Constructors
+Default Constructor (No-Argument Constructor)
+Parameterized Constructor
+copy constructor
+
+
+class ADD {
+    ADD() //Default constructor
+    {
+    System.out.println(30);
+    }
+    ADD(int a) //Parametrise constructor
+    {
+        System.out.println(a+30);
+    }
+    ADD(ADD obj)//Copy contructor
+    {
+        System.out.println("Copy contructor called");
+    }
+    
+}
+public class Main {
+    public static void main(String[] args) {
+       
+        ADD ob=new ADD(10);
+        ADD ob1=new ADD();
+        ADD ob2=new ADD(ob1);
+        
+    }
+}
+
+

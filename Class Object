@@ -455,10 +455,102 @@ Inheritance
 Inheritance is one of the key concepts in Object-Oriented Programming (OOP). It allows a child class (subclass) to acquire the properties and behaviors (fields and methods) of a parent class (superclass). This promotes code reusability and hierarchical relationships between classes.
 
 Single Inheritance → One class inherits another.
+GrandFather
+Father
 
+    class GF{
+        void silver()
+        {
+            System.out.println("SILVER");
+        }
+    }
+    class F extends GF{
+        void gold()
+        {
+            System.out.print("GOLD");
+        }
+    }
+    public class Main {
+        public static void main(String[] args) {
+          
+            F ob1=new F();
+            ob1.silver();
+            ob1.gold();
+    
+    
+        }
+    }
+*************************************************
 Multi-level Inheritance → A class inherits another, which inherits another.
+GrandFather
+Father
+Son
+    class GF{
+        void silver()
+        {
+            System.out.println("SILVER");
+        }
+    }
+    class F extends GF{
+        void gold()
+        {
+            System.out.println("GOLD");
+        }
+    }
+    class S extends F{
+        void love()
+        {
+            System.out.print("LOVE");
+        }
+    }
+    public class Main {
+        public static void main(String[] args) {
+          
+            S ob1=new S();
+            ob1.silver();
+            ob1.gold();
+            ob1.love();
+    
+    
+        }
+    }
+*****************************************************
 
+USING CONSTRUCTOR
+
+    class GF{
+        GF()
+        {
+            System.out.println("SILVER");
+        }
+    }
+    class F extends GF{
+        F()
+        {
+            System.out.println("GOLD");
+        }
+    }
+    class S extends F{
+        S()
+        {
+            System.out.print("LOVE");
+        }
+    }
+    public class Main {
+        public static void main(String[] args) {
+          
+            S ob1=new S();
+            
+    
+        }
+    }
+
+***********************************************************
 Hierarchical Inheritance → Multiple classes inherit from one base class.
+GrandFather
+Father 
+Aunt
+
 
 Hybrid Inheritance → Combination of multiple inheritance types. (Not directly supported in Java due to ambiguity issues.)
 
@@ -540,13 +632,12 @@ System.out.println("Bike started");
     }
 }
 public class inte {
-    public static void main(String[] args) {
-        
+public static void main(String[] args) {     
 vehicle ob=new car();
 ob.start();
 vehicle ob1=new bike();
 ob1.start();
-    }
+}
 }
 
 
@@ -557,30 +648,145 @@ Interface → When classes are unrelated but need a common ability.
 
 
 
-1.Write a Java program to create a class called "Person" with a name and age attribute. Create two instances of the "Person" class, set their attributes using the constructor, and print their name and age.
+1.Write a Java program to create a class called "Person" with a name and age attribute. Create Private instance of the "Person" class, set their attributes using the constructor, and print their name and age.
+
+import java.util.Scanner;
+class Person {
+    private String name;
+    private int age;
+    Person(String n,int a){
+        name=n;
+        age=a;
+    }
+    void display()
+    {
+        System.out.print(name +" "+age);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner kbd = new Scanner(System.in);
+        String s=kbd.next();
+        int b=kbd.nextInt();
+        Person p1=new Person(s,b);
+        p1.display();
+
+
+    }
+}
+
 
 
 2.Create a class Rectangle with attributes length and width. Write a method to calculate and return the area of the rectangle. Instantiate an object of the Rectangle class, set the values of length and width, and display the area.
 
+import java.util.Scanner;
+class Person {
+    private int l;
+    private int b;
+    Person(int n,int a){
+        l=n;
+        b=a;
+    }
+    void display()
+    {
+        System.out.print(l*b);
+    }
+}
 
-3.Write a program to welcome a person using the default constructor.
+public class Main {
+    public static void main(String[] args) {
+        Scanner kbd = new Scanner(System.in);
+        int s=kbd.nextInt();
+        int b=kbd.nextInt();
+        Person p1=new Person(s,b);
+        p1.display();
+
+
+    }
+}
+
+3.Create a class 'Parent'. 'Parent' class should have a method 'add' which prints the addition of 2 integers. Create a class 'Child1' which should be a child class of 'Parent' class. 'Child' class should have a method 'sub' which prints subtraction of 2 integers. Create a class 'Child2' which should be a child class of 'child1' class. 'Child2' class should have a method 'mul' which prints multiplication of 2 integers. Create an object for a 'Child2' class. Call the 3 methods to add, sub and mul from child class object and display the result.
+
+
+    class Parent{
+        Parent(int a,int b)
+        {
+            System.out.println("ADD"+(a+b));
+        }
+    }
+    class Child1 extends Parent{
+        Child1(int a,int b)
+        {
+            super(a,b);
+            System.out.println("SUB"+(a-b));
+        }
+    }
+    class Child2 extends Child1{
+        Child2(int a,int b)
+        {
+            super(a,b);
+            System.out.println("MUL"+(a*b));
+        }
+    }
+    public class Main {
+        public static void main(String[] args) {
+          
+            Child2 ob=new Child2(10,5);
+            
+    
+        }
+    }
+4.Create a class 'Parent'. 'Parent' class should have a method 'add' which prints the addition of 2 integers. Create a class 'child1' which should be a 'child' class of 'parent' class.it has a method 'sub' which prints subtraction of 2 integers. Create a class 'child2' which should be a child class of 'Parent' class. 'Child2' class should have a method 'mul' which prints multiplication of 2 integers.
+
+Create a class 'child3' which should be a child class of 'child1' class and 'child2' class. 'Child3' class should have a method 'div' which prints the division of 2 integers. Create an object for a 'Child3' class. Call the 4 methods to add, sub, mul, and div from the child1 class object and display the result.
+
+
+
+
+
+
+5.Write a program to implement function overloading.
+
+Ram is given two or three inputs as an integer, if he has two integers then add the two numbers. If he has three inputs, then multiply the three numbers.
+
+Function Header:
+
+public void fun1(int a,int b,int c)
+
+public void fun1(int a,int b)
+
+
+6.Write a program defining 3 functions with the same name "calc" which performs the mathematical operations of Square, Modulus, and Division.
+
+
+
+Function for Square takes in one integer argument and returns an integer value
+Function for Modulus takes 2 integer arguments and returns an integer value
+Function for Division takes 2 floating-point arguments and returns and float value
+
+
+
+
+7.You are tasked with developing a program to calculate the salaries of employees, both full-time and part-time. The program should prompt the user to select the type of employee (Full-Time or Part-Time) and then gather the necessary input to calculate the salary for the chosen employee type.
+Here are the specific requirements for the program:
+Implement a base class called "Employee" with a virtual function calculateSalary().
+Create two derived classes, "FullTimeEmployee" and "PartTimeEmployee," each with their own calculateSalary() functions.
+For a "FullTimeEmployee," the program should calculate the total salary by adding the base salary and the bonus.
+For a "PartTimeEmployee," the program should:calculate the total salary by multiplying the hourly rate by the hours worked.
+In the main() function, the program should, based on the user's choice, create an object of the appropriate employee type.
+Call the calculateSalary() function on the created object to calculate and display the total salary.
+
+
+
+8.Write a program to welcome a person using the default constructor.
 Create a class Welcome with a default constructor which prints "Welcome ".
 Create a class Hello with a default constructor which prints "Hello ".
 In the main method prompt the user to enter the name of the person and create objects for classes Welcome and Hello.
 
 
-4.Write a program to find the area of the wall. Create a class Wall with the following private attributes
+9.Write a program to find the area of the wall. Create a class Wall with the following private attributes
 length - double
 height - double
 Include parameterized constructor Wall(double length, double height) and a method calculateArea() which returns the area of the wall. In the main method get the length and breadth of two walls from the user.
 
-5.Liam needs a program to manage box dimensions. He wants to create a program that allows him to set the dimensions of a box and then make a copy of it.
-
-
-
-Write a program that creates a class named Box, takes input for the dimensions of a box and creates a copy of it using shallow copy. Ensure that the copied box retains the same dimensions as the original.
-
-Input 1 :
-14 16 15
-Output 1 :
-Original Set: Length = 14, Breadth = 16, Height = 15

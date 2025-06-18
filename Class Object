@@ -563,7 +563,28 @@ Method Overloading (Compile-time Polymorphism)
 Multiple methods in the same class with the same name but different parameters.
  Method Overriding (Run-time Polymorphism)
 A subclass provides a specific implementation of a method already defined in its superclass
+class MATH{
+    public void fun1(int a,int b){
+        System.out.println(a+b);
+        
+    }
+   
+}
+class M extends MATH{
+    @Override
+    public void fun1(int a,int b){
+        System.out.println(a*b);
+        
+    }
+}
+class Main{
+    public static void main(String[] args){ 
+    MATH ob=new MATH();
+    ob.fun1(8,3);
+    }
+}
 
+*************************************************************************
 Can we overload java main() method?
 Answer : Yes
 
@@ -756,16 +777,29 @@ public void fun1(int a,int b,int c)
 
 public void fun1(int a,int b)
 
+class MATH{
+    public void fun1(int a,int b){
+        System.out.println(a+b);
+        
+    }
+    public void fun1(int a,int b,int c)
+    {
+        System.out.println(a*b*c);
+    }
+}
+class Main{
+    public static void main(String[] args){ 
+    MATH ob=new MATH();
+    ob.fun1(2,3);
+    ob.fun1(4,5);
+    ob.fun1(5,2,3);
+}
+}
 
 6.Write a program defining 3 functions with the same name "calc" which performs the mathematical operations of Square, Modulus, and Division.
-
-
-
 Function for Square takes in one integer argument and returns an integer value
 Function for Modulus takes 2 integer arguments and returns an integer value
 Function for Division takes 2 floating-point arguments and returns and float value
-
-
 
 
 7.You are tasked with developing a program to calculate the salaries of employees, both full-time and part-time. The program should prompt the user to select the type of employee (Full-Time or Part-Time) and then gather the necessary input to calculate the salary for the chosen employee type.

@@ -271,7 +271,38 @@ s2.display();
 }
 
 No-Argument Constructor
+class Student{
+int id;
+String name;
+Student()
+{
+    System.out.print("Constructor method called");
+   }
+}
+class Main{
+public static void main(String args[]){
+Student s1=new Student();
+
+}
+}
+
+**************************************************
 Parameterized Constructor
+class Student{
+int id;
+String name;
+Student(String n)
+{
+    System.out.print("Constructor method called "+n);
+    }
+}
+class Main{
+public static void main(String args[]){
+Student s1=new Student("BIT");
+
+}
+}
+******************************************************
 copy constructor
 
 
@@ -402,25 +433,20 @@ Example:
 
 class BankAccount {
     private double balance;
-    private String accountNumber;
-
-    public BankAccount(String accNo, double initialBalance) {
-        accountNumber = accNo;
-        balance = initialBalance;
+    public void initial(double b){
+        balance=b;
+        
     }
-
-    public double getBalance() {
-        return balance;
+    public void dis()
+    {
+        System.out.println(balance);
     }
-
-    public void deposit(double amount) {
-        if(amount > 0)
-            balance += amount;
-    }
-
-    public void withdraw(double amount) {
-        if(amount <= balance)
-            balance -= amount;
+}
+class Main{
+    public static void main(String args[]){
+        BankAccount ob=new BankAccount();
+        ob.initial(2012.30);
+        ob.dis();
     }
 }
 

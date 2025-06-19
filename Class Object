@@ -824,3 +824,9 @@ length - double
 height - double
 Include parameterized constructor Wall(double length, double height) and a method calculateArea() which returns the area of the wall. In the main method get the length and breadth of two walls from the user.
 
+Real time Implementation:
+*********************** Abstract***************
+Create an abstract class Payment with two abstract methods: authenticateUser() and processPayment().
+Implement two subclasses: UpiPayment and CardPayment that provide specific implementations for these methods.
+In the main method, take user input to choose the payment method and call the appropriate methods.
+

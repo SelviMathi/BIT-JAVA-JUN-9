@@ -1,0 +1,186 @@
+Exception:
+An exception in Java (or any programming language) is an error. It is an unexpected break in the program's flow that can cause the program to crash.
+
+Exception handling:
+Java provides a structured way to handle exceptions using:
+
+try block – Contains code that may throw an exception.
+catch block – Handles the exception if one occurs.
+finally block – Executes regardless of whether an exception occurs or not.
+throw keyword – Used to explicitly throw an exception.
+throws keyword – Declares exceptions that a method can throw.
+
+
+Types of Exception
+
+Checked Exception
+The exception that can be predicted by the programmer at the compile time.
+Example : File that need to be opened is not found.
+
+Unchecked Exception
+Unchecked exceptions are the class that extends RuntimeException. 
+Example: ArithmeticException, NullPointerException, Array Index out of Bound exception.
+
+Error
+Errors are typically ignored in code because you can rarely do anything about an error.
+Example : if stack overflow occurs,that error cannot be handled in the code.
+
+
+Common scenarios where exceptions may occur
+
+
+1) Scenario where ArithmeticException occurs
+	int a=50/0;
+2) Scenario where NullPointerException occurs
+	String s=null;  
+	System.out.println(s.length());
+ 3) Scenario where NumberFormatException occurs
+	String s="abc";  
+	int i=Integer.parseInt(s);
+4) Scenario where ArrayIndexOutOfBoundsException occurs
+	int a[]=new int[5];  
+	a[10]=50;
+
+Java throw keyword is used to explicitly throw an exception.		      Java throws keyword is used to declare an exception.
+Checked exception cannot be propagated using throw only.		          Checked exception can be propagated with throws.
+Throw is used within the method.				                             	Throws is used with the method signature.
+You cannot throw multiple exceptions			                        		You can declare multiple exceptions e.g.
+									                                                    public void method()throws IOException,SQLException.
+
+
+Final is used to apply restrictions on class, method and variable. Final class can't be inherited, final method can't be overridden and final variable value can't be changed.
+It is keyword
+
+Finally is used to place important code, it will be executed whether exception is handled or not.
+It is block
+
+Finalize is used to perform clean up processing just before object is garbage collected.
+it is method
+
+
+
+
+PROBLEM TO PRACTISE:
+
+1.Check whether the person is eligible for a driving license or not. If the age is less than 18, throw an exception and print "Invalid Age" and quit. If the score is less than 40, throw an exception and print "You should get at least 40 marks" and quit. Else print "Passed".
+
+
+Input Format
+
+The input consists of the age and score separated by a space.
+Output Format
+
+The output prints the age, score, and result.
+
+Refer to the sample outputs for the formatting specifications.
+Sample Input	Sample Output
+12 50		12 50 
+		Invalid Age
+Sample Input	Sample Output
+50 50		50 50 
+		Passed
+
+
+*****************************************************************************************************
+
+
+import java.util.Scanner;
+
+class Vayasirukka extends Exception
+{
+
+    public Vayasirukka(String msg)
+    {
+        super(msg);
+    }
+}
+class Scoreirukka extends Exception
+{
+
+    public Scoreirukka(String msg)
+    {
+        super(msg);
+    }
+}
+public class License
+{
+    static void validah(int age,int score) throws Scoreirukka,Vayasirukka
+    {
+        if(age<18) throw new Vayasirukka("INVALID AGE");
+        if(score<40) throw new Scoreirukka("You should get at least 40 marks");
+        System.out.println("Passed.");
+    }
+    public static void main(String[] args)
+    {
+        try
+        {
+            Scanner in=new Scanner(System.in);
+            int age=in.nextInt();
+            int score=in.nextInt();
+            validah(age, score);
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.getMessage());
+        }
+    }
+}
+
+******************************************************************************************************
+
+2.Get an integer input,
+If the input is 1, Throw an Integer exception.
+If the input is 2, Throw a Character exception. If the input is 3, Throw a double exception
+Input Format
+
+The input consists of an integer.
+Output Format
+
+The output prints the corresponding exception. Refer sample output for formatting exception.
+Sample Input	Sample Output
+1		Integer exception caught
+
+***********************************************************************************************
+
+
+import java.util.Scanner;
+
+class Type extends Exception
+{
+    Type(String msg)
+    {
+        super(msg);
+    }
+}
+public class IntCharDoub
+{
+    static void Dtype(int n) throws Type
+    {
+        switch(n)
+        {
+            case 1:
+                throw new Type("Integer Exception caught");
+            case 2:
+                throw new Type("Character Exception caught");
+            case 3:
+                throw new Type("Double Exception caught");
+            default:
+                System.out.println("No Exception caught");
+                break;
+        }
+    }
+    public static void main(String[] args)
+    {
+        try {
+            Scanner in=new Scanner(System.in);
+            int n=in.nextInt();
+            Dtype(n);
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.getMessage());
+        }
+    }
+}
+
+***********************************************************************************************

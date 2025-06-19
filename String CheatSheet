@@ -1,0 +1,232 @@
+The String class represents character strings. All string literals in Java programs, such as "abc", are implemented as instances of this class.
+Strings are constant; their values cannot be changed after they are created. String buffers support mutable strings. Because String objects are immutable they can be shared. For example:
+
+     String str = "abc";
+ 
+is equivalent to:
+
+     char data[] = {'a', 'b', 'c'};
+     String str = new String(data);
+ 
+Here are some more examples of how strings can be used:
+
+     System.out.println("abc");
+     String cde = "cde";
+     System.out.println("abc" + cde);
+     String c = "abc".substring(2,3);
+     String d = cde.substring(1, 2);
+
+
+******************String Class Methods
+
+
+public class Main {
+    public static void main(String[] args) {
+        String str = "  Hello Java World  ";
+        String str2 = "hello java world";
+
+        // 1. Length and Character Access
+        System.out.println("Length: " + str.length());
+        System.out.println("Character at index 2: " + str.charAt(2));
+
+        // 2. Comparison Methods
+        System.out.println("Equals: " + str.trim().equals(str2)); // false
+        System.out.println("Equals Ignore Case: " + str.trim().equalsIgnoreCase(str2)); // true
+        System.out.println("Compare To: " + str.compareTo(str2));
+
+        // 3. Searching Methods
+        System.out.println("Index of 'Java': " + str.indexOf("Java"));
+        System.out.println("Last Index of 'l': " + str.lastIndexOf('l'));
+
+        // 4. Substring
+        System.out.println("Substring (2 to 7): " + str.substring(2, 7));
+
+        // 5. Case Conversion
+        System.out.println("To Lower Case: " + str.toLowerCase());
+        System.out.println("To Upper Case: " + str.toUpperCase());
+
+        // 6. Trimming and Replacing
+        System.out.println("Trim: '" + str.trim() + "'");
+        System.out.println("Replace 'Java' with 'Python': " + str.replace("Java", "Python"));
+        System.out.println("Replace all spaces: " + str.replaceAll(" ", "_"));
+        System.out.println("Replace first space: " + str.replaceFirst(" ", "-"));
+
+        // 7. Splitting and Joining
+        String[] words = str.trim().split(" ");
+        System.out.println("Split words:");
+        for (String word : words) {
+            System.out.println(word);
+        }
+
+        String joined = String.join("-", "One", "Two", "Three");
+        System.out.println("Joined String: " + joined);
+
+        // 8. Value Conversion
+        int number = 100;
+        String numberStr = String.valueOf(number);
+        System.out.println("Integer to String: " + numberStr);
+        char[] chars = str.toCharArray();
+        System.out.println("To Char Array:");
+        for (char c : chars) {
+            System.out.print(c + " ");
+        }
+        System.out.println();
+
+     }
+}
+**********String Buffer Methods
+
+public class StringBufferMethodsDemo {
+    public static void main(String[] args) {
+        // Constructor
+        StringBuffer sb = new StringBuffer("Java");
+
+        // 1. Append
+        sb.append(" Programming");
+        System.out.println("After append: " + sb);
+
+        // 2. Insert
+        sb.insert(5, "Language ");
+        System.out.println("After insert: " + sb);
+
+        // 3. Replace
+        sb.replace(5, 13, "Core ");
+        System.out.println("After replace: " + sb);
+
+        // 4. Delete
+        sb.delete(0, 5);
+        System.out.println("After delete: " + sb);
+
+        // 5. Reverse
+        sb.reverse();
+        System.out.println("After reverse: " + sb);
+
+        // 6. setCharAt
+        sb.setCharAt(0, '!');
+        System.out.println("After setCharAt: " + sb);
+
+        // 7. setLength
+        sb.setLength(10);
+        System.out.println("After setLength(10): " + sb);
+
+        // 8. charAt
+        System.out.println("charAt(2): " + sb.charAt(2));
+
+        // 9. substring
+        String sub = sb.substring(2, 6);
+        System.out.println("substring(2,6): " + sub);
+
+        // 10. length and capacity
+        System.out.println("Length: " + sb.length());
+        System.out.println("Capacity: " + sb.capacity());
+
+        // 11. ensureCapacity
+        sb.ensureCapacity(100);
+        System.out.println("Capacity after ensureCapacity(100): " + sb.capacity());
+
+        // 12. trimToSize (Java 1.5+)
+        sb.trimToSize();
+        System.out.println("Capacity after trimToSize(): " + sb.capacity());
+    }
+}
+
+**********String Builder Methods
+public class StringBuilderMethodsDemo {
+    public static void main(String[] args) {
+        // Constructor
+        StringBuilder sb = new StringBuilder("Hello");
+      Scanner sc = new Scanner(System.in);
+
+        // Taking input from user
+        System.out.print("Enter your initial string: ");
+        String input = sc.nextLine();
+
+        // Create StringBuilder with user input
+        StringBuilder sb = new StringBuilder(input);
+        // 1. Append
+        sb.append(" World");
+        System.out.println("After append: " + sb);
+
+        // 2. Insert
+        sb.insert(6, "Java ");
+        System.out.println("After insert: " + sb);
+
+        // 3. Replace
+        sb.replace(6, 10, "Awesome");
+        System.out.println("After replace: " + sb);
+
+        // 4. Delete
+        sb.delete(6, 13);
+        System.out.println("After delete: " + sb);
+
+        // 5. Reverse
+        sb.reverse();
+        System.out.println("After reverse: " + sb);
+
+        // 6. setCharAt
+        sb.setCharAt(0, '*');
+        System.out.println("After setCharAt: " + sb);
+
+        // 7. setLength
+        sb.setLength(8);
+        System.out.println("After setLength(8): " + sb);
+
+        // 8. charAt
+        char ch = sb.charAt(2);
+        System.out.println("Character at index 2: " + ch);
+
+        // 9. substring
+        String substr = sb.substring(1, 5);
+        System.out.println("Substring(1,5): " + substr);
+
+        // 10. length and capacity
+        System.out.println("Length: " + sb.length());
+        System.out.println("Capacity: " + sb.capacity());
+
+        // 11. ensureCapacity
+        sb.ensureCapacity(100);
+        System.out.println("Capacity after ensureCapacity(100): " + sb.capacity());
+    }
+}
+
+***************Character Class Methods
+import java.util.Scanner;
+
+public class CharacterMethodsDemo {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Taking character input from user
+        System.out.print("Enter a character: ");
+        char ch = sc.next().charAt(0); // Read first character
+
+        System.out.println("\n--- Character Class Methods ---");
+
+        // 1. Check if letter
+        System.out.println("Is Letter? " + Character.isLetter(ch));
+
+        // 2. Check if digit
+        System.out.println("Is Digit? " + Character.isDigit(ch));
+
+        // 3. Check if whitespace
+        System.out.println("Is Whitespace? " + Character.isWhitespace(ch));
+
+        // 4. Check if uppercase
+        System.out.println("Is Uppercase? " + Character.isUpperCase(ch));
+
+        // 5. Check if lowercase
+        System.out.println("Is Lowercase? " + Character.isLowerCase(ch));
+
+        // 6. Convert to uppercase
+        System.out.println("To Uppercase: " + Character.toUpperCase(ch));
+
+        // 7. Convert to lowercase
+        System.out.println("To Lowercase: " + Character.toLowerCase(ch));
+
+        // 8. Check if defined (Unicode)
+        System.out.println("Is Defined? " + Character.isDefined(ch));
+
+       
+        sc.close();
+    }
+}

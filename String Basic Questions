@@ -1,0 +1,21 @@
+1.Print each character in newline from given string
+2.Print ASCII value for each character in given string
+3.Print only UPPERCASE of character in given string
+4.Print only lowercase of character in given  string
+5.print Alphabet count in given string
+6.Print Count of UPPER & lower case of given String
+7.Create a new string containing only UPPERCASE from given string
+8.Create a new string with digits followed by letters from given string
+9.Create a new string after removing all spaces in given string
+10.Reverse the case of each character in given string
+11.check given string is Palindrome or not
+12.Create a word encoding program which moves each letter by 2
+Example A becomes C,B becomes D,Y becomes a so on.,
+13.Print Each word in separate line from the given sentence
+14.print the first letter of each word in a sentence
+15.print the first 2 letters of each word in a sentence
+16.Print the word which starts with only S in a sentence or else -1
+17.Print only the 3 letter word in a sentence
+18.Print the longest word in a sentence
+19.Count the number of word in a sentence
+20.Captilize each word in a sentence

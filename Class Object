@@ -660,12 +660,33 @@ vehicle ob1=new bike();
 ob1.start();
 }
 }
-
-
-
+*******************************************************************
+1. Definition:
+Abstract Class: A class that can have both implemented and abstract (unimplemented) methods.
+Interface: A blueprint that contains only abstract methods (before Java 8) or default/static methods (from Java 8).
+2. Usage:
+Abstract Class: Used when multiple related classes share common behavior.
+Interface: Used when multiple classes (even unrelated) must follow a common contract.
+3. Methods:
+Abstract Class: Can have both implemented and abstract methods.
+Interface: Before Java 8, only abstract methods; from Java 8, can have default and static methods.
+4. Variables:
+Abstract Class: Can have instance variables (normal and static).
+Interface: Only public, static, and final variables (constants).
+5. Inheritance:
+Abstract Class: Supports single inheritance (A class can extend only one abstract class).
+Interface: Supports multiple inheritance (A class can implement multiple interfaces).
+6. Constructor:
+Abstract Class: Can have constructors.
+Interface: Cannot have constructors (cannot be instantiated).
+7. Access Modifiers:
+Abstract Class: Can have any access modifier (public, private, protected, default).
+Interface: Methods are public and abstract by default.
+8. When to Use?
 Abstract Class → When classes are related and share some behavior.
 Interface → When classes are unrelated but need a common ability.
 
+***************************************************************************************************
 
 
 
@@ -834,6 +855,37 @@ Function for Square takes in one integer argument and returns an integer value
 Function for Modulus takes 2 integer arguments and returns an integer value
 Function for Division takes 2 floating-point arguments and returns and float value
 
+import java.util.Scanner;
+
+public class Calculator {
+
+    int calc(int num) {
+        return num * num;
+    }
+
+    int calc(int a, int b) {
+        return a % b;
+    }
+
+    float calc(float x, float y) {
+        return x / y;
+    }
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        Calculator obj = new Calculator();
+
+        int num = scan.nextInt();
+        int a = scan.nextInt();
+        int b = scan.nextInt();
+        float x = scan.nextFloat();
+        float y = scan.nextFloat();
+
+        System.out.println("Square: " + obj.calc(num));
+        System.out.println("Modulus: " + obj.calc(a, b));
+        System.out.println("Division: " + obj.calc(x, y));
+    }
+}
 
 7.You are tasked with developing a program to calculate the salaries of employees, both full-time and part-time. The program should prompt the user to select the type of employee (Full-Time or Part-Time) and then gather the necessary input to calculate the salary for the chosen employee type.
 Here are the specific requirements for the program:
@@ -844,18 +896,111 @@ For a "PartTimeEmployee," the program should:calculate the total salary by multi
 In the main() function, the program should, based on the user's choice, create an object of the appropriate employee type.
 Call the calculateSalary() function on the created object to calculate and display the total salary.
 
+import java.util.Scanner;
 
+class Emp {
+    void calc() {
+        System.out.println("Calculating salary...");
+    }
+}
+
+class FTE extends Emp {
+    void calc(double base, double bonus) {
+        System.out.println("Total Salary: ₹" + (base + bonus));
+    }
+}
+
+class PTE extends Emp {
+    void calc(double rate, int hrs) {
+        System.out.println("Total Salary: ₹" + (rate * hrs));
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+
+        if (t == 1) {
+            double b = sc.nextDouble();
+            double bn = sc.nextDouble();
+            FTE f = new FTE();
+            f.calc();
+            f.calc(b, bn);
+        } else {
+            double r = sc.nextDouble();
+            int h = sc.nextInt();
+            PTE p = new PTE();
+            p.calc();
+            p.calc(r, h);
+        }
+    }
+}
 
 8.Write a program to welcome a person using the default constructor.
 Create a class Welcome with a default constructor which prints "Welcome ".
 Create a class Hello with a default constructor which prints "Hello ".
 In the main method prompt the user to enter the name of the person and create objects for classes Welcome and Hello.
 
+import java.util.Scanner;
+
+class Welcome {
+    Welcome() {
+        System.out.println("Welcome ");
+    }
+}
+
+class Hello {
+    Hello() {
+        System.out.println("Hello ");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        String name = scan.nextLine();
+
+        Welcome w = new Welcome();
+        Hello h = new Hello();
+
+        System.out.println(name + "!");
+    }
+}
 
 9.Write a program to find the area of the wall. Create a class Wall with the following private attributes
 length - double
 height - double
 Include parameterized constructor Wall(double length, double height) and a method calculateArea() which returns the area of the wall. In the main method get the length and breadth of two walls from the user.
+import java.util.Scanner;
+
+class Wall {
+    private double length;
+    private double height;
+
+    Wall(double length, double height) {
+        this.length = length;
+        this.height = height;
+    }
+
+    double getArea() {
+        return length * height;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        double l = scan.nextDouble();
+        double h = scan.nextDouble();
+
+        Wall w = new Wall(l, h);
+        System.out.println("Area of the Wall: " + w.getArea());
+    }
+}
+
+
+
 
 Real time Implementation:
 *********************** Abstract***************
@@ -863,3 +1008,16 @@ Create an abstract class Payment with two abstract methods: authenticateUser() a
 Implement two subclasses: UpiPayment and CardPayment that provide specific implementations for these methods.
 In the main method, take user input to choose the payment method and call the appropriate methods.
 
+**************************Interface****************
+Design a system where different types of documents like PDF, Word, and Image can be printed.
+Create an interface Printable with a method print().
+
+Implement the interface in:
+
+PDFDocument → prints “Printing PDF Document”
+
+WordDocument → prints “Printing Word Document”
+
+ImageFile → prints “Printing Image File”
+
+In main(), based on user input (1, 2, or 3), create the right object and call print().

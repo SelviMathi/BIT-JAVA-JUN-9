@@ -763,7 +763,40 @@ public class Main {
 Create a class 'child3' which should be a child class of 'child1' class and 'child2' class. 'Child3' class should have a method 'div' which prints the division of 2 integers. Create an object for a 'Child3' class. Call the 4 methods to add, sub, mul, and div from the child1 class object and display the result.
 
 
+interface Parent{
+    default void add(int a,int b){
+        System.out.println(a+b);
+        
+    }
+}
+class child1 implements Parent{
+    
+    public void sub(int a,int b){
+        System.out.println(a-b);
+    }
+}
+interface child2 extends Parent{
+    void mul(int a,int b);
+}
+class child3 extends child1 implements child2{
+    public void mul(int a,int b){
+        System.out.println(a*b);
+    }
+    public void div(int a,int b){
+        System.out.println(a/b);
+    }
+}
 
+public class Main
+{
+	public static void main(String[] args) {
+		child3 ob=new child3();
+		ob.add(4,2);
+		ob.sub(4,2);
+		ob.mul(4,2);
+		ob.div(4,2);
+	}
+}
 
 
 
@@ -804,7 +837,7 @@ Function for Division takes 2 floating-point arguments and returns and float val
 
 7.You are tasked with developing a program to calculate the salaries of employees, both full-time and part-time. The program should prompt the user to select the type of employee (Full-Time or Part-Time) and then gather the necessary input to calculate the salary for the chosen employee type.
 Here are the specific requirements for the program:
-Implement a base class called "Employee" with a virtual function calculateSalary().
+Implement a base class called "Employee" with a  function calculateSalary().
 Create two derived classes, "FullTimeEmployee" and "PartTimeEmployee," each with their own calculateSalary() functions.
 For a "FullTimeEmployee," the program should calculate the total salary by adding the base salary and the bonus.
 For a "PartTimeEmployee," the program should:calculate the total salary by multiplying the hourly rate by the hours worked.

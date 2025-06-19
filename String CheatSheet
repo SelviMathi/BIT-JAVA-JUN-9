@@ -16,7 +16,42 @@ Here are some more examples of how strings can be used:
      String c = "abc".substring(2,3);
      String d = cde.substring(1, 2);
 
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner kbd=new Scanner(System.in);
+StringBuilder name=new StringBuilder(kbd.next());
+StringBuilder name1=new StringBuilder(kbd.next());
+System.out.println(name.hashCode());
+System.out.println(name1.hashCode());
+String name2=kbd.next();
+String name3=kbd.next();
+System.out.println(name2.hashCode());
+System.out.println(name3.hashCode());
 
+
+	}
+}
+
+Sentence in Paragraph********************
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner kbd=new Scanner(System.in);
+int count=0;
+String name2=kbd.nextLine();
+
+for(char ch:name2.toCharArray())
+{
+    if(ch=='.' || ch=='?' ||ch=='!')
+    count++;
+}
+System.out.println(count);
+	}
+}
 ******************String Class Methods
 
 

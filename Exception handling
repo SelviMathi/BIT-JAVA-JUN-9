@@ -43,8 +43,8 @@ Common scenarios where exceptions may occur
 
 Java throw keyword is used to explicitly throw an exception.		      Java throws keyword is used to declare an exception.
 Checked exception cannot be propagated using throw only.		          Checked exception can be propagated with throws.
-Throw is used within the method.				                             	Throws is used with the method signature.
-You cannot throw multiple exceptions			                        		You can declare multiple exceptions e.g.
+Throw is used within the method.				                  Throws is used with the method signature.
+You cannot throw multiple exceptions			              You can declare multiple exceptions e.g.
 									                                                    public void method()throws IOException,SQLException.
 
 
@@ -56,6 +56,7 @@ It is block
 
 Finalize is used to perform clean up processing just before object is garbage collected.
 it is method
+
 
 | Method               | Purpose                     | Returns       |
 | -------------------- | --------------------------- | ------------- |

@@ -57,6 +57,15 @@ It is block
 Finalize is used to perform clean up processing just before object is garbage collected.
 it is method
 
+| Method               | Purpose                     | Returns       |
+| -------------------- | --------------------------- | ------------- |
+| `getMessage()`       | Returns only the message    | String        |
+| `toString()`         | Class + message             | String        |
+| `printStackTrace()`  | Detailed trace to console   | void          |
+| `getStackTrace()`    | Stack trace as array        | StackTrace\[] |
+| `initCause()`        | Attach original cause       | Throwable     |
+| `getCause()`         | Get the cause of exception  | Throwable     |
+| `fillInStackTrace()` | Updates current stack trace | Throwable     |
 
 
 
@@ -127,8 +136,13 @@ public class License
 }
 
 ******************************************************************************************************
+2.A user tries to withdraw money from an ATM.
+If the withdrawal amount > balance, it should show an error using a custom exception.
+Also add Thank you message!
 
-2.Get an integer input,
+**************************************************************************************
+
+3.Get an integer input,
 If the input is 1, Throw an Integer exception.
 If the input is 2, Throw a Character exception. If the input is 3, Throw a double exception
 Input Format

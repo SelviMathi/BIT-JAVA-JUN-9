@@ -169,7 +169,46 @@ public class Main
 
 2. Calculate x power n  using recursion.
 
+**************************************************************
+What is the Taylor Series?
 
-3.Calculate e^x  using the Taylor series:
+The Taylor series represents a function as an infinite sum of its derivatives
+
+f(x) = f(0) + f'(0)/1! * x + f''(0)/2! * x^2 + f'''(0)/3! * x^3 + ... + fⁿ(0)/n! * x^n
+
+
+
 e^x = 1 + x/1! + x^2/2! + x^3/3! + ......
 
+sin(x) = x - x^3/3! + x^5/5! - x^7/7! + ... + (-1)^n x^{2n+1}/(2n+1)!
+
+cos(x) = 1 - x^2/2! + x^4/4! - x^6/6! + ... + (-1)^n x^{2n}/(2n)!
+
+
+
+
+Calculate e^x  using the Taylor series:
+e^x = 1 + x/1! + x^2/2! + x^3/3! + ......
+
+********************************************************************************
+Solving Recurrence Relations 
+
+A mathematical equation that expresses a term as a function of its preceding
+terms.
+
+Used to describe recursive algorithms and computational problems.
+
+General Form: T(n)=f(T(n−1),T(n−2),...,T(n−k))+g(n)T(n) = f(T(n-1), T(n-2), ...,
+T(n-k)) + g(n)T(n)=f(T(n−1),T(n−2),...,T(n−k))+g(n)
+
+Types:
+1️⃣ First-Order Recurrence
+2️⃣ Second-Order Recurrence
+3️⃣ Third-Order RecurrenceI
+
+Applications 
+
+Algorithm Analysis – Sorting (Merge Sort, Quick Sort)
+✅ Mathematical Sequences – Fibonacci, Factorial, Tower of Hanoi
+✅ Computational Problems – Dynamic Programming, Tree Structures
+✅ Physics & Engineering – Wave Propagation, Circuit Analysis

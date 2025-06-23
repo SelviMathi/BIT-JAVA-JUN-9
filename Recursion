@@ -1,0 +1,175 @@
+***********************Recursion****************
+
+Recursion is a programming technique where a function calls itself in order to solve a problem. It is particularly useful for problems that can be broken down into smaller, similar subproblems. A recursive function typically has two parts:
+
+Base Case: The condition under which the recursion stops.
+
+Recursive Case: The part where the function calls itself with a modified argument.
+
+Types of Recursion:
+
+1.Direct Recursion: A function calls itself directly.
+
+Example:
+
+public class Recursion {
+    public static int factorial(int n) {
+        if (n == 0) { // Base case
+            return 1;
+        } else {      // Recursive case
+            return n * factorial(n - 1);
+        }
+    }
+
+    public static void main(String[] args) {
+        System.out.println(factorial(5)); 
+    }
+}
+Flow diagram:
+
+factorial(3)
+    -> 3 * factorial(2)
+        -> 2 * factorial(1)
+            -> 1 * factorial(0)
+                -> 1 (base case)
+            <- 1
+        <- 2
+    <- 6
+
+2.Indirect Recursion: A function calls another function, which eventually calls the first function.
+public class Main
+{
+	public static int MECH(int a1)
+	{
+	    if(a1==0)
+	    return 0;
+	    
+	    System.out.println("MECH:"+a1);
+	    IT(a1-1);
+	    return 0;
+	}
+	
+	
+	public static int IT(int a)
+	{
+	    if(a==0)
+	    return 0;
+	    System.out.println("IT:"+a);
+	    MECH(a-1);
+	    return 0;
+	}
+	public static void main(String[] args) 
+	{
+	 	  MECH(5);	
+	}
+}
+
+3.Tail Recursion: The recursive call is the last operation in the function.
+Tail recursion can be optimized by compilers to avoid stack overflow.
+class Main { 
+static void fun(int n) 
+{ 
+	if (n > 0) 
+	{ 
+	System.out.print(n + " "); 
+	fun(n - 1); 
+	} 
+} 
+public static void main(String[] args) 
+{ 
+	int x = 3; 
+	fun(x); 
+} 
+} 
+
+4.Non-Tail Recursion: The recursive call is not the last operation.
+Additional operations are performed after the recursive call.
+
+import java.io.*; 
+
+class Main{ 
+static void fun(int n) 
+{ 
+	if (n > 0) { 
+		fun(n - 1); 
+		System.out.print(" "+ n); 
+	} 
+} 
+
+public static void main(String[] args) 
+{ 
+	int x = 3; 
+	fun(x); 
+	
+} 
+} 
+5.TREE Recursion
+A recursive function makes more than one recursive call in its body, leading to a tree-like structure of calls.
+class Main
+{ 
+static void fun(int n) 
+{ 
+	if (n > 0) { 
+		System.out.print(" "+ n); 
+		fun(n - 1); 
+		fun(n - 1); 
+	} 
+} 
+public static void main(String[] args) 
+{ 
+	fun(3); 
+	} 
+} 
+6.Nested Recursion
+A recursive function calls itself with a recursive call as one of its arguments.
+
+import java.util.*; 
+
+class Main { 
+static int fun(int n) 
+{ 
+	if (n > 100) 
+		return n - 10; 
+	return fun(fun(n + 11)); 
+} 
+
+public static void main(String args[]) 
+{ 
+	int r; 
+	r = fun(95); 
+	System.out.print(" "+ r); 
+	
+} 
+} 
+
+***************************Problems to solve*********************8
+1.Problem: Calculate the sum of the first n natural numbers.
+
+import java.util.*;
+public class Main
+{
+    public static int sum(int num)
+    {
+        if(num==1)
+        return 1;
+    
+        return num+sum(num-1);
+    }
+    
+	public static void main(String[] args) {
+		
+		Scanner ob=new Scanner(System.in);
+		int n=ob.nextInt();
+		
+		System.out.println(sum(n));
+		
+		}
+}
+
+
+2. Calculate x power n  using recursion.
+
+
+3.Calculate e^x  using the Taylor series:
+e^x = 1 + x/1! + x^2/2! + x^3/3! + ......
+

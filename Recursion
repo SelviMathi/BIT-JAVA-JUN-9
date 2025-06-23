@@ -37,31 +37,23 @@ factorial(3)
     <- 6
 
 2.Indirect Recursion: A function calls another function, which eventually calls the first function.
-public class Main
-{
-	public static int MECH(int a1)
-	{
-	    if(a1==0)
-	    return 0;
-	    
-	    System.out.println("MECH:"+a1);
-	    IT(a1-1);
-	    return 0;
-	}
-	
-	
-	public static int IT(int a)
-	{
-	    if(a==0)
-	    return 0;
-	    System.out.println("IT:"+a);
-	    MECH(a-1);
-	    return 0;
-	}
-	public static void main(String[] args) 
-	{
-	 	  MECH(5);	
-	}
+public class IndirectRecursion {
+
+    public static void funA(int n) {
+        if (n <= 0) return;
+        System.out.println("A: " + n);
+        funB(n - 1);
+    }
+
+    public static void funB(int n) {
+        if (n <= 0) return;
+        System.out.println("B: " + n);
+        funA(n - 1);
+    }
+
+    public static void main(String[] args) {
+        funA(5);
+    }
 }
 
 3.Tail Recursion: The recursive call is the last operation in the function.
@@ -185,10 +177,69 @@ sin(x) = x - x^3/3! + x^5/5! - x^7/7! + ... + (-1)^n x^{2n+1}/(2n+1)!
 cos(x) = 1 - x^2/2! + x^4/4! - x^6/6! + ... + (-1)^n x^{2n}/(2n)!
 
 
-
-
 Calculate e^x  using the Taylor series:
 e^x = 1 + x/1! + x^2/2! + x^3/3! + ......
+
+
+
+
+
+
+TaylorOptimized*******************************
+public class Main {
+
+    public static double taylor(int x, int n) {
+        return taylorHelper(x, n, 1);
+    }
+
+    public static double taylorHelper(int x, int n, double result) {
+        if (n == 0)
+            return result;
+        result = 1 + (x * result) / n;
+        return taylorHelper(x, n - 1, result);
+    }
+
+    public static void main(String[] args) {
+        int x = 2, n = 10;
+        System.out.printf("Optimized e^%d ≈ %.6f\n", x, taylor(x, n));
+    }
+}
+Fibonacci
+public static int fib(int n) {
+    if (n <= 1)
+        return n;
+    return fib(n - 1) + fib(n - 2);
+}
+Exponential time O(2^n)
+
+Fibonacci optmised---Memoization (Top-Down DP)
+public static int fib(int n, int[] dp) {
+    if (n <= 1)
+        return n;
+    if (dp[n] != -1)
+        return dp[n];
+    dp[n] = fib(n - 1, dp) + fib(n - 2, dp);
+    return dp[n];
+}
+Time: O(n)
+Space: O(n)
+
+Fibonacci optmised--- Bottom-Up (Tabulation)
+
+public static int fib(int n) {
+    if (n <= 1) return n;
+    int[] dp = new int[n + 1];
+    dp[0] = 0;
+    dp[1] = 1;
+    for (int i = 2; i <= n; i++) {
+        dp[i] = dp[i - 1] + dp[i - 2];
+    }
+    return dp[n];
+}
+
+Time: O(n)
+Space: O(n)
+
 
 ********************************************************************************
 Solving Recurrence Relations 
@@ -203,12 +254,123 @@ T(n-k)) + g(n)T(n)=f(T(n−1),T(n−2),...,T(n−k))+g(n)
 
 Types:
 1️⃣ First-Order Recurrence
-2️⃣ Second-Order Recurrence
-3️⃣ Third-Order RecurrenceI
+A first-order recurrence relation is a way of defining a sequence where each term depends only on its immediate previous term.
 
+🧠 General Form:
+T(n) = a * T(n - 1) + f(n)
+Where:
+
+a is a constant multiplier,
+
+f(n) is an extra function or value added (can be 0),
+
+A base case like T(1) or T(0) is always required.
+ 
+Example Sum of natural num,Factorial
+
+Scenario Question
+
+You are developing a mobile app that tracks battery usage over time. The phone starts with a 100% battery, and every minute it drains by a fixed rate (in percentage).
+
+Write a recursive Java program to calculate the remaining battery percentage after n minutes.
+USE public static int simulateBattery(int n, int drainRate)
+
+Input:
+n → Number of minutes the device has been running.
+drainRate → Battery percentage drained per minute.
+
+Output:
+Remaining battery percentage after n minutes.
+
+Input:
+n = 5
+drainRate = 3
+
+Output:
+Battery after 5 mins: 85%
+Explanation:
+100 - (5 × 3) = 85%
+
+*************************************************************************************
+2️⃣ Second-Order Recurrence
+
+A second-order recurrence relation is a sequence where each term depends on the previous two terms.
+General Form:
+T(n) = a * T(n - 1) + b * T(n - 2) + f(n)
+a, b: Constants
+
+f(n): Some function of n (optional)
+
+Requires two base cases: e.g., T(0) and T(1)
+
+Example fibonacci
+
+Scenario Question
+
+A frog is sitting at the bottom of a staircase with n steps.
+The frog can jump either 1 step or 2 steps at a time.
+Your task is to find the total number of distinct ways the frog can reach the top.
+
+Write a recursive function to calculate the number of ways the frog can reach the nth step.
+
+Input:
+An integer n representing the number of steps.
+
+Output:
+An integer representing the number of distinct ways to reach the nth step.
+
+Input:
+n = 3
+
+Output:
+Ways to reach step 3: 3
+➡️ Three ways:
+
+[1 + 1 + 1]
+
+[1 + 2]
+
+[2 + 1]
+
+
+*************************************************************************************
+3️⃣ Third-Order Recurrence
+A third-order recurrence relation defines each term based on the three previous terms.
+
+General Form:
+
+T(n) = a * T(n - 1) + b * T(n - 2) + c * T(n - 3) + f(n)
+a, b, c: constants
+
+f(n): optional additional function
+
+Requires 3 base cases: e.g. T(1), T(2), T(3)
+
+Example Tribonacci
+
+*************************************************************************************
 Applications 
 
 Algorithm Analysis – Sorting (Merge Sort, Quick Sort)
 ✅ Mathematical Sequences – Fibonacci, Factorial, Tower of Hanoi
 ✅ Computational Problems – Dynamic Programming, Tree Structures
 ✅ Physics & Engineering – Wave Propagation, Circuit Analysis
+
+*************************************************************************************
+
+
+What is an Indirect Recurrence Relation?
+In an indirect recurrence, one function is defined in terms of another function, and vice versa.
+
+It's like function A calls B, and function B calls A — they depend on each other to compute their values.
+
+Let’s define two functions:
+
+E(n) → number of ways to do something when n is even
+
+O(n) → number of ways when n is odd
+
+And they are defined like this:
+
+E(n) = E(n - 2) + O(n - 1)     // even depends on odd
+O(n) = E(n - 1) + O(n - 2)     // odd depends on even

@@ -1,0 +1,129 @@
+******************Time complexity
+The Time Complexity of an algorithm/code is not equal to the actual time required to execute a particular code, but the number of times a statement executes. 
+Time complexity measures the amount of time an algorithm takes as a function of the input size n. It is often expressed using Big-O notation.
+
+************************Best, Worst, and Average Case:
+
+Best Case: Minimum time required (e.g., linear search finds the element in the first step).
+
+Worst Case: Maximum time required (e.g., linear search finds the element in the last step).
+
+Average Case: Expected time over all possible inputs.
+**************************************
+
+
+
+Ex 1: Constant Time: 
+O(1) (e.g., accessing an array element).
+
+public void sum(int a,int b){
+int res=a+b;                ->  O(1)+O(1)+O(1)+O(1)
+System.out.println(res);    ->  O(1)
+
+Total O(5)=O(1)
+
+Ex 2: Linear Time: 
+O(n) (e.g., traversing an array).
+
+public void sum(int a,int b){ 
+int sum=0;                    ->1
+for(int i=1;i<=n;i++)         ->1+3n+3+3n
+sum+=i;                       ->n(4)
+System.out.println(sum);      ->1
+}
+
+Total 6+10n=O(n)
+
+Ex 3: Quadratic Time: 
+O(n ^2) (e.g., bubble sort).
+
+for(int i=1;i<n;i++){
+  for(int j=1;j<n;j++)
+  System.out.println(i+j);
+}
+
+Ex 4: O(N)
+
+for(int i=1;i<n;i++)
+System.out.println("Hello");
+
+for(int j=1;j<n;j++)
+System.out.println("Hello");
+
+Ex 5: O(N^3)
+
+for(int i=1;i<n;i++){
+  for(int j=1;j<n;j++){
+  for(int k=1;k<n;k++)
+  System.out.println(i+j+k);
+}
+}
+
+
+Ex 6: (n^2)
+
+for(int i=1;i<n;i++){
+  for(int j=1;j<n/2;j++)
+  System.out.println(i+j);
+}
+
+Ex 7: O(nm)
+
+for(int i=1;i<n/10;i++){
+  for(int j=1;j<2m;j++)
+  System.out.println(i+j);
+}
+
+Ex 8: O(nm+nk)
+
+for(int i=1;i<n;i++){
+  for(int j=1;j<n;j++)
+    System.out.println(i+j);
+  for(int k=1;k<n;k++)
+    System.out.println(i+k);
+}
+}
+
+Ex 9: Logarithmic Time: 
+O(logn) (e.g., binary search).
+
+
+for(int i=1;i<n;i=i*2)
+System.out.println("Hello");
+
+Ex 10: O(sqrt(n))
+
+for(int i=1;i*i<n;i++)
+System.out.println("Hello");
+
+Linearithmic Time: 
+O(nlogn) (e.g., merge sort).
+
+Exponential Time: 
+O(2^n ) (e.g., solving the Tower of Hanoi).
+
+
+| Big-O Notation   |   Name                |  Performance                         |   Example Use Cases                                  |
+| ---------------- | --------------------- | ------------------------------------ | ---------------------------------------------------- |
+| O(1)             | **Constant Time**     | Fastest — does not grow with input| Accessing an array element, hashmap lookup           |
+| O(log n)         | **Logarithmic Time**  | Grows slowly as input increases   | Binary search in a sorted array                      |
+| O(n)             | **Linear Time**       | Grows proportionally to input     | Simple loops, linear search                          |
+| O(n log n)       | **Linearithmic Time** | Fast sorting                      | Merge Sort, Heap Sort, Sieve of Eratosthenes         |
+| O(n^2)           | **Quadratic Time**    | Slower for large inputs           | Nested loops, Bubble/Selection/Insertion Sort        |
+| O(n^3)           | **Cubic Time**        | Very slow                         | Triple nested loops, matrix multiplication           |
+| O(2^n)           | **Exponential Time**  | Extremely slow                    | Recursive Fibonacci, Backtracking, Subset generation |
+| O(n!)            | **Factorial Time**    | Worst — impractical for large n   | Generating permutations, Traveling Salesman Problem  |
+
+
+**********************
+Space Complexity
+
+Space complexity generally represents the summation of auxiliary space and the input space. Auxiliary space refers to the space that we use additionally to solve a problem. And input space refers to the space that we use to store the inputs.
+
+Ex:
+int a=10;    1 (inp space)
+int b=20;    1 (inp space)
+int c=a+b;   1 (aux space)
+O(constant)
+
+If we use an array of size n, the space complexity will be O(N).

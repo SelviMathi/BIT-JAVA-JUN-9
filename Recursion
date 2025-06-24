@@ -239,6 +239,17 @@ public static int fib(int n) {
 
 Time: O(n)
 Space: O(n)
+***************************************************************************
+
+
+| Feature        | **Memoization (Top-Down)**                          | **Tabulation (Bottom-Up)**                            |
+| -------------- | --------------------------------------------------- | ----------------------------------------------------- |
+| Approach       | Top-down (uses recursion)                           | Bottom-up (uses iteration)                            |
+| Storage        | Stores results in an array/map when needed          | Fills a table (array) from bottom up                  |
+| Calls          | Recursive calls happen first, and answers are saved | No recursion; uses loops                              |
+| Base Case      | Starts from goal (e.g., `fibo(n)`) and breaks down  | Starts from base case (e.g., `fibo(0)`) and builds up |
+| Execution      | Slower due to recursive call stack                  | Usually faster, no overhead of recursion              |
+| Stack Overflow | Possible for large `n` due to deep recursion        | Not possible (iterative)                              |
 
 
 ********************************************************************************

@@ -215,6 +215,162 @@ diff.removeAll(b);  // [1, 2]
 | `clear()`            | Removes all elements                      |
 | `iterator()`         | Returns an iterator                       |
 
+*************************************************************
+Iterator is an interface in java.util.
+
+It is used to traverse a collection (like List, Set, etc.).
+
+Works with all classes that implement Collection (like ArrayList, LinkedList, etc.**********************************************************************************************
+
+| Method      | Description                                   |
+| ----------- | --------------------------------------------- |
+| `hasNext()` | Checks if there is another element            |
+| `next()`    | Returns the next element                      |
+| `remove()`  | Removes the last element returned by `next()` |
+
+List<Integer> list = new ArrayList<>(Arrays.asList(10, 20, 30));
+
+Iterator<Integer> itr = list.iterator();
+
+while (itr.hasNext()) {
+    if (itr.next() == 30) {
+        itr.remove(); // safe removal during iteration
+    }
+}
+OR
+for (Integer item : list) {
+    System.out.println(item);
+}
+*************************************************************
+
+QUEUE
+
+A Queue is a linear data structure that follows FIFO: First In, First Out.
+
+Available in java.util under the Queue<E> interface.
+
+| Method      | Description                                 |
+| ----------- | ------------------------------------------- |
+| `add(e)`    | Inserts element, throws error if full       |
+| `offer(e)`  | Inserts element, returns false if full      |
+| `poll()`    | Removes and returns head, or `null`         |
+| `remove()`  | Removes and returns head, or error          |
+| `peek()`    | Returns head without removing (or `null`)   |
+| `element()` | Same as `peek()`, but throws error if empty |
+
+
+*******************************************************************************
+Example Using Queue (with LinkedList)
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Queue<String> queue = new LinkedList<>();
+
+        queue.offer("A");
+        queue.offer("B");
+        queue.offer("C");
+
+        System.out.println("Head: " + queue.peek());  // A
+
+        System.out.println("Removed: " + queue.poll()); // A
+        System.out.println("Queue: " + queue);          // [B, C]
+    }
+}
+
+
+*******************************************************************************
+Example Using PriorityQueue (Min-Heap by default)
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+
+        pq.offer(50);
+        pq.offer(10);
+        pq.offer(30);
+
+        while (!pq.isEmpty()) {
+            System.out.println(pq.poll());  // 10, 30, 50
+        }
+    }
+}
+
+*******************************************************************************
+Example Using ArrayDeque
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Deque<String> dq = new ArrayDeque<>();
+
+        dq.offer("Java");
+        dq.offerFirst("C++");  // Insert at front
+        dq.offerLast("Python");
+
+        System.out.println(dq);           // [C++, Java, Python]
+        System.out.println(dq.pollLast()); // Python
+    }
+}
+
+
+*************************************************************
+
+MAP
+
+A Map is a key-value pair collection.
+
+Each key must be unique, but values can be duplicated.
+
+Belongs to the java.util package.
+
+
+| Method                    | Description                                  |
+| ------------------------- | -------------------------------------------- |
+| `put(K key, V value)`     | Adds a key-value pair                        |
+| `get(K key)`              | Retrieves value by key                       |
+| `remove(K key)`           | Removes entry by key                         |
+| `containsKey(K key)`      | Checks if key exists                         |
+| `containsValue(V value)`  | Checks if value exists                       |
+| `putIfAbsent(K, V)`       | Adds if key is not already present           |
+| `replace(K key, V value)` | Updates value if key exists                  |
+| `isEmpty()`               | Checks if map is empty                       |
+| `size()`                  | Returns number of entries                    |
+| `clear()`                 | Removes all entries                          |
+
+getOrDefault(K key, V defaultVal)  |Returns value if key exists, else returns default.
+map.getOrDefault(2, "Unknown"); // "Unknown"
+
+
+keySet()`                          | Returns a Set of all keys                    |
+Set<Integer> keys = map.keySet();
+
+values()`                          | Returns a Collection of all values           
+Collection<String> vals = map.values();
+
+`entrySet()`                       | Returns Set of key-value pairs (`Map.Entry`) |
+ `
+for (Map.Entry<Integer, String> entry : map.entrySet()) {
+    System.out.println("Key: " + entry.getKey());
+    System.out.println("Value: " + entry.getValue());
+}
+
+Iterator<Map.Entry<Integer, String>> itr = map.entrySet().iterator();
+while (itr.hasNext()) {
+    Map.Entry<Integer, String> entry = itr.next();
+    System.out.println(entry.getKey() + " : " + entry.getValue());
+}
+
+compute(K key, BiFunction)          Modifies value based on key and current value.
+map.compute(1, (k, v) -> v + " Pie"); // Apple → Apple Pie
+
+
+*************************************************************
+
 
 1.Segregating positive and negative numbers
 

@@ -1,147 +1,164 @@
+          java.util.Collection (Interface)
+                     |
+    ----------------------------------------
+    |                                      |
+ List (Interface)                      Set (Interface)
+    |                                      |
+    |                                      |
+ -----------                        -----------------
+ |    |    |                        |       |       |
+ArrayList LinkedList Vector     HashSet LinkedHashSet TreeSet
 
-Collections
-List
-    ArrayList
-    Vector
-    LinkedList
-    Stack
+Queue (Interface)
+    |
+ PriorityQueue, ArrayDeque
 
+-------------------------------------------
 
-Feature                  	ArrayList 🟢	            Vector 🔵                        	LinkedList 🟠
-Structure                	Uses dynamic array      	Uses dynamic array	              Uses doubly linked list
-Thread Safety	            ❌ Not synchronized      ✅ Synchronized                 	❌ Not synchronized (not thread-safe)
-Performance	              ✅ Faster               	⏳ Slower            	            ⚡ Fast insert/delete but slow access
-Growth Rate	              Expands 50% when full	    Expands 2x when full	            Grows dynamically
-Best Use Case	            ✅ When fast access     	✅ When thread safety is required	  ✅ When frequent insertions/deletions are needed
-Access Speed	             O(1) (random access)	     O(1) (random access)	            🐢 O(n) (slow, sequential search)
-Insert/Delete Speed	       O(n) (slow )	             O(n) (same as ArrayList)	         O(1) at head/tail, O(n) otherwise*******************************Array ADT - display , append, insert, delete*****************
-
-
-***********************Array ADT - display, append, insert,delete*******************************
-import java.util.ArrayList;
-
-public class ArrList {
-    public static void main(String[] args) {
-        ArrayList<Integer> arr = new ArrayList<>();
-//getting input from user
-//for(int i=0;i<5;i++)
-//arr.add(obj.nextInt());
-        // Append elements
-        arr.add(10);
-        arr.add(20);
-        arr.add(30);
-        arr.add(40);
-        System.out.println("Array: " + arr); // Output: [10, 20, 30, 40]
-
-        // Insert element at index 2
-        arr.add(2, 25);
-        System.out.println("After insertion: " + arr); // Output: [10, 20, 25, 30, 40]
-
-        // Delete element at index 3
-        arr.remove(3);
-        System.out.println("After deletion: " + arr); // Output: [10, 20, 25, 40]
-
-    }
-}
-***********************Array ADT - get, set, search*******************************
-import java.util.ArrayList;
-import java.util.Collections;
-
-public class ArrList1 {
-    public static void main(String[] args) {
-        ArrayList<Integer> arr = new ArrayList<>();
-
-        // Append elements
-        arr.add(10);
-        arr.add(20);
-        arr.add(30);
-        arr.add(40);
-        System.out.println("Array: " + arr); // Output: [10, 20, 30, 40]
-
-        // // Get element at index 2
-        // System.out.println("Element at index 2: " + arr.get(2)); // Output: 25
-
-        // // Set (update) element at index 2
-        // arr.set(2, 35);
-        // System.out.println("After updating index 2: " + arr); // Output: [10, 20, 35, 40]
-
-        // // Search for an element
-        // int index = arr.indexOf(40);
-        // System.out.println("Index of 40: " + index); // Output: 3
-   }}
-*******************************Array ADT - shift / rotate******************************
-import java.util.ArrayList;
-import java.util.Collections;
-
-public class ArrList1 {
-    public static void main(String[] args) {
-        ArrayList<Integer> arr = new ArrayList<>();
-
-        // Append elements
-        arr.add(10);
-        arr.add(20);
-        arr.add(30);
-        arr.add(40);
-        System.out.println("Array: " + arr); // Output: [10, 20, 30, 40]
-        
-        // Left Rotate
-        Collections.rotate(arr, -2);
-        System.out.println("After left rotation: " + arr); // Output: [20, 35, 40, 10]
-
-        // Right Rotate
-        Collections.rotate(arr, 1);
-        System.out.println("After right rotation: " + arr); // Output: [10, 20, 35, 40]
-
-        
-    }}
-
-*************************Converting Between Array and ArrayList***************
-1. Convert ArrayList to Array
-String[] array = names.toArray(new String[0]);
-
-2. Convert Array to ArrayList
-
-import java.util.Arrays;
-import java.util.List;
-
-String[] arr = {"Red", "Blue", "Green"};
-List<String> list = new ArrayList<>(Arrays.asList(arr));
+       java.util.Map (Interface)
+                    |
+          -----------------------
+          |                     |
+        HashMap          TreeMap / LinkedHashMap
 
 
-**********Methods of ArrayList, Vector, and LinkedList**********
-Below are some common methods available in all three classes:
 
-1. Common Methods (Available in All)
-Method                  	Description
-add(E e)              	Adds an element at the end.
-add(int index, E e)	    Inserts an element at a specific index.
-remove(int index)	      Removes an element at a specific index.
-remove(Object o)	      Removes the first occurrence of a specified element.
-get(int index)	        Retrieves an element at the specified index.
-size()                	Returns the number of elements.
-contains(Object o)	    Checks if an element exists.
-indexOf(Object o)	      Returns the first index of an element.
-clear()                	Removes all elements.
+Collection Interface
+The root interface in the collection hierarchy for List, Set, and Queue.
 
-2. Unique Methods
-Each class has some additional methods:
 
-✅ ArrayList & Vector (Methods not in LinkedList)
-ensureCapacity(int minCapacity) – Ensures minimum capacity.
-trimToSize() – Reduces size to match elements.
+2. List Interface (Ordered, Allows Duplicates)
+Class	            Features
+ArrayList	        Fast random access, resizable array
+LinkedList	        Doubly-linked list, fast insert/delete
+Vector	            Thread-safe (synchronized), legacy
+Stack	            LIFO stack (extends Vector)
 
-✅ Vector-Specific Methods
-capacity() – Returns the current capacity.
-firstElement() – Returns the first element.
-lastElement() – Returns the last element.
-removeElement(Object obj) – Removes an element.
+3. Set Interface (No Duplicates)
+Class	            Features
+HashSet	            No duplicates, no order
+LinkedHashSet	    Maintains insertion order
+TreeSet	            Sorted, no duplicates (uses Red-Black Tree)
 
-✅ LinkedList-Specific Methods
+4. Queue Interface (FIFO)
+Class	            Features
+PriorityQueue	    Elements sorted by natural/comparator order
+ArrayDeque	        Double-ended queue, no capacity limit
 
-addFirst(E e), addLast(E e) – Adds elements at the beginning or end.
-removeFirst(), removeLast() – Removes first or last element.
-getFirst(), getLast() – Retrieves first or last element.
-poll(), peek() – Retrieves/removes elements from the head.
+5. Map Interface (Key-Value Pairs)
+Class	            Features
+HashMap	            Fast, no order
+LinkedHashMap      	Maintains insertion order
+TreeMap	            Sorted by keys
+Hashtable	        Legacy, thread-safe
+
+*************************************************************************
+List is an interface in java.util.
+
+It allows ordered collection of duplicate elements.
+
+You can access elements by index.
+
+System.out.println("\n--- ArrayList ---");
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add("Apple");
+        arrayList.add("Banana");
+        arrayList.add(1, "Grape");        // Insert at index
+        arrayList.set(2, "Orange");       // Replace
+        arrayList.remove("Banana");       // Remove by value
+        arrayList.remove(0);              // Remove by index
+        arrayList.add("Mango");
+        System.out.println("ArrayList: " + arrayList);
+        System.out.println("Contains Mango? " + arrayList.contains("Mango"));
+        System.out.println("Index of Mango: " + arrayList.indexOf("Mango"));
+        System.out.println("Size: " + arrayList.size());
+        arrayList.clear();                // Remove all
+    System.out.println("After clear(): " + arrayList);
+
+*******************************************************************************
+
+System.out.println("\n--- LinkedList ---");
+        LinkedList<Integer> ll = new LinkedList<>();
+        ll.add(10); ll.addFirst(5); ll.addLast(20);
+        System.out.println("LinkedList: " + ll);
+        ll.removeFirst(); ll.removeLast();
+        System.out.println("After removing ends: " + ll);
+        ll.add(15); ll.add(25); ll.add(2, 18);
+        System.out.println("LinkedList after add: " + ll);
+        System.out.println("First: " + ll.getFirst() + ", Last: " + ll.getLast());
+
+*******************************************************************************
+System.out.println("\n--- Vector ---");
+        Vector<String> vector = new Vector<>();
+        vector.add("A"); vector.add("B");
+        vector.addElement("C");              // Legacy method
+        vector.remove(1);
+        System.out.println("Vector: " + vector);
+        System.out.println("Element at 0: " + vector.elementAt(0)); // legacy method
+        vector.set(0, "Z");
+        System.out.println("Modified Vector: " + vector);
+        System.out.println("Capacity: " + vector.capacity());
+
+*******************************************************************************
+System.out.println("\n--- Stack ---");
+        Stack<Integer> stack = new Stack<>();
+        stack.push(100); stack.push(200);
+        System.out.println("Top: " + stack.peek());
+        stack.pop();
+        System.out.println("After pop: " + stack);
+        System.out.println("Is Empty? " + stack.isEmpty());
+        System.out.println("Search(100): " + stack.search(100)); // 1-based index
+
+
+*******************************************************************************
+Common methods
+
+list.addAll
+list.retainAll
+list.removeAll
+Collections.reverse
+Collections.sort
+Collections.rotate(list,-2);
+Collections.rotate(list,3);
+Collections.reverse(list);
+Collections.swap(list, 0, 2);
+Collections.shuffle(list);
+Collections.fill(list, "X");
+int freq = Collections.frequency(list, "A");
+Collections.max(list);
+Collections.min(list);
+List<String> original = new ArrayList<>(Arrays.asList("One", "Two"));
+List<String> unmodifiable = Collections.unmodifiableList(original);
+
+*******************************************************************************
+LIST--->ARRAY
+List<String> list = Arrays.asList("x", "y", "z");
+        String[] arr = list.toArray(new String[0]);
+        System.out.println(Arrays.toString(arr)); 
+
+ List<String> list = new ArrayList<>();
+        list.add("x");
+        list.add("y");
+        list.add("z");
+        String[] arr = list.toArray(new String[0]);
+        System.out.println(Arrays.toString(arr));
+
+ARRAY-->LIST
+
+int[] arr = {1, 2, 3};
+List<Integer> list = new ArrayList<>();
+for (int num : arr) list.add(num);
+***************************************************************
+List<String> list = List.of("Apple", "Banana", "Cherry");//IMMUTABLE
+
+
+Prefer ArrayList for frequent reads and random access.
+
+Use LinkedList for frequent insertions/removals at ends.
+
+Avoid Vector unless thread-safety is needed (old, synchronized).
+
+Stack is LIFO, internally uses Vector
 
 ************Programs*************
 Array Operation	        Manual Implementation	            Built-in Method
@@ -155,6 +172,48 @@ Shift Left	            Loop and shift	                System.arraycopy()
 Shift Right            	Loop and shift	                Collections.rotate(arr, -1);
 Rotate Left	            Loop and swap	                  Collections.rotate(arr, -1);
 Rotate Right	          Loop and swap                  	Collections.rotate(arr, 1);
+
+**********************************************************************************************
+Set is a part of Java Collections Framework.
+
+It does not allow duplicate elements.
+
+Elements are unordered (unless you use specific types like LinkedHashSet or TreeSet).
+
+Belongs to java.util package.
+
+
+Set<Integer> set1 = new HashSet<>();
+Set<String> set2 = new LinkedHashSet<>();
+Set<Double> set3 = new TreeSet<>();
+
+
+Set<Integer> a = new HashSet<>(Arrays.asList(1, 2, 3));
+Set<Integer> b = new HashSet<>(Arrays.asList(3, 4, 5));
+
+// Union
+Set<Integer> union = new HashSet<>(a);
+union.addAll(b);  // [1, 2, 3, 4, 5]
+
+// Intersection
+Set<Integer> intersection = new HashSet<>(a);
+intersection.retainAll(b);  // [3]
+
+// Difference
+Set<Integer> diff = new HashSet<>(a);
+diff.removeAll(b);  // [1, 2]
+
+
+| Method               | Description                               |
+| -------------------- | ----------------------------------------- |
+| `add(E e)`           | Adds an element if not already present    |
+| `addAll(Collection)` | Adds all elements from another collection |
+| `remove(Object o)`   | Removes the element                       |
+| `contains(Object o)` | Checks if element exists                  |
+| `isEmpty()`          | Checks if set is empty                    |
+| `size()`             | Returns number of elements                |
+| `clear()`            | Removes all elements                      |
+| `iterator()`         | Returns an iterator                       |
 
 
 1.Segregating positive and negative numbers

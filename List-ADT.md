@@ -438,7 +438,8 @@ public static void segregate(int[] arr) {
     }
 }
 
-2.Merging two sorted arrays  
+2.Merging two sorted arrays
+
 3. Finding duplicate elements in an Integer array  
 
 4.Create an empty `HashSet` of integers.

@@ -443,25 +443,85 @@ public static void segregate(int[] arr) {
 3. Finding duplicate elements in an Integer array  
 
 4.Create an empty `HashSet` of integers.
+Set<Integer> set=new HashSet<>();
 
-5.Add Duplicate Element to HashSet and Observe Behavior
+5.Add Duplicate Element to HashSet and Observe Behavior.
 
 Add two elements in hashset 30 and 50 If the hashset accepts the valueS, print 
 30 = "true", 50 = "false" that means set already consist 10,20,30
 
+	Set<Integer> set=new HashSet<>();
+	set.add(10);
+	set.add(30);
+	set.add(20);
+	
+	System.out.println(set.contains(30));
+	System.out.println(set.contains(50));
+
+
 6.Convert a HashSet to an ArrayList.
 
-4.Given an array nums of integers, return how many of them contain an even number of digits.
+  Set<Integer> set=new HashSet<>();
+	set.add(10);
+	set.add(30);
+	set.add(20);
+	
+	List<Integer> list=new ArrayList<>(set);
+	
+7.Given an array nums of integers, return how many of them contain an even number of digits.
+public static void main(String[] args) {
+	    
+    int arr[]={17,5,77,569,24,48,79};
+    int count=0;
+    for(int num:arr){
+        int dig=String.valueOf(num).length();
+        if(dig%2==0) count++;
+     }
+	
+	System.out.println(count);
 
-5.Given an array of integers, return the element with the highest frequency.
+8.Given an array of integers, return the element with the highest frequency.
 Input: [1, 3, 2, 3, 4, 3, 5]
 Output: 3
-
-6.Given a string s, return the first non-repeating character. If none, return '_'.
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    int arr[]={1,2,3,2,3,3,5};
+    Map<Integer,Integer> map=new HashMap<>();
+    for(int num:arr){
+        map.put(num,map.getOrDefault(num,0)+1);
+    }
+    int max=0;
+    for (Integer value : map.values()) {
+        if(max<value)
+        max=value;
+    }
+       	System.out.println(max);
+	}
+}
+9.Given a string s, return the first non-repeating character. If none, return '_'.
 Input: "aabbcdde"
 Output: 'c'
 
-7.You are given a list of non-negative integers where each integer represents the amount of money stored in a house. The houses are arranged in a line, and you are a robber who cannot rob two adjacent houses due to security systems.
+public static void main(String[] args) {
+	   String in="aabbcdde";
+    Map<Character,Integer> map=new HashMap<>();
+    for(char num:in.toCharArray()){
+        map.put(num,map.getOrDefault(num,0)+1);
+    }
+    char re='-';
+    for (Map.Entry<Character,Integer> entry : map.entrySet()) {
+    if(entry.getValue()==1){
+    re=entry.getKey();
+    break;
+    }
+    }
+       	System.out.println(re);
+	}
+
+
+10.You are given a list of non-negative integers where each integer represents the amount of money stored in a house. The houses are arranged in a line, and you are a robber who cannot rob two adjacent houses due to security systems.
 
 Write a Java program to determine the maximum amount of money you can rob tonight without alerting the police.
 5
@@ -470,12 +530,12 @@ Write a Java program to determine the maximum amount of money you can rob tonigh
 output
 12
 
-8.Given a list of strings, group all anagrams together.
+11.Given a list of strings, group all anagrams together.
 Input: ["eat","tea","tan","ate","nat","bat"]
 Output: [["eat","tea","ate"],["tan","nat"],["bat"]]
 
-. Inserting in a sorted Array and checking if an Array is sorted  
-3. Finding missing elements in Arrays 
+12. Inserting in a sorted Array and checking if an Array is sorted  
+13. Finding missing elements in Arrays 
   
 
 

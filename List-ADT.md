@@ -92,9 +92,13 @@ System.out.println("Search(100): " + stack.search(100)); // 1-based index
 ### Common List Methods
 
 - addAll, retainAll, removeAll
-- Collections.reverse, Collections.sort, Collections.rotate
-- Collections.swap, Collections.shuffle, Collections.fill
-- Collections.frequency,
+- Collections.reverse(list), Collections.sort(list),
+- Collections.rotate(list,2)//right rotate
+- Collections.rotate(list,-2)//left rotate
+- Collections.swap(list,ind1,ind2)
+- Collections.shuffle(list)
+- Collections.fill(list,val)
+- Collections.frequency
 int freq = Collections.frequency(list, "A");
 
 - Collections.max, Collections.min
@@ -361,24 +365,8 @@ while (it.hasNext()) {
 
 map.forEach((k, v) -> System.out.println("Key: " + k + ", Value: " + v));
 
-PROBLEMS
-------
-
-1.Given an array of integers, return the element with the highest frequency.
-Input: [1, 3, 2, 3, 4, 3, 5]
-Output: 3
-
-2.Given a string s, return the first non-repeating character. If none, return '_'.
-Input: "aabbcdde"
-Output: 'c'
-
-3.Given a list of strings, group all anagrams together.
-Input: ["eat","tea","tan","ate","nat","bat"]
-Output: [["eat","tea","ate"],["tan","nat"],["bat"]]
-
-
-## 7. Array Operations: Manual vs Built-in
-
+ Array Operations: Manual vs Built-in
+---
 | Array Operation | Manual Implementation      | Built-in Method                 |
 |-----------------|---------------------------|---------------------------------|
 | Append          | arr[size++] = value;       | ArrayList.add(value);           |
@@ -392,10 +380,16 @@ Output: [["eat","tea","ate"],["tan","nat"],["bat"]]
 | Rotate Left     | Loop and swap              | Collections.rotate(arr, -1);    |
 | Rotate Right    | Loop and swap              | Collections.rotate(arr, 1);     |
 
+
+**Tips:**
+- Prefer ArrayList for frequent reads and random access.
+- Use LinkedList for frequent insertions/removals at ends.
+- Avoid Vector unless thread-safety is needed (legacy, synchronized).
+- Stack is LIFO, internally uses Vector.
+
 ---
-
-## 8. Example Programs
-
+PROBLEMS
+------
 ### 1. Segregating Positive and Negative Numbers
 
 **Using ArrayList:**
@@ -443,23 +437,44 @@ public static void segregate(int[] arr) {
         }
     }
 }
-```
 
----
+2.Merging two sorted arrays  
+3. Finding duplicate elements in an Integer array  
 
-### Other Topics (To Fill)
+4.Create an empty `HashSet` of integers.
 
-2. Inserting in a sorted Array and checking if an Array is sorted  
-3. Merging two sorted arrays  
-4. Finding duplicate elements in an Integer array  
-5. Finding missing elements in Arrays - Different Methods  
+5.Add Duplicate Element to HashSet and Observe Behavior
 
----
+Add two elements in hashset 30 and 50 If the hashset accepts the valueS, print 
+30 = "true", 50 = "false" that means set already consist 10,20,30
 
-**Tips:**
-- Prefer ArrayList for frequent reads and random access.
-- Use LinkedList for frequent insertions/removals at ends.
-- Avoid Vector unless thread-safety is needed (legacy, synchronized).
-- Stack is LIFO, internally uses Vector.
+6.Convert a HashSet to an ArrayList.
 
----
+4.Given an array nums of integers, return how many of them contain an even number of digits.
+
+5.Given an array of integers, return the element with the highest frequency.
+Input: [1, 3, 2, 3, 4, 3, 5]
+Output: 3
+
+6.Given a string s, return the first non-repeating character. If none, return '_'.
+Input: "aabbcdde"
+Output: 'c'
+
+7.You are given a list of non-negative integers where each integer represents the amount of money stored in a house. The houses are arranged in a line, and you are a robber who cannot rob two adjacent houses due to security systems.
+
+Write a Java program to determine the maximum amount of money you can rob tonight without alerting the police.
+5
+2 7 9 3 1
+
+output
+12
+
+8.Given a list of strings, group all anagrams together.
+Input: ["eat","tea","tan","ate","nat","bat"]
+Output: [["eat","tea","ate"],["tan","nat"],["bat"]]
+
+. Inserting in a sorted Array and checking if an Array is sorted  
+3. Finding missing elements in Arrays 
+  
+
+

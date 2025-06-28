@@ -34,93 +34,32 @@ public class Main {
         System.out.println("Price : ₹" + priceBox.getValue());
     }
 }
+**********************
+Generic with pairs
 
-class Array<T> {
-    private T[] arr;
-    private int arr_size;
-
-    Array(int noe) {
-        arr = (T[]) new Object[noe];
-        arr_size = noe;
+class BIT<T,S>{
+    private T val;
+    private S v;
+    public void set(T val,S v){
+        this.val=val;
+        this.v=v;
     }
-
-    void add(int i, T v) {
-        arr[i] = v;
-    }
-
-    void dis() {
-        for (int i = 0; i < arr_size; i++)
-            System.out.print(arr[i] + " ");
-    }
-
-    void insert(int index, T value) {
-        arr_size++;
-        T[] temp = (T[]) new Object[arr_size];
-        int copyInd;
-        for (copyInd = 0; copyInd < index; copyInd++)
-            temp[copyInd] = arr[copyInd];
-        temp[index] = value;
-        for (copyInd = index + 1; copyInd < arr_size; copyInd++)
-            temp[copyInd] = arr[copyInd - 1];
-        arr = temp;
-    }
-
-    public void delete(int index) {
-        for (int i = index; i < arr_size - 1; i++) {
-            arr[i] = arr[i + 1];
-        }
-        arr[arr_size - 1] = null;
-        arr_size--;
-    }
-
-    void print() {
-        System.out.print("[");
-        int ind;
-        for (ind = 0; ind < arr.length - 1; ind++) {
-            if (arr[ind] == null)
-                System.out.print(0 + ",");
-            else
-                System.out.print(arr[ind] + ",");
-        }
-        if (arr[ind] == null)
-            System.out.print(0);
-        else
-            System.out.print(arr[ind]);
-        System.out.println("]");
-    }
-
-    int search(T value) {
-        int src_ind;
-        for (src_ind = 0; src_ind < arr_size; src_ind++)
-            if (arr[src_ind] == value)
-                return src_ind;
-        return -1;
+    public void get(){
+        System.out.println(val+" "+v);
     }
 }
-
-class ArrayTester {
-    public static void main(String[] args) {
-        Array<Integer> arr_int = new Array<Integer>(20);
-        for (int arr_int_ind = 0; arr_int_ind < 19; arr_int_ind++)
-            arr_int.add(arr_int_ind, arr_int_ind + 1);
-        arr_int.print();
-        arr_int.insert(10, 111);
-        arr_int.print();
-        arr_int.insert(6, 222);
-        arr_int.print();
-        int indexAt = arr_int.search(111);
-        System.out.println(indexAt);
-
-        Array<Boolean> bl_arr = new Array<Boolean>(10);
-        bl_arr.print();
-
-        Array<Double> dbl_arr = new Array<Double>(5);
-        for (int ind = 0; ind < 5; ind++)
-            dbl_arr.add(ind, (ind + 1) / 1.0);
-        dbl_arr.print();
-        dbl_arr.insert(3, 3.14);
-        dbl_arr.print();
-        Double d = 0.0;
-        System.out.println(d);
-    }
+public class Main
+{
+	public static void main(String[] args) {
+		BIT<String,Integer> ob=new BIT<>();
+		ob.set("Selvi",100);
+	    ob.get();
+		
+		BIT<Integer,Character> ob1=new BIT<>();
+		ob1.set(100,'P');
+		ob1.get();
+	}
 }
+************************************
+
+Array with Generic

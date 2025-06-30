@@ -78,6 +78,23 @@ class LL{
         tptr.next=null;
     }
     
+     public void deleteAtPos(int pos){
+        int size=calc_of_node();
+        if(pos==1){
+            deleteBeg(); return;
+        }
+        if(pos<0 || pos>size){
+            System.out.println("Error You cannot delete at "+pos);
+            return;
+        }
+      
+        Node tptr=start;
+       for(int i=1;i<pos-1;i++) tptr=tptr.next;
+       
+     
+       tptr.next=tptr.next.next;
+    }
+   
     public void display(){
         Node tptr=start;
         while(tptr!=null){
@@ -92,15 +109,14 @@ public class Main
 {
 	public static void main(String[] args) {
 		LL list1=new LL();
-// 		list1.insertBeg(10);
+//  		list1.insertBeg(10);
 // 	   list1.insertBeg(20);
-// 	    list1.insertBeg(30);
+//	    list1.insertBeg(30);
 	list1.insertEnd(40);
 	 list1.insertEnd(50);
 	 list1.insertEnd(60);
-	  // list1.insertAtPos(100,5);
-	 //System.out.println(list1.calc_of_node());
-	 list1.deleteEnd();
+	 list1.insertEnd(70);
+ list1.deleteAtPos(3);
 	    list1.display();
 	    
 	}

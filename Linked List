@@ -121,3 +121,110 @@ public class Main
 	    
 	}
 }
+********************************
+class LL {
+    private Node start;
+    private int size = 0;
+
+    class Node {
+        int data;
+        Node next;
+        Node(int d) {
+            data = d;
+        }
+    }
+
+    //  Unified insertion
+    public void insertAtPos(int val, int pos) {
+        if (pos < 1 || pos > size + 1) {
+            System.out.println("Cannot insert at position " + pos);
+            return;
+        }
+
+        Node newNode = new Node(val);
+
+        if (pos == 1) {
+            newNode.next = start;
+            start = newNode;
+        } else {
+            Node tptr = start;
+            for (int i = 1; i < pos - 1; i++)
+                tptr = tptr.next;
+            newNode.next = tptr.next;
+            tptr.next = newNode;
+        }
+        size++;
+    }
+
+    //  Unified deletion
+    public void deleteAtPos(int pos) {
+        if (size == 0) {
+            System.out.println(" List is empty. Nothing to delete.");
+            return;
+        }
+
+        if (pos < 1 || pos > size) {
+            System.out.println(" Cannot delete at position " + pos);
+            return;
+        }
+
+        if (pos == 1) {
+            start = start.next;
+        } else {
+            Node tptr = start;
+            for (int i = 1; i < pos - 1; i++)
+                tptr = tptr.next;
+            tptr.next = tptr.next.next;
+        }
+        size--;
+    }
+
+    // Display the list
+    public void display() {
+        Node tptr = start;
+        while (tptr != null) {
+            System.out.print(tptr.data + " -> ");
+            tptr = tptr.next;
+        }
+        System.out.println("NULL");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        LL list = new LL();
+
+        list.insertAtPos(100, 1);
+        list.insertAtPos(200, 2);
+        list.insertAtPos(150, 2);
+        list.insertAtPos(50, 1);
+
+        list.display();
+
+        list.deleteAtPos(2);
+        list.display();
+
+        list.deleteAtPos(1);
+        list.deleteAtPos(3);
+        list.display();
+
+        list.deleteAtPos(1);
+        list.display();
+
+        list.deleteAtPos(1);
+    }
+}
+*********************************
+
+Search
+
+Max
+
+Is Sorted or not
+
+Sum of all node
+
+Remove duplicates in sorted list
+
+check loop?
+

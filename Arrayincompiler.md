@@ -28,6 +28,13 @@ public class ArrayEx {
 - Elements are accessed and assigned via indices (`arr[0]`, `arr[1]`, etc.).
 - `arr.length` gives the size of the array.
 
+int[] arr = new int[3];
+            ↓
++--------+        +---------+---------+---------+
+|  arr   |──────► |  [0]=100 | [1]=200  | [2]=300  |
++--------+        +---------+---------+---------+
+   Stack              Heap (object: [I)
+
 ---
 
 ## 2. How the Compiler Translates Arrays

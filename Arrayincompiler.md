@@ -34,6 +34,10 @@ public class ArrayEx {
 
 When the Java compiler (`javac`) compiles the above code, it generates Java bytecode. The bytecode instructions show how the JVM handles array operations.
 
+javac ArrayEx.java
+javap -c ArrayEx
+
+
 ### Example: Decompiled Bytecode Output
 
 ```java

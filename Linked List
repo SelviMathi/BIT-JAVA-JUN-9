@@ -1,0 +1,107 @@
+class LL{
+    Node start;
+    class Node{
+        int data;
+        Node next;
+        Node(int d){
+            data=d;
+            next=null;
+        }
+    }
+    public void insertBeg(int v){
+        Node newNode=new Node(v);
+        newNode.next=start;
+        start=newNode;
+         }
+    public void insertEnd(int v){
+        Node newNode=new Node(v);
+        if(start==null){
+            start=newNode;
+            return;
+        }
+        Node tptr=start;
+        while(tptr.next!=null){
+            tptr=tptr.next;
+        }
+        tptr.next=newNode;
+
+    }
+    public int calc_of_node(){
+        int count=0;
+        Node tptr=start;
+        while(tptr!=null) {
+            tptr=tptr.next;
+            count++;
+        }
+        return count;
+    }
+    public void insertAtPos(int v,int pos){
+        int size=calc_of_node();
+        if(pos==1){
+            insertBeg(v); return;
+        }
+        if(pos<0 || pos>size){
+            System.out.println("Error You cannot insert at "+pos);
+            return;
+        }
+        Node newNode=new Node(v);
+        Node tptr=start;
+       for(int i=1;i<pos-1;i++) tptr=tptr.next;
+       
+       newNode.next=tptr.next;
+       tptr.next=newNode;
+    }
+    public void deleteBeg(){
+        if(start==null){
+            System.out.println("No Node to delete");
+            return;
+        }
+        if(start.next==null){
+            start=start.next;
+            System.out.println("List Empty Node deleted");
+            return;
+        }
+        start=start.next;
+    }
+     public void deleteEnd(){
+        if(start==null){
+            System.out.println("No Node to delete");
+            return;
+        }
+        if(start.next==null){
+            start=start.next;
+            System.out.println("List Empty Node deleted");
+            return;
+        }
+        Node tptr=start;
+        while(tptr.next.next!=null) tptr=tptr.next;
+        tptr.next=null;
+    }
+    
+    public void display(){
+        Node tptr=start;
+        while(tptr!=null){
+            System.out.print(tptr.data+"->");
+            tptr=tptr.next;
+        }
+        
+    }
+
+}
+public class Main
+{
+	public static void main(String[] args) {
+		LL list1=new LL();
+// 		list1.insertBeg(10);
+// 	   list1.insertBeg(20);
+// 	    list1.insertBeg(30);
+	list1.insertEnd(40);
+	 list1.insertEnd(50);
+	 list1.insertEnd(60);
+	  // list1.insertAtPos(100,5);
+	 //System.out.println(list1.calc_of_node());
+	 list1.deleteEnd();
+	    list1.display();
+	    
+	}
+}

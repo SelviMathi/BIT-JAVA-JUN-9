@@ -94,8 +94,101 @@ class LL{
      
        tptr.next=tptr.next.next;
     }
-   
-    public void display(){
+   public int search(int se){
+        Node tptr=start;
+        int pos=0;
+        while(tptr!=null){
+            pos++;
+            if(tptr.data==se)
+            return pos;
+        tptr=tptr.next;
+            
+        }
+        return -1;
+    }
+//MTF Search
+public boolean search(int se){
+        if(start==null) return false;
+        if(start.data==se) return true;
+        Node prev=start;
+        Node curr=start.next;
+        
+        while(curr!=null){
+            if(curr.data==se){
+                prev.next=curr.next;
+                curr.next=start;
+                start=curr;
+                
+                
+                return true;
+            }
+            prev=curr;
+            curr=curr.next;
+        }
+        return false;
+    }
+
+public int max(){
+        Node tptr=start;
+        int max=start.data;
+        while(tptr!=null){
+            if(max<tptr.data)
+            max=tptr.data;
+            tptr=tptr.next;
+        }
+        return max;
+    }
+ public String isSorted(){
+        boolean des=true,asc=true;
+        Node tptr=start;
+        while(tptr.next!=null){
+            if(tptr.data<tptr.next.data)
+            des=false;
+            else if(tptr.data>tptr.next.data)
+            asc=false;
+            tptr=tptr.next;
+        }
+        if(asc) return "Sorted in Ascending";
+        else if(des) return "Sorted in Descending";
+        else return "Not sorted";
+    }
+
+ public int sum(){
+        int sum=0;
+        Node tptr=start;
+        while(tptr!=null){
+            sum+=tptr.data;
+            tptr=tptr.next;
+        }
+        return sum;
+    }
+public void removeDuplicates(){
+        Node tptr=start;
+        while(tptr.next!=null){
+            if(tptr.data==tptr.next.data)
+            tptr.next=tptr.next.next;
+            
+            else
+            tptr=tptr.next;
+        }
+    }
+
+public boolean hasLoopOrNot()
+    {
+        Node slow=start,fast=start;
+        
+        while(fast!=null&&fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+        
+         if(slow.data==fast.data)
+            return true;
+          //  break;
+         
+           }
+        return false;
+    }
+public void display(){
         Node tptr=start;
         while(tptr!=null){
             System.out.print(tptr.data+"->");
@@ -122,8 +215,13 @@ public class Main
 	}
 }
 *****************************************************************
+insertion 
 
-Search
+deletion
+
+count of the node
+
+Search-2 ways
 
 Max
 

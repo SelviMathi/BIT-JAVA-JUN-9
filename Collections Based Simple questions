@@ -1,0 +1,38 @@
+| No. | Problem                                       | Description                                                     |
+| --- | --------------------------------------------- | --------------------------------------------------------------- |
+| 1   | **Second Largest Element**                    | Find the second largest number in an array                      |
+| 2   | **Find Leaders in Array**                     | An element is a leader if all elements to its right are smaller |
+| 3   | **Left Rotate by 1 and by K**                 | Rotate array elements left                                      |
+| 4   | **Right Rotate by 1 and by K**                | Rotate array elements right                                     |
+| 5   | **Find All Pairs with Given Sum**             | Return index pairs or value pairs                               |
+| 6   | **Find Duplicate Elements**                   | Without using Set, with and without extra space                 |
+| 7   | **Find Union and Intersection of Two Arrays** | Without built-in functions                                      |
+| 8   | **Rearrange Array Alternately (pos, neg)**    | Alternate positive and negative values                          |
+| 9   | **Sort Array of 0s, 1s, 2s**                  | Dutch National Flag (can do with count logic only)              |
+| 10  | **Move Negative Elements to One Side**        | Without using extra list                                        |
+
+
+| No. | Problem                                       | Description                              |
+| --- | --------------------------------------------- | ---------------------------------------- |
+| 1   | **Check for Pair with Given Sum**             | Use HashSet for `target - element` check |
+| 2   | **Find Missing Elements in Range 1 to n**     | Use Set to identify                      |
+| 3   | **Find Elements that Occur Only Once**        | Use Set + logic                          |
+| 4   | **Remove Duplicates from Array**              | Use HashSet and return new array         |
+| 5   | **Check If Array Contains Nearby Duplicate**  | Within distance K (Set + sliding window) |
+| 6   | **Check If Two Arrays Are Disjoint**          | No common elements? Use Set              |
+| 7   | **Print Common Elements in 3 Arrays**         | Set intersection                         |
+| 8   | **Longest Subarray with All Unique Elements** | Use sliding window + Set                 |
+
+
+
+
+| No. | Problem                                           | Description                                                        |
+| --- | ------------------------------------------------- | ------------------------------------------------------------------ |
+| 1   | **Majority Element (> n/2 times)**                | Count frequency and compare                                        |
+| 2   | **Find Element Appearing Odd Number of Times**    | Map\<number, count>                                                |
+| 3   | **First Non-Repeating Character in String**       | Map\<char, count>, then traverse                                   |
+| 4   | **Group Words by Anagram**                        | Use map\<sortedWord, List<words>>                                  |
+| 5   | **Find Top 2 Frequent Elements in Array**         | Use map and simple sorting                                         |
+| 6   | **Check if Two Strings Are Isomorphic**           | Maintain two maps for 1-1 mapping                                  |
+| 7   | **Find Indexes of Anagram Occurrences in String** | Frequency map + sliding window                                     |
+| 8   | **Subarray Sum Equals K**                         | Prefix sum + Map\<sum, count> (use brute force if avoiding prefix) |

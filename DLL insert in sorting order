@@ -1,0 +1,83 @@
+class DLL{
+    Node start;
+    class Node{
+        int data;
+        Node prev,next;
+        Node(int d){
+            data=d;
+            prev=null;
+            next=null;
+        }
+    }
+    public void insert(int val){
+        Node new_node=new Node(val);
+        if(start==null){
+        start=new_node;
+        return ;
+        }
+        if(val<start.data){
+        new_node.next=start;
+        start.prev=new_node;
+        start=new_node;
+        return;
+        }
+        
+         Node tptr=start;
+         
+        while(tptr.next !=null && tptr.next.data<val)
+        tptr=tptr.next;
+        
+        new_node.next=tptr.next;
+        new_node.prev=tptr;
+        
+        if(tptr.next!=null)
+        tptr.next.prev=new_node;
+        
+          tptr.next=new_node;
+            
+        }
+        
+    public void display(){
+        // if(start==null)
+        // {System.out.print("NULL");
+        // }
+        // else
+        Node tptr=start;
+        System.out.println("\nForward Display");
+        while(tptr.next!=null){
+            System.out.print(tptr.data+"-> ");
+                tptr=tptr.next;
+        }
+       System.out.print(tptr.data+"->");
+        System.out.print("NULL");
+         System.out.println("\nBackward Display");
+          while(tptr!=null){
+            System.out.print(tptr.data+"<- ");
+            tptr=tptr.prev;
+        }
+          System.out.print("NULL");
+         
+        
+    }
+    
+}
+public class Main
+{
+	public static void main(String[] args) {
+		DLL list1=new DLL();
+		list1.insert(10);
+		list1.display();
+		list1.insert(5);
+	list1.display();
+		list1.insert(2);
+	list1.display();
+		list1.insert(4);
+	list1.display();
+ 		list1.insert(7);
+ list1.display();
+	
+	    list1.insert(-10);
+	list1.display();
+	
+	}
+}

@@ -1,0 +1,87 @@
+class CSLL{
+    Node start=null;
+    class Node{
+        int data;
+        Node next;
+        Node(int data){
+            this.data=data;
+            next=null;
+        }
+    }
+    public void insertBeg(int d){
+        Node NewNode=new Node(d);
+        if(start==null){
+            NewNode.next=NewNode;
+            start=NewNode;
+            return;
+        }
+        Node tptr=start.next;
+        while(tptr.next!=start)  tptr=tptr.next;
+        tptr.next=NewNode;
+        NewNode.next=start;
+        start=NewNode;
+        
+    }
+    public void insertEnd(int d){
+        Node NewNode=new Node(d);
+        if(start==null){
+            NewNode.next=NewNode;
+            start=NewNode;
+            return;
+        }
+        Node tptr=start.next;
+        while(tptr.next!=start)  tptr=tptr.next;
+        tptr.next=NewNode;
+        NewNode.next=start;
+       // start=NewNode;
+        
+    }
+    public void display(){
+        Node tptr=start;
+        do{
+            System.out.print(tptr.data+"->");
+            tptr=tptr.next;
+          }while(tptr!=start);
+          System.out.println();
+    }
+ public void SplitCSLL(){
+        Node slow=start,fast=start;
+        
+        while(fast.next!=start && fast.next.next!=start){
+            slow=slow.next;
+            fast=fast.next.next;
+        }
+        Node FirstL=start;
+        Node SecondL=slow.next;
+        
+        slow.next=start;
+        Node tptr=SecondL;
+        while(tptr.next!=start)   tptr=tptr.next;
+        
+        tptr.next=SecondL;
+        
+          System.out.println("FirstL");
+        display(FirstL);
+        
+        System.out.println("SecondL");
+        display(SecondL);
+        
+    }
+    
+}
+public class Main
+{
+	public static void main(String[] args) {
+	    CSLL list1=new CSLL();
+	    list1.insertBeg(12);
+	    list1.insertBeg(14);
+	    list1.insertBeg(18);
+	    list1.insertBeg(4);
+	    list1.display();
+	    list1.insertEnd(100);
+	    list1.insertEnd(200);
+	    list1.display();
+	    
+		
+	}
+}

@@ -1,0 +1,55 @@
+class stack{
+    int[] stack_arr;
+    int top;
+    int Max_size;
+    
+    stack(int s){
+    Max_size=s;
+    stack_arr=new int[s];
+    top=-1;
+    }
+    public void push(int val){
+        if(isFull())
+        System.out.println("Stack Overflow");
+        else
+        stack_arr[++top]=val;
+    }
+    public int peek(){
+        return stack_arr[top];
+    }
+    public boolean isFull(){
+        return (stack_arr.length-1==top);
+    }
+    public boolean isEmpty(){
+        return (top==-1);
+    }
+    public int pop(){
+        if(isEmpty()){
+        System.out.println("Stack Underflow"); 
+        return -1 ;
+    }   return stack_arr[top--]; 
+    }
+    public void display(){
+        if(top==-1)
+        System.out.println("Stack is Empty");
+        
+        for(int i=0;i<=top;i++)
+        System.out.print(stack_arr[i]+" ");
+    }
+    
+
+}
+public class Main
+{
+	public static void main(String[] args) {
+	    stack s1=new stack(7);
+	    s1.push(10);
+	     s1.push(20);
+	  
+	      s1.display();
+	  
+	     System.out.println("Popped element "+s1.pop());
+
+ 	s1.display();
+	}
+}

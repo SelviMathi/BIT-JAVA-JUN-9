@@ -1,0 +1,45 @@
+class DCLL{
+    Node last;
+    class Node{
+        int data;
+        Node prev,next;
+        Node(int d){
+            prev=null;
+            next=null;
+            data=d;
+        }
+    }
+    public void insert(int val){
+        Node new_node=new Node(val);
+        if(last==null){
+            new_node.next=new_node;
+            new_node.prev=new_node;
+            last=new_node;
+        }
+        
+        new_node.next=last.next;
+        new_node.prev=last;
+        last.next.prev=new_node;
+        last.next=new_node;
+       
+        
+    }
+    public void display(){
+        Node tptr=last.next;
+        do{
+            System.out.print(tptr.data+" ");
+            tptr=tptr.next;
+    }while(tptr.prev!=last);
+    
+}
+}
+public class Main
+{
+	public static void main(String[] args) {
+	DCLL list1=new DCLL();
+	list1.insert(10);
+ 	list1.insert(20);
+ 	list1.insert(30);
+	list1.display();
+	}
+}

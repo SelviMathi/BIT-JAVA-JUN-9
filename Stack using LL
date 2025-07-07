@@ -1,0 +1,57 @@
+class stack{
+    Node top;
+    class Node{
+        int data;
+        Node next;
+        Node(int d){
+            data=d;
+            next=null;
+        }
+    }
+    public void push(int val){
+        Node new_node=new Node(val);
+            if(top==null){
+            top=new_node;
+            return;
+        }
+        new_node.next=top;
+        top=new_node;
+    }
+    public int peek(){
+        if(top==null) return -1;
+        return top.data;
+    }
+    public void pop(){
+          if(top==null) System.out.println("Empty");
+         // int popvalue=top.data;
+         System.out.println(top.data);
+          top=top.next;
+       // return popvalue;
+        
+    }
+    public void display(){
+        if(top==null)
+        System.out.println("Stack List Empty");
+        Node tptr=top;
+        while(tptr!=null){
+            System.out.print(tptr.data+" ");
+            tptr=tptr.next;
+        }
+    }
+
+}
+public class Main
+{
+	public static void main(String[] args) {
+	    stack s1=new stack();
+	    s1.push(10);
+	    s1.push(20);
+	    s1.push(100);
+	    s1.push(200);
+	    s1.display();
+	    System.out.println("\nPeek element "+s1.peek());
+	    s1.pop();
+	    s1.pop();
+     	s1.display();
+	}
+}

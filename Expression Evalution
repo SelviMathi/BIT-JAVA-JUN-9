@@ -13,6 +13,41 @@ for each character ch from left to right:
         result = a op b
         push(result)
 
+import java.util.*;
+public class Main
+{
+    public static int PostfixEvalution(String s){
+        Stack<Integer> stack=new Stack<>();
+        for(int i=0;i<s.length();i++){
+            char ch=s.charAt(i);
+            if(Character.isDigit(ch))
+            stack.push(ch-'0');
+            else if("+-*/^".indexOf(ch)!=-1){
+                int pop1=stack.pop();
+                int pop2=stack.pop();
+                switch(ch){
+                    case '+': stack.push(pop1+pop2);
+                    break;
+                    case '*': stack.push(pop1*pop2);
+                    break;
+                    case '-': stack.push(pop2-pop1);
+                    break;
+                    case '/': stack.push(pop2/pop1);
+                    break;
+                    case '^': stack.push((int)Math.pow(pop2,pop1));
+                    break;
+                }
+                
+            }
+        }
+        return stack.peek();
+        
+    }
+	public static void main(String[] args) {
+	    String input="23-4+56*-";
+	   System.out.println(PostfixEvalution(input));
+	}
+}
 
 
 Prefix Evaluation Steps
@@ -29,6 +64,45 @@ for each character ch from right to left:
         b = pop()
         result = a op b
         push(result)
+
+import java.util.*;
+public class Main
+{
+    public static int PrefixEvalution(String s){
+        Stack<Integer> stack=new Stack<>();
+        for(int i=s.length()-1;i>=0;i--){
+            char ch=s.charAt(i);
+            if(Character.isDigit(ch))
+            stack.push(ch-'0');
+            else if("+-*/^".indexOf(ch)!=-1){
+                int pop1=stack.pop();
+                int pop2=stack.pop();
+                switch(ch){
+                    case '+': stack.push(pop1+pop2);
+                    break;
+                    case '*': stack.push(pop1*pop2);
+                    break;
+                    case '-': stack.push(pop1-pop2);
+                    break;
+                    case '/': stack.push(pop1/pop2);
+                    break;
+                    case '^': stack.push((int)Math.pow(pop1,pop2));
+                    break;
+                }
+                
+            }
+        }
+        return stack.peek();
+        
+    }
+	public static void main(String[] args) {
+	    String input="*^234";
+	   System.out.println(PrefixEvalution(input));
+	}
+}
+
+
+
 
 Infix Evaluation Steps
 Expression: 2^3*4
@@ -68,14 +142,65 @@ Algorithm
 
 4. Final answer = top of values stack
 
+Infix to postfix
+A+(B*C+D)/E
 
+ A+(BC+D)/E+FG
 
-
-
-
-
-
-
+import java.util.*;
+public class Main
+{
+    public static int OpPrece(char op){
+        switch(op){
+            case '^':
+                return 3;
+            case '*':
+            case '/':
+                return 2;
+            case '+':
+            case'-':
+                return 1;
+        }
+        return 0;
+    }
+    public static String InfixtoPostFix(String s){
+        Stack<Character> stack=new Stack<>();
+        StringBuilder post=new StringBuilder();
+        for(int i=0;i<s.length();i++){
+            char ch=s.charAt(i);
+            if(Character.isLetter(ch))
+            post.append(ch);
+           
+            else if(ch=='(')
+                stack.push(ch);
+                
+            else if(ch==')'){
+                while(!stack.isEmpty()&&stack.peek()!='(')
+                {
+                    post.append(stack.pop());
+                }
+                stack.pop();//remove '('
+            }
+            
+            else{
+                while(!stack.isEmpty()&&OpPrece(ch)<=OpPrece(stack.peek())){
+                    post.append(stack.pop());
+                }
+                stack.push(ch);
+            }
+            
+        }
+        while(!stack.isEmpty()){
+                post.append(stack.pop());
+            }
+       return post.toString();
+        
+    }
+	public static void main(String[] args) {
+	    String input="(A+B)*C";
+	   System.out.println(InfixtoPostFix(input));
+	}
+}
 
 
 

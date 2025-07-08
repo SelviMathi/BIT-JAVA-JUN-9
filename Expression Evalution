@@ -48,6 +48,48 @@ public class Main
 	   System.out.println(PostfixEvalution(input));
 	}
 }
+--------------------------------------POSTFIX MULTIDIGITS------------------------------------
+
+import java.util.Stack;
+
+public class Main{
+
+    public static int apply(int a, int b, String op) {
+        switch (op) {
+            case "+": return a + b;
+            case "-": return a - b;
+            case "*": return a * b;
+            case "/": return a / b;
+            case "^": return (int) Math.pow(a, b);
+           }
+        return 0;
+    }
+
+        public static int evaluate(String expression) {
+        Stack<Integer> stack = new Stack<>();
+        String[] tokens = expression.split("\\s+"); // split by space
+
+        for (String token : tokens) {
+            if (token.matches("\\d+")) 
+                    stack.push(Integer.parseInt(token));
+            
+            else if (token.matches("[+\\-*/^]")) {
+                int b = stack.pop();
+                int a = stack.pop();
+                stack.push(apply(a, b, token));
+            } 
+        }
+
+        return stack.pop();
+    }
+
+    public static void main(String[] args) {
+        String postfix = "12 3 + 2 3 ^ *";
+        System.out.println("Result = " + evaluate(postfix)); 
+    }
+}
+
+
 **********************************************************************************
 
 Prefix Evaluation Steps

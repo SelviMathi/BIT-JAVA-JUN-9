@@ -48,7 +48,7 @@ public class Main
 	   System.out.println(PostfixEvalution(input));
 	}
 }
-
+**********************************************************************************
 
 Prefix Evaluation Steps
 Expression: *^234
@@ -102,7 +102,7 @@ public class Main
 }
 
 
-
+**********************************************************************************
 
 Infix Evaluation Steps
 Expression: 2^3*4
@@ -142,6 +142,87 @@ Algorithm
 
 4. Final answer = top of values stack
 
+import java.util.*;
+public class Main
+{
+    public static int OpPrece(char op){
+        switch(op){
+            case '^':
+                return 3;
+            case '*':
+            case '/':
+                return 2;
+            case '+':
+            case'-':
+                return 1;
+        }
+        return 0;
+    }
+    public static int res(int a,int b,char c){
+        switch(c){
+            case '^':
+                return ((int)Math.pow(b,a));
+            case '*':
+                return a*b;
+            case '/':
+                return b/a;
+            case '+':
+                return a+b;
+            case'-':
+                return b-a;
+        }
+        return 0;
+        
+    }
+    public static int InfixEval(String s){
+        Stack<Character> opstack=new Stack<>();
+        Stack<Integer> valstack=new Stack<>();
+       
+        for(int i=0;i<s.length();i++){
+            char ch=s.charAt(i);
+            if(Character.isDigit(ch))
+            valstack.push(ch-'0');
+           
+            else if(ch=='(')
+                opstack.push(ch);
+                
+            else if(ch==')'){
+                while(!opstack.isEmpty()&&opstack.peek()!='(')
+                {
+                    int pop1=valstack.pop();
+                    int pop2=valstack.pop();
+                    char ch1=opstack.pop();
+                    valstack.push(res(pop1,pop2,ch1));
+                }
+                opstack.pop();//remove '('
+            }
+            
+            else{
+                while(!opstack.isEmpty()&&OpPrece(ch)<=OpPrece(opstack.peek())){
+                    int pop1=valstack.pop();
+                    int pop2=valstack.pop();
+                    char ch1=opstack.pop();
+                    valstack.push(res(pop1,pop2,ch1));
+                }
+                opstack.push(ch);
+            }
+            
+        }
+        while(!opstack.isEmpty()){
+              int pop1=valstack.pop();
+                    int pop2=valstack.pop();
+                    char ch1=opstack.pop();
+                    valstack.push(res(pop1,pop2,ch1));  
+            }
+       return valstack.peek();
+        
+    }
+	public static void main(String[] args) {
+	    String input="(2+3)*5";
+	   System.out.println(InfixEval(input));
+	}
+}
+*******************************************************************************
 Infix to postfix
 A+(B*C+D)/E
 
@@ -201,12 +282,7 @@ public class Main
 	   System.out.println(InfixtoPostFix(input));
 	}
 }
-
-
-
-
-
-
+**********************************************************************************
 Regex = Regular Expression
 It is a pattern used to match text — like numbers, letters, symbols, etc.
 

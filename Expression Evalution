@@ -1,0 +1,116 @@
+Postfix Evaluation Steps
+Expression: 23^4*
+Means: 2 3 ^ 4 *
+Infix: (2^3) * 4
+
+Algorithm
+
+for each character ch from left to right:
+    if operand → push
+    if operator:
+        b = pop()
+        a = pop()
+        result = a op b
+        push(result)
+
+
+
+Prefix Evaluation Steps
+Expression: *^234
+Means: * (^ 2 3) 4
+Infix: (2^3) * 4
+
+Algorithm
+
+for each character ch from right to left:
+    if operand → push
+    if operator:
+        a = pop()
+        b = pop()
+        result = a op b
+        push(result)
+
+Infix Evaluation Steps
+Expression: 2^3*4
+
+Algorithm
+
+1. Create two stacks:
+   - values ← for numbers
+   - ops ← for operators
+
+2. For each character 'ch' in the expression:
+   a. If ch is a digit (0-9):
+      - Convert ch to integer and push to values stack
+
+   b. If ch is '(':
+      - Push to ops stack
+
+   c. If ch is ')':
+      - While top of ops ≠ '(', do:
+          - pop op from ops
+          - pop two values a and b
+          - compute a op b and push result to values
+      - pop '(' from ops
+
+   d. If ch is an operator (+, -, *, /, ^):
+      - While ops is not empty AND precedence of ch ≤ top of ops:
+          - pop op from ops
+          - pop two values a and b
+          - compute a op b and push result to values
+      - push ch to ops
+
+3. After all characters:
+   - While ops is not empty:
+       - pop op from ops
+       - pop two values a and b
+       - compute a op b and push result to values
+
+4. Final answer = top of values stack
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Regex = Regular Expression
+It is a pattern used to match text — like numbers, letters, symbols, etc.
+
+
+| Pattern     | Meaning                              | Example Match     |
+| ----------- | ------------------------------------ | ----------------  |
+| `\\d`       | A digit (0–9)                        | `"5"` ✅          |
+| `\\d+`      | One or more digits                   | `"123"` ✅        |
+| `\\s`       | Any whitespace (space, tab, newline) | `" "` ✅          |
+| `\\s+`      | One or more spaces                   | `"   "` ✅        |
+| `[+\\-*/^]` | One of the characters `+ - * / ^`    | `"*"` ✅          |
+| `[a-z]`     | Any lowercase letter                 | `"b"` ✅          |
+| `[A-Z]`     | Any uppercase letter                 | `"M"` ✅          |
+| `[a-zA-Z]`  | Any letter (lower or upper)          | `"A"` or `"z"` ✅ |
+
+Check if token is number:
+
+String token = "123";
+if (token.matches("\\d+")) {
+    System.out.println("It's a number!");
+}
+
+
+Check if token is an operator
+
+String token = "+";
+if (token.matches("[+\\-*/^]")) {
+    System.out.println("It's an operator!");
+}
+
+
+

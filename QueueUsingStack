@@ -1,0 +1,47 @@
+import java.util.*;
+class QueueusingStack{
+    Stack<Integer> s1=new Stack<>();
+    Stack<Integer> s2=new Stack<>();
+    public void enqueue(int val){
+       while(!s1.isEmpty()){
+           s2.push(s1.pop());
+       }
+        s1.push(val);
+        while(!s2.isEmpty()){
+           s1.push(s2.pop());
+       }
+    }
+    public void display(){
+        for(int i=s1.size()-1;i>=0;i--)
+        System.out.print(s1.get(i)+" ");
+    }
+    public void dequeue()
+    {
+        s1.pop();
+    }
+    public boolean Empty(){
+        return (s1.isEmpty());
+    }
+    public int peek(){
+        return s1.peek();
+    }
+}
+    
+public class Main
+{
+	public static void main(String[] args) {
+	    QueueusingStack q1=new QueueusingStack();
+	    q1.enqueue(100);
+	    q1.enqueue(20);
+	   // q1.enqueue(10);
+	   // q1.enqueue(200);
+	 q1.display();
+	   System.out.println();
+	   // q1.dequeue();//100
+	   //  q1.dequeue();//20
+	   // q1.display();
+	    System.out.println(q1.peek());
+	    
+	
+	}
+}

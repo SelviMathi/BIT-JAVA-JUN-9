@@ -37,10 +37,11 @@ class CircularQueueusingArray{
         System.out.println("Queue Empty");
         return;
         }
-        for(int i=front;i<=rear;i++)
+int i=front;
+        do{
         System.out.print(queue[i]+" ");
-        
-    }
+        i=(i+1)%size;
+    }while(i!=(rear+1)%size;
     
     
 }
@@ -60,3 +61,7 @@ public class Main
 	//	q1.display();
 	}
 }
+
+
+
+

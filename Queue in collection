@@ -1,0 +1,19 @@
+| Interface         | Class/Implementation           | Description                                      |
+| ----------------- | ----------------------------- | ------------------------------------------------ |
+| `Queue`           | `LinkedList`                  | Standard FIFO queue, also supports Deque ops      |
+|                   | `PriorityQueue`               | Maintains elements in natural or custom order     |
+|                   | `ArrayDeque`                  | Double-ended queue with fast resizable array      |
+
+| `Deque`           | `ArrayDeque`, `LinkedList`    | Allows insertion/removal at both ends             |
+
+| `BlockingQueue`   | `ArrayBlockingQueue`          | Fixed-capacity, thread-safe, blocks on full/empty |
+|                   | `LinkedBlockingQueue`         | Optionally bounded, thread-safe                   |
+|                   | `PriorityBlockingQueue`       | Thread-safe queue ordered by priority             |
+|                   | `DelayQueue`                  | Elements available only after a delay             |
+|                   | `SynchronousQueue`            | No internal storage, hand-off between threads     |
+
+| `TransferQueue`   | `LinkedTransferQueue`         | Producer waits for consumer if necessary          |
+
+| `ConcurrentQueue` | `ConcurrentLinkedQueue`       | Lock-free, thread-safe queue for high concurrency |
+|                   | `ConcurrentSkipListQueue`     | Thread-safe, sorted, scalable for concurrency     |
+

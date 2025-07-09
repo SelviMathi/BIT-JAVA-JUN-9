@@ -1,0 +1,62 @@
+class QueueusingNode{
+    Node front=null,rear=null;
+    class Node{
+        int data;
+        Node next;
+        Node(int val){
+            data=val;
+            next=null;
+        }
+    }
+    public void enqueue(int d){
+        Node new_node=new Node(d);
+        if(front==null){
+            rear=new_node;
+            front=new_node;
+            return ;
+        }
+        rear.next=new_node;
+        rear=new_node;
+    }
+    public void dequeue(){
+        if(front==null){
+            System.out.println("Queue Underflow");
+            return;
+        }
+        front=front.next;
+    }
+    public int front(){
+        return front.data;
+        
+    }
+    public void display(){
+        if(front==null){
+            System.out.println("Queue Empty");
+            return ;
+            
+        }
+        Node tptr=front;
+        while(tptr!=null)
+        {
+            System.out.print(tptr.data+" ");
+            tptr=tptr.next;
+        }
+        System.out.println();
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+		QueueusingNode q1=new QueueusingNode();
+// 	
+		q1.display();
+			q1.enqueue(10);
+		q1.enqueue(20);
+		q1.display();
+// 		q1.dequeue();
+// 		q1.display();
+		q1.dequeue();
+	//	System.out.println(q1.front());
+		q1.display();
+	}
+}

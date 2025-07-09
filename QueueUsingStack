@@ -1,32 +1,49 @@
-import java.util.*;
-class QueueusingStack{
-    Stack<Integer> s1=new Stack<>();
-    Stack<Integer> s2=new Stack<>();
-    public void enqueue(int val){
-       while(!s1.isEmpty()){
-           s2.push(s1.pop());
-       }
-        s1.push(val);
-        while(!s2.isEmpty()){
-           s1.push(s2.pop());
-       }
+import java.util.Stack;
+
+class QueueUsingStack {
+    Stack<Integer> s1 = new Stack<>();
+    Stack<Integer> s2 = new Stack<>();
+
+    // Enqueue: O(n)
+    void enqueue(int x) {
+        // Move all elements from s1 to s2
+        while (!s1.isEmpty()) {
+            s2.push(s1.pop());
+        }
+
+        // Push new element to s1
+        s1.push(x);
+
+        // Push everything back to s1
+        while (!s2.isEmpty()) {
+            s1.push(s2.pop());
+        }
     }
-    public void display(){
-        for(int i=s1.size()-1;i>=0;i--)
-        System.out.print(s1.get(i)+" ");
+
+    // Dequeue: O(1)
+    int dequeue() {
+        if (s1.isEmpty()) {
+            System.out.println("Queue is Empty");
+            return -1;
+        }
+        return s1.pop();
     }
-    public void dequeue()
-    {
-        s1.pop();
-    }
-    public boolean Empty(){
-        return (s1.isEmpty());
-    }
-    public int peek(){
+
+    // Front: O(1)
+    int peek() {
+        if (s1.isEmpty()) {
+            System.out.println("Queue is Empty");
+            return -1;
+        }
         return s1.peek();
     }
+
+    // IsEmpty
+    boolean isEmpty() {
+        return s1.isEmpty();
+    }
 }
-    
+ 
 public class Main
 {
 	public static void main(String[] args) {

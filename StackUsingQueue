@@ -1,0 +1,30 @@
+import java.util.*;
+class StackUsingQueue{
+    Queue<Integer> q=new LinkedList<>();
+    void push(int val){
+        q.add(val);
+        for(int i=1;i<q.size();i++)
+        q.add(q.remove());
+        
+    }
+    int pop(){
+        return q.remove();
+    }
+    int peek(){
+        return q.peek();
+    }
+    
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+		
+		StackUsingQueue s1=new StackUsingQueue();
+		s1.push(10);
+		s1.push(20);
+    	s1.push(30);
+		System.out.println("Popped element "+ s1.pop());//30
+		System.out.println("Top Element "+s1.peek());
+	}
+}

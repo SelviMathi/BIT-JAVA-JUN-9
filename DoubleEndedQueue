@@ -1,0 +1,101 @@
+class Deque {
+    class Node {
+    int data;
+    Node prev, next;
+
+    Node(int data) {
+        this.data = data;
+        prev = next = null;
+    }
+}
+
+    Node front, rear;
+
+    // Insert at front
+    void insertFront(int data) {
+        Node newNode = new Node(data);
+
+        if (front == null) { 
+            front = rear = newNode;
+        } else {
+            newNode.next = front;
+            front.prev = newNode;
+            front = newNode;
+        }
+    }
+
+    // Insert at rear
+    void insertRear(int data) {
+        Node newNode = new Node(data);
+
+        if (rear == null) { 
+            front = rear = newNode;
+        } else {
+            rear.next = newNode;
+            newNode.prev = rear;
+            rear = newNode;
+        }
+    }
+
+    // Delete from front
+    void deleteFront() {
+        if (front == null) {
+            System.out.println("Underflow at front");
+            return;
+        }
+
+        if (front == rear) { 
+            front = rear = null;
+        } else {
+            front = front.next;
+            front.prev = null;
+        }
+    }
+
+    // Delete from rear
+    void deleteRear() {
+        if (rear == null) {
+            System.out.println("Underflow at rear");
+            return;
+        }
+
+        if (front == rear) { 
+            front = rear = null;
+        } else {
+            rear = rear.prev;
+            rear.next = null;
+        }
+    }
+
+    // Display the deque from front to rear
+    void display() {
+        if (front == null) {
+            System.out.println("Deque is Empty");
+            return;
+        }
+
+        System.out.print("Deque: ");
+        Node temp = front;
+        while (temp != null) {
+            System.out.print(temp.data + " ");
+            temp = temp.next;
+        }
+        System.out.println();
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        DequeDLL dq = new DequeDLL();
+
+        dq.insertRear(10);
+        dq.insertRear(20);
+        dq.insertFront(5);
+        dq.insertFront(2);
+        dq.display(); // Deque: 2 5 10 20
+
+        dq.deleteFront();
+        dq.deleteRear();
+        dq.display(); // Deque: 5 10
+    }
+}

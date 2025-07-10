@@ -1,0 +1,73 @@
+class DoubleendedQueueusingArray{
+    int[] queue;
+    int size;
+    int front,rear;
+   DoubleendedQueueusingArray(int size){
+        this.size=size;
+        queue=new int[size];
+        front=-1;
+        rear=-1;
+    }
+    public boolean isFull(){
+        return (front==(rear+1)%size);
+    }
+    public boolean isEmpty(){
+        return (front==-1||rear==-1);
+    }
+    public void enqueueAtRear(int val){
+        if(isFull()){
+            System.out.println("Queue Overflow");
+            return;
+        }
+        if (rear == -1) 
+            front = rear = 0;
+        else 
+            rear = (rear + 1) % size;
+        
+        queue[rear] = val;
+    }
+    public void enqueueAtFront(int val){
+        if(isFull()){
+            System.out.println("Queue Overflow");
+            return;
+        }
+        if (front == -1) 
+            front = rear = 0;
+        else if(front==0)
+            front = size-1;
+        
+        queue[front--] = val;
+    }
+    
+    public void display() {
+        if (front == -1) {
+            System.out.println("Queue Empty");
+            return;
+        }
+
+        int i = front;
+        do {
+            System.out.print(queue[i] + " ");
+            i = (i + 1) % size;
+        } while (i != (rear + 1) % size);
+        System.out.println(); 
+}
+
+     
+    
+    
+}
+public class Main
+{
+	public static void main(String[] args) {
+		DoubleendedQueueusingArray q1=new DoubleendedQueueusingArray(5);
+		q1.enqueueAtRear(10);
+		q1.enqueueAtRear(20);
+		q1.enqueueAtFront(1);
+		q1.enqueueAtFront(5);
+		q1.enqueueAtFront(2);
+		
+		q1.display();
+	
+	}
+}

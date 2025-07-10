@@ -72,6 +72,20 @@ while (!pq.isEmpty()) {
 }
 // Output: 2 3 1
 ```
+Anonymous Comparator
+import java.util.*;
+
+public class Main
+{
+	public static void main(String[] args) {
+	    List<Integer>l=Arrays.asList(10,2,80,5);
+	    
+	    Collections.sort(l,(a,b)->b-a);
+	    System.out.println(l);
+
+
+	}
+}
 
 ---
 

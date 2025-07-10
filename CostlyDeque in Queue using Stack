@@ -1,0 +1,40 @@
+import java.util.*;
+class CostlyDeQueue{
+    Stack<Integer> s1=new Stack<>();
+    Stack<Integer> s2=new Stack<>();
+    public void enqueue(int val){
+        s1.push(val);
+    }    
+    public void dequeue(){
+        if(s2.isEmpty()){
+            if(s1.isEmpty())
+            {
+              System.out.println("Queue underflow");
+              return;
+            }
+            while(!(s1.isEmpty()))
+            s2.push(s1.pop());
+        }
+        System.out.println(s2.pop());
+    }
+    // public void display(){
+    //     System.out.print(s2);
+    // }
+}
+public class Main
+{
+	public static void main(String[] args) {
+		CostlyDeQueue q1=new CostlyDeQueue();
+		q1.enqueue(10);
+		q1.enqueue(20);
+		q1.enqueue(30);
+
+		q1.dequeue();
+		q1.dequeue();
+		q1.dequeue();
+		q1.dequeue();
+		q1.enqueue(40);
+		q1.dequeue();
+		
+	}
+}

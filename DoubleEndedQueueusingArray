@@ -1,62 +1,97 @@
-class DoubleendedQueueusingArray{
-    int[] queue;
-    int size;
-    int front,rear;
-   DoubleendedQueueusingArray(int size){
-        this.size=size;
-        queue=new int[size];
-        front=-1;
-        rear=-1;
+
+class DoubleendedQueueusingArray {
+    int front, rear, size;
+    int[] arr;
+
+    public DoubleendedQueueusingArray(int size) {
+        this.size = size;
+        arr = new int[size];
+        front = -1;
+        rear = -1; 
     }
-    public boolean isFull(){
-        return (front==(rear+1)%size);
+
+    boolean isFull() {
+        return (front == (rear + 1) % size);
     }
-    public boolean isEmpty(){
-        return (front==-1||rear==-1);
+
+    boolean isEmpty() {
+        return (front == -1);
     }
-    public void enqueueAtRear(int val){
-        if(isFull()){
-            System.out.println("Queue Overflow");
-            return;
-        }
-        if (rear == -1) 
-            front = rear = 0;
-        else 
-            rear = (rear + 1) % size;
-        
-        queue[rear] = val;
-    }
-    public void enqueueAtFront(int val){
-        if(isFull()){
-            System.out.println("Queue Overflow");
-            return;
-        }
-        if (front == -1) 
-            front = rear = 0;
-        else if(front==0)
-            front = size-1;
-        
-        queue[front--] = val;
-    }
-    
-    public void display() {
-        if (front == -1) {
-            System.out.println("Queue Empty");
+
+    void enqueueAtFront(int val) {
+        if (isFull()) {
+            System.out.println("Overflow at front");
             return;
         }
 
+        if (isEmpty()) 
+            front = rear = 0;
+         else 
+            front = (front - 1 + size) % size; 
+        
+
+        arr[front] = val;
+    }
+
+    void enqueueAtRear(int val) {
+        if (isFull()) {
+            System.out.println("Overflow at rear");
+            return;
+        }
+
+        if (isEmpty()) 
+            front = rear = 0;
+         else 
+            rear = (rear + 1) % size; 
+        
+
+        arr[rear] = val;
+    }
+
+    void deleteFront() {
+        if (isEmpty()) {
+            System.out.println("Underflow at front");
+            return;
+        }
+
+        if (front == rear) 
+            front = rear = -1;
+         else 
+            front = (front + 1) % size;
+        
+    }
+
+    void deleteRear() {
+        if (isEmpty()) {
+            System.out.println("Underflow at rear");
+            return;
+        }
+
+        if (front == rear) 
+            front = rear = -1;
+         else 
+            rear = (rear - 1 + size) % size;
+        
+    }
+
+    void display() {
+        if (isEmpty()) {
+            System.out.println("Deque is Empty");
+            return;
+        }
+
+        System.out.print("Deque: ");
         int i = front;
-        do {
-            System.out.print(queue[i] + " ");
+        while (true) {
+            System.out.print(arr[i] + " ");
+            if (i == rear) break;
             i = (i + 1) % size;
-        } while (i != (rear + 1) % size);
-        System.out.println(); 
+        }
+        System.out.println();
+    }
 }
+       
 
-     
-    
-    
-}
 public class Main
 {
 	public static void main(String[] args) {

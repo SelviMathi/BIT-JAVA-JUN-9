@@ -88,5 +88,51 @@ Pattern
 5 * 3 2 1
 * 4 3 2 1
 
+import java.util.*;
+public class Main{
+    public static void main(String[] args){
+        Scanner scan = new Scanner(System.in);
+        int n = scan.nextInt();
+        
+        for(int i=0;i<n;i++){
+            for(int j=n;j>0;j--){
+                if(i==j-1){
+                    System.out.print("*");
+                }
+                else{
+                    System.out.print(j);
+                }
+            }
+            System.out.println();
+        }
+    }
+}
+
+
+NextGreaterElements in ARRAy
+
+************************************************************
+import java.util.*;
+public class Main{
+    public static int[] NGE(int a[]){
+        int ans[]=new int[a.length];
+        for(int i=0;i<a.length;i++){
+             ans[i]=-1;
+            for(int j=i+1;j<a.length;j++){
+                if(a[i]<a[j]){
+                ans[i]=a[j];
+                break;
+                }
+                }
+        }
+        return ans;
+    }
+    public static void main(String[] args){
+            int arr[]=new int[]{2,4,6,3,5};
+            int res[]=NGE(arr);
+            System.out.println(Arrays.toString(res));
+        }
+    
+}
 
 

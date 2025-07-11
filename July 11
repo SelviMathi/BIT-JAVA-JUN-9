@@ -1,0 +1,45 @@
+Name Printing
+***************************************************
+import java.util.*;
+public class Main{
+    public static void main(String[] args){
+        Scanner in = new Scanner(System.in);
+        String name = in.nextLine();
+        for(int i=0;i<name.length();i++){
+            for(int j=0;j<=i;j++){
+                System.out.print(name.charAt(j));
+            }
+            System.out.println();
+        }
+    }
+}
+
+
+Pendulum Arrangement
+
+*********************************
+
+import java.util.*;
+public class Main{
+    public static void main(String[] args){
+        int[] arr = new int[]{5,7,1,2,3};
+        PriorityQueue<Integer> q = new PriorityQueue(Collections.reverseOrder());
+        for(int n : arr){
+            q.offer(n);
+        }
+        
+        int l = 0 , r = arr.length - 1;
+        boolean cond = true;
+        int[] res = new int[arr.length];
+        while(!q.isEmpty()){
+            if(cond) {
+                res[l++] = q.poll();
+            }
+            else{
+                res[r--] = q.poll();
+            }
+            cond = !cond;
+        }
+        System.out.print(Arrays.toString(res));
+    }
+}

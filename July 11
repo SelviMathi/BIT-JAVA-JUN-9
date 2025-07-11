@@ -43,3 +43,41 @@ public class Main{
         System.out.print(Arrays.toString(res));
     }
 }
+
+
+n & n-1 th Prime sum
+**********************************************************
+
+public class Main {
+    public static void main(String[] args) {
+        int n = 10;
+        int count = 0;
+        int num = 2;
+        int pprime = 0;
+        int prime = 0;
+
+        while (count < n) {
+            if (isPrime(num)) {
+                count++;
+                pprime = prime;
+                prime = num;
+            }
+            num++;
+        }
+
+        
+        System.out.println(pprime+prime);
+    }
+
+    static boolean isPrime(int num) {
+        if (num <= 1) return false;
+        for (int i = 2; i * i <= num; i++) {
+            if (num % i == 0) return false;
+        }
+        return true;
+    }
+}
+
+
+
+

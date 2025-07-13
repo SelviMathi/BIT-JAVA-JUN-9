@@ -1,0 +1,65 @@
+A Tree is a non-linear, hierarchical data structure.
+
+A Binary Tree is a tree where each node has at most two children: left and right.
+
+A Binary Search Tree (BST) is a binary tree where:
+
+Left subtree nodes < current node
+
+Right subtree nodes > current node
+
+
+Basic Terminology
+
+| Term        | Description                                 |
+| ----------- | ------------------------------------------- |
+| **Node**    | Each element of a tree                      |
+| **Root**    | The topmost node                            |
+| **Leaf**    | A node with no children                     |
+| **Parent**  | Node with child nodes                       |
+| **Child**   | Node descending from a parent               |
+| **Subtree** | Tree formed from a node and its descendants |
+| **Height**  | Max edges from a node to a leaf             |
+| **Depth**   | Edges from root to that node                |
+| **Level**   | Depth + 1                                   |
+| **Degree**  | Number of children of a node                |
+
+Tree Traversals
+| Type            | Order                     |
+| --------------- | ------------------------- |
+| **Preorder**    | Root → Left → Right       |
+| **Inorder**     | Left → Root → Right       |
+| **Postorder**   | Left → Right → Root       |
+| **Level Order** | Breadth-first using Queue |
+
+
+Tree Types
+
+| Tree Type                    | Description                                         |
+| ---------------------------- | --------------------------------------------------- |
+| **Binary Tree**              | At most 2 children per node                         |
+| **BST (Binary Search Tree)** | Ordered binary tree                                 |
+| **Balanced Tree**            | Height difference between left and right is minimal |
+| **Full Binary Tree**         | Every node has 0 or 2 children                      |
+| **Perfect Binary Tree**      | Full and all leaves at same level                   |
+| **Complete Binary Tree**     | All levels filled except possibly the last          |
+| **AVL Tree**                 | Self-balancing BST                                  |
+| **Red-Black Tree**           | Balanced BST with coloring rules                    |
+
+
+Important Properties
+
+Number of nodes (n) in a perfect binary tree of height h:
+n = 2^(h+1) - 1
+
+Height of tree with n nodes (minimum):
+log₂(n) (for balanced trees)
+
+Height of tree with n nodes (maximum):
+n - 1 (for skewed trees)
+
+Max nodes at level l:
+2^l (0-based level)
+
+Max leaf nodes in a binary tree of height h:
+2^h (if full/perfect)

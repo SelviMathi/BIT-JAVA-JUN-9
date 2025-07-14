@@ -126,3 +126,72 @@ public class Main
 	tree.InOrder(tree.root);
 	}
 }
+
+
+Char Tree implementation
+*******************************
+		A
+	B		C
+     D	  E	     F 	  G
+	 H		    I
+class BT{
+    class Node{
+        char data;
+        Node left,right;
+        Node(char d){
+            data=d;
+            left=null;
+            right=null;
+        }
+    }
+    Node root=null;
+    BT(char va){
+        root=new Node(va);
+    }
+    public void insertleftchild(Node n,char val){
+        Node newNode=new Node(val);
+        n.left=newNode;
+        }
+    public void insertrightchild(Node n,char val){
+        Node newNode=new Node(val);
+        n.right=newNode;
+        }
+    public void preOrder(Node n){
+        if(n!=null){
+        System.out.print(n.data+" ");
+        preOrder(n.left);
+        preOrder(n.right);
+            
+        }
+        
+    }
+     public void InOrder(Node n){
+        if(n!=null){
+            InOrder(n.left);
+        System.out.print(n.data+" ");
+        
+        InOrder(n.right);
+            
+        }
+        
+    }
+    
+}
+public class Main
+{
+	public static void main(String[] args) {
+		BT tree=new BT('A');
+		tree.insertleftchild(tree.root,'B');
+		tree.insertrightchild(tree.root,'C');
+		tree.insertleftchild(tree.root.left,'D');
+		tree.insertrightchild(tree.root.left,'E');
+		tree.insertleftchild(tree.root.left.right,'H');
+		tree.insertleftchild(tree.root.right,'F');
+		tree.insertrightchild(tree.root.right,'G');
+		tree.insertrightchild(tree.root.right.right,'I');
+	System.out.println("PreOrder");
+	tree.preOrder(tree.root);
+	System.out.println("\nInOrder");
+	tree.InOrder(tree.root);
+	}
+}

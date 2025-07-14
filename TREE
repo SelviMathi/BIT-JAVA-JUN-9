@@ -195,7 +195,7 @@ public class Main
 	tree.InOrder(tree.root);
 	}
 }
-*********************†**
+*********************†**LEVEL ORDER TRAVERSAL**********
 class BinaryTree {
     class Node {
         int data;
@@ -218,7 +218,7 @@ class BinaryTree {
             return;
         }
 
-        while (!queue.isEmpty()) {
+       // while (!queue.isEmpty()) {
             Node temp = queue.peek();
 
             if (temp.left == null) {
@@ -230,10 +230,11 @@ class BinaryTree {
                 queue.add(newNode);
                 queue.poll(); // both children filled, remove parent
                 return;
-            } else {
-                queue.poll(); // skip fully filled nodes
-            }
-        }
+            } 
+//else {
+  //              queue.poll(); // skip fully filled nodes
+    //        }
+       // }
     }
 
     public void levelOrder() {
@@ -261,7 +262,7 @@ public class Main {
         tree.levelOrder(); // Output: 1 2 3 4 5
     }
 }
-
+**************************************************
 import java.util.*;
 class BT{
     class Node{
@@ -284,7 +285,7 @@ class BT{
             queue.add(root);
             return;
         }
-        while (!queue.isEmpty()) {
+       
             Node temp = queue.peek();
 
             if (temp.left == null) {
@@ -296,10 +297,8 @@ class BT{
                 queue.add(newNode);
                 queue.poll(); // both children filled, remove parent
                 return;
-            } else {
-                queue.poll(); // skip fully filled nodes
-            }
-        }
+            } 
+        
     }
     public void levelOrder() {
         Queue<Node> q = new LinkedList<>();
@@ -311,7 +310,8 @@ class BT{
             if (n.right != null) q.add(n.right);
         }
         System.out.println();
-    }}
+    }
+    }
 
 public class Main
 {
@@ -323,7 +323,10 @@ public class Main
 					tree.insert('C');
 						tree.insert('G');
 	
-	tree.levelOrder();//ABDCG
-	
+	tree.levelOrder();
+	tree.insert('O');
+	tree.insert('P');
+	System.out.println();
+	tree.levelOrder();
 	}
 }

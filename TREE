@@ -262,3 +262,68 @@ public class Main {
     }
 }
 
+import java.util.*;
+class BT{
+    class Node{
+        char data;
+        Node left,right;
+        Node(char d){
+            data=d;
+            left=null;
+            right=null;
+        }
+    }
+    Node root=null;
+    
+    Queue<Node> queue = new LinkedList<>();
+
+    public void insert(char val) {
+        Node newNode = new Node(val);
+        if (root == null) {
+            root = newNode;
+            queue.add(root);
+            return;
+        }
+        while (!queue.isEmpty()) {
+            Node temp = queue.peek();
+
+            if (temp.left == null) {
+                temp.left = newNode;
+                queue.add(newNode);
+                return;
+            } else if (temp.right == null) {
+                temp.right = newNode;
+                queue.add(newNode);
+                queue.poll(); // both children filled, remove parent
+                return;
+            } else {
+                queue.poll(); // skip fully filled nodes
+            }
+        }
+    }
+    public void levelOrder() {
+        Queue<Node> q = new LinkedList<>();
+        q.add(root);
+        while (!q.isEmpty()) {
+            Node n = q.poll();
+            System.out.print(n.data + " ");
+            if (n.left != null) q.add(n.left);
+            if (n.right != null) q.add(n.right);
+        }
+        System.out.println();
+    }}
+
+public class Main
+{
+	public static void main(String[] args) {
+		BT tree=new BT();
+		tree.insert('A');
+			tree.insert('B');
+				tree.insert('D');
+					tree.insert('C');
+						tree.insert('G');
+	
+	tree.levelOrder();//ABDCG
+	
+	}
+}

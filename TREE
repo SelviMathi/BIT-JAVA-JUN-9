@@ -63,3 +63,66 @@ Max nodes at level l:
 
 Max leaf nodes in a binary tree of height h:
 2^h (if full/perfect)
+
+***********************************************************************
+
+Binary Tree Implementation
+
+class BT{
+    class Node{
+        int data;
+        Node left,right;
+        Node(int d){
+            data=d;
+            left=null;
+            right=null;
+        }
+    }
+    Node root=null;
+    BT(int va){
+        root=new Node(va);
+    }
+    public void insertleftchild(Node n,int val){
+        Node newNode=new Node(val);
+        n.left=newNode;
+        }
+    public void insertrightchild(Node n,int val){
+        Node newNode=new Node(val);
+        n.right=newNode;
+        }
+    public void preOrder(Node n){
+        if(n!=null){
+        System.out.print(n.data+" ");
+        preOrder(n.left);
+        preOrder(n.right);
+            
+        }
+        
+    }
+     public void InOrder(Node n){
+        if(n!=null){
+            InOrder(n.left);
+        System.out.print(n.data+" ");
+        
+        InOrder(n.right);
+            
+        }
+        
+    }
+    
+}
+public class Main
+{
+	public static void main(String[] args) {
+		BT tree=new BT(10);
+		tree.insertleftchild(tree.root,3);
+		tree.insertrightchild(tree.root,5);
+		tree.insertleftchild(tree.root.left,2);
+		tree.insertrightchild(tree.root.left,8);
+		tree.insertrightchild(tree.root.right,15);
+	System.out.println("PreOrder");
+	tree.preOrder(tree.root);
+	System.out.println("\nInOrder");
+	tree.InOrder(tree.root);
+	}
+}

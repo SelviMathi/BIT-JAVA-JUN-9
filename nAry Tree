@@ -29,6 +29,26 @@ class NAry{
         System.out.print(a.data+" ");
         
     }
+public int countNodes(Node node) {
+        if (node == null) return 0;
+        int count = 1;
+        for (Node child : node.children)
+            count += countNodes(child);
+        return count;
+    }
+public void levelOrder(Node root) {
+        if (root == null) return;
+
+        Queue<Node> q = new LinkedList<>();
+        q.add(root);
+
+        while (!q.isEmpty()) {
+            Node current = q.poll();
+            System.out.print(current.val + " ");
+            for (Node child : current.children)
+                q.add(child);
+        }
+    }
 }
 public class Main{
 	public static void main(String[] args) {

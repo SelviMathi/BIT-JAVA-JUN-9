@@ -1,0 +1,39 @@
+import java.util.*;
+class Node{
+        int data;
+        List<Node> child; 
+        Node(int d){
+            data=d;
+            child=new ArrayList<>();
+        }
+    }
+class NAry{
+    Node root=null;
+    NAry(int va){
+        root=new Node(va);
+    }
+    public void insert(Node n,int v){
+        Node new_node=new Node(v);
+        n.child.add(new_node);
+    }
+    public void preOrder(Node a){
+        if(a==null) return;
+        System.out.print(a.data+" ");
+        for(Node x:a.child)
+        preOrder(x);
+    }
+}
+public class Main{
+	public static void main(String[] args) {
+	    NAry tree=new NAry(1);
+	    Node r=tree.root;
+	    tree.insert(r,2);
+	    tree.insert(r,3);
+	    tree.insert(r,4);
+	    tree.insert(r,5);
+	    tree.insert(r.child.get(1),6);
+	    tree.insert(r.child.get(1),7);
+	    tree.preOrder(r);
+	
+}
+}

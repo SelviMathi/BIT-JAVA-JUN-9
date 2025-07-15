@@ -22,6 +22,13 @@ class NAry{
         for(Node x:a.child)
         preOrder(x);
     }
+ public void postOrder(Node a){
+        if(a==null) return;
+        for(Node x:a.child)
+        postOrder(x);
+        System.out.print(a.data+" ");
+        
+    }
 }
 public class Main{
 	public static void main(String[] args) {
@@ -33,7 +40,12 @@ public class Main{
 	    tree.insert(r,5);
 	    tree.insert(r.child.get(1),6);
 	    tree.insert(r.child.get(1),7);
+	    tree.insert(r.child.get(1).child.get(0),8);
+	    tree.insert(r.child.get(1).child.get(0),9);
+	    System.out.println("Preorder ");
 	    tree.preOrder(r);
+	    System.out.println("\nPostorder ");
+	    tree.postOrder(r);
 	
 }
 }

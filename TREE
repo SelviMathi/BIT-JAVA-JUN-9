@@ -175,6 +175,43 @@ class BT{
         }
         
     }
+public int count(Node n){
+            if(n==null) return 0;
+            int l=count(n.left);
+            int r=count(n.right);
+            return l+r+1;
+        }
+
+public int countofleaf(Node n){
+            if(n==null) return 0;
+            if(n.left==null && n.right==null) return 1;
+            int l=countofleaf(n.left);
+            int r=countofleaf(n.right);
+            return l+r;
+        }
+    public int height(Node n){
+            if(n==null) return 0;
+            int l=height(n.left);
+            int r=height(n.right);
+            return Math.max(l,r)+1;
+        }
+    
+    public boolean search(Node n,char val){
+        if(n==null) return false;
+        if(n.data==val) return true;
+        boolean l=search(n.left,val);
+        boolean r=search(n.right,val);
+        return l||r;
+    }
+
+ public boolean isBalanced(Node n){
+        if(n==null) return true;
+        int l=height(n.left);
+        int r=height(n.right);
+        if(Math.abs(l-r)<=1) return true;
+        else  return false;
+   }
+
     
 }
 public class Main

@@ -1,3 +1,5 @@
+from pre & inorder
+
 import java.util.*;
 class Node{
         int data;
@@ -46,6 +48,64 @@ public static void main(String[] args) {
     int in[]={4,2,5,1,6,3,7};
     BuildBT tree=new BuildBT();
     Node r=tree.build(pre,in);
+    tree.postOrder(r);
+}
+}
+
+
+*************************************************
+from post & inorder
+
+import java.util.*;
+class Node{
+        int data;
+        Node left,right;
+        Node(int d){
+            data=d;
+            left=right=null;
+        }
+    }
+class BuildBT{
+    int posindex;
+    public Node build(int []p,int []i){
+        posindex=i.length-1;
+        return helper(p,i,0,i.length-1);
+    }
+    public Node helper(int [] postorder,int [] inorder,int s,int e){
+        if(s>e) return null;
+        int rootval=postorder[posindex--];//1
+        Node root=new Node(rootval);//root 1 
+        int inoind=0;
+        for(int id=s;id<=e;id++){
+            if(rootval==inorder[id]) 
+            inoind=id;//3
+        }
+        root.right=helper(postorder,inorder,inoind+1,e);
+        root.left=helper(postorder,inorder,s,inoind-1);
+        
+        return root;
+        
+    }
+    public void postOrder(Node n){
+        if(n!=null){
+        
+        postOrder(n.left);
+        postOrder(n.right);
+        System.out.print(n.data+" ");    
+        }
+        
+    }
+    
+
+}
+    
+public class Main{
+
+public static void main(String[] args) {
+    int pos[]={4,5,2,6,7,3,1};
+    int in[]={4,2,5,1,6,3,7};
+    BuildBT tree=new BuildBT();
+    Node r=tree.build(pos,in);
     tree.postOrder(r);
 }
 }

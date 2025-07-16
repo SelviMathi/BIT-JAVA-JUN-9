@@ -32,24 +32,32 @@ class NAry{
 public int countNodes(Node node) {
         if (node == null) return 0;
         int count = 1;
-        for (Node child : node.children)
+        for (Node child : node.child)
             count += countNodes(child);
         return count;
     }
-public void levelOrder(Node root) {
-        if (root == null) return;
-
-        Queue<Node> q = new LinkedList<>();
-        q.add(root);
-
-        while (!q.isEmpty()) {
-            Node current = q.poll();
-            System.out.print(current.val + " ");
-            for (Node child : current.children)
-                q.add(child);
+public int height(Node n){
+        if(n==null) return 0;
+        int maxh=0;
+        for(Node A:n.child){
+            int h=height(A);
+            if(h>maxh)
+            maxh=h;
         }
+        return maxh+1;
     }
-}
+public void levelOrder(Node n){
+        if(n==null) return;
+        Queue<Node> q=new LinkedList<>();
+        q.add(n);
+        
+        while(!q.isEmpty()){
+        Node temp=q.remove();
+        System.out.print(temp.data+" ");
+        for(Node A:temp.child)
+        q.add(A);
+    }
+    }}
 public class Main{
 	public static void main(String[] args) {
 	    NAry tree=new NAry(1);

@@ -1,0 +1,51 @@
+import java.util.*;
+class Node{
+        int data;
+        Node left,right;
+        Node(int d){
+            data=d;
+            left=right=null;
+        }
+    }
+class BuildBT{
+    int preindex=0;
+    public Node build(int []p,int []i){
+        return helper(p,i,0,i.length-1);
+    }
+    public Node helper(int [] preorder,int [] inorder,int s,int e){
+        if(s>e) return null;
+        int rootval=preorder[preindex++];//1
+        Node root=new Node(rootval);//root 1 
+        int inoind=0;
+        for(int id=s;id<=e;id++){
+            if(rootval==inorder[id]) 
+            inoind=id;//3
+        }
+        root.left=helper(preorder,inorder,s,inoind-1);
+        root.right=helper(preorder,inorder,inoind+1,e);
+        return root;
+        
+    }
+    public void postOrder(Node n){
+        if(n!=null){
+        
+        postOrder(n.left);
+        postOrder(n.right);
+        System.out.print(n.data+" ");    
+        }
+        
+    }
+    
+
+}
+    
+public class Main{
+
+public static void main(String[] args) {
+    int pre[]={1,2,4,5,3,6,7};
+    int in[]={4,2,5,1,6,3,7};
+    BuildBT tree=new BuildBT();
+    Node r=tree.build(pre,in);
+    tree.postOrder(r);
+}
+}

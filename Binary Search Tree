@@ -32,6 +32,30 @@ class BST{
         inOrder(n.right);
     }
     }
+    public void preOrder(Node n){
+        if(n!=null){
+            
+        System.out.print(n.data+" ");
+        preOrder(n.left);
+        preOrder(n.right);
+    }
+    }
+    public void postOrder(Node n){
+        if(n!=null){
+        postOrder(n.left);
+        postOrder(n.right);
+        System.out.print(n.data+" ");
+        
+    }
+    }
+    public boolean search(Node n,int key){
+        if(n==null) return false;
+        if(key==n.data) return true;
+        if(key<n.data)
+        return search(n.left,key);
+        else
+        return search(n.right,key);
+    }
 }
 public class Main
 {
@@ -41,7 +65,18 @@ public class Main
 	    tree.insert(60);
 	    tree.insert(20);
 	    tree.insert(30);
+	    tree.insert(10);
+	    tree.insert(80);
+	    System.out.println("Preorder: ");
+	    tree.preOrder(tree.root);
+	    
+	    System.out.println("\nInorder: ");
 	    tree.inOrder(tree.root);
+	    
+	    System.out.println("\nPostorder: ");
+	    tree.postOrder(tree.root);
+	    
+	    System.out.println("\nSearch: "+tree.search(tree.root,20));
 	    
 
 	

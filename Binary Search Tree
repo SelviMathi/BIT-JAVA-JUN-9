@@ -46,7 +46,38 @@ class BST{
                 }
             }
         }
+     public Node delete(Node n,int key){
+        if(n==null) return null;
+        if(key<n.data)
+        n.left=delete(n.left,key);
+        else if(key>n.data)
+        n.right=delete(n.right,key);
+        else{
+            if(n.left==null && n.right==null)
+            {
+                n=null;
+                return n;
+            }
+            else if(n.left==null)
+            return n.right;
+            else if(n.right==null)
+            return n.left;
+            else{
+                Node minNode=findminNode(n.right);
+                n.data=minNode.data;
+                n.right=delete(n.right,minNode.data);
+            }
+            
+        }
+        return n;
+    }
+    public Node findminNode(Node n){
+        while(n.left!=null)
+        n=n.left;
+        return n;
+    }
     
+   
     public void inOrder(Node n){
         if(n!=null){
         inOrder(n.left);

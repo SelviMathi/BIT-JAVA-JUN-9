@@ -1,0 +1,49 @@
+class Node{
+    int data;
+    Node left,right;
+    Node(int d){
+        data=d;
+        left=null;
+        right=null;
+    }
+}
+class BST{
+    Node root;
+    BST(int val){
+        root=new Node(val);
+    }
+    public void insert(int v){
+         helper(root,v);
+    }
+        
+    public Node helper(Node n,int v){
+        if(n==null) return new Node(v);
+        if(v>n.data)
+        n.right=helper(n.right,v);
+        else
+        n.left=helper(n.left,v);
+        return n;
+    }
+    
+    public void inOrder(Node n){
+        if(n!=null){
+        inOrder(n.left);
+        System.out.print(n.data+" ");
+        inOrder(n.right);
+    }
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+	    BST tree=new BST(50);
+	    tree.insert(100);
+	    tree.insert(60);
+	    tree.insert(20);
+	    tree.insert(30);
+	    tree.inOrder(tree.root);
+	    
+
+	
+	}
+}

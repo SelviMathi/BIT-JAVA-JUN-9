@@ -24,6 +24,28 @@ class BST{
         n.left=helper(n.left,v);
         return n;
     }
+    public void insertusingIterative(int v){
+        Node newNode=new Node(v);
+        Node tptr=root;
+        while(tptr!=null){
+            if(v<tptr.data){
+                if(tptr.left==null){
+                tptr.left=newNode;
+                break;
+                }
+                else
+                tptr=tptr.left;
+            }
+            else{
+                if(tptr.right==null){
+                tptr.right=newNode;
+                break;
+                }
+                else
+                tptr=tptr.right;
+                }
+            }
+        }
     
     public void inOrder(Node n){
         if(n!=null){

@@ -14,7 +14,7 @@ class BST{
         root=new Node(val);
     }
     public void insert(int v){
-         helper(root,v);
+         root=helper(root,v);
     }
     public int height(Node n){
         if(n==null) return -1;
@@ -38,15 +38,15 @@ class BST{
                 return rightRotate(n);
         //LR
         if(balancefact>1 && v>n.left.data)
-            n.left=leftRotate(n.left);
-            return rightRotate(n);
+            {n.left=leftRotate(n.left);
+            return rightRotate(n);}
         //RR
         if(balancefact<-1 && v>n.right.data)
                 return leftRotate(n);
         //RL
         if(balancefact<-1 && v<n.right.data)
-                n.right=rightRotate(n.right);
-                return leftRotate(n);
+               { n.right=rightRotate(n.right);
+                return leftRotate(n);}
         return n;
     }
     public Node leftRotate(Node x){

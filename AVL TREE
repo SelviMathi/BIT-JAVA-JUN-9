@@ -30,28 +30,44 @@ class BST{
         else
         return n;
         
-        int h=Math.max(height(n.left),height(n.right))+1;
+        n.ht=Math.max(height(n.left),height(n.right))+1;
         int balancefact=height(n.left)-height(n.right);
         
         //LL bf pos key<node val
-        
         if(balancefact>1 && v<n.left.data)
                 return rightRotate(n);
         //LR
         if(balancefact>1 && v>n.left.data)
-            n.left=leftRotate(n);
+            n.left=leftRotate(n.left);
             return rightRotate(n);
-        
         //RR
         if(balancefact<-1 && v>n.right.data)
                 return leftRotate(n);
-        
         //RL
         if(balancefact<-1 && v<n.right.data)
-                n.right=rightRotate(n);
+                n.right=rightRotate(n.right);
                 return leftRotate(n);
         return n;
     }
+    public Node leftRotate(Node x){
+        Node y=x.right;
+        Node s1=y.left;
+        y.left=x;
+        x.right=s1;
+        x.ht=1+Math.max(height(x.left),height(x.right));
+        y.ht=1+Math.max(height(y.left),height(y.right));
+        return y;
+    }
+    public Node rightRotate(Node z){
+        Node y=z.left;
+        Node s2=y.right;
+        y.right=z;
+        z.left=s2;
+        z.ht=1+Math.max(height(z.left),height(z.right));
+        y.ht=1+Math.max(height(y.left),height(y.right));
+        return y;
+    }
+    
     public void inOrder(Node n){
         if(n!=null){
         inOrder(n.left);

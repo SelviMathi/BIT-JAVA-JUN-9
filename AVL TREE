@@ -20,7 +20,12 @@ class BST{
         if(n==null) return -1;
         return n.ht;
         
-    }  
+    } 
+    public int getbalance(Node n){
+        return height(n.left)-height(n.right);
+        
+    }
+    
     public Node helper(Node n,int v){
         if(n==null) return new Node(v);
         if(v>n.data)
@@ -31,7 +36,7 @@ class BST{
         return n;
         
         n.ht=Math.max(height(n.left),height(n.right))+1;
-        int balancefact=height(n.left)-height(n.right);
+        int balancefact=getbalance(n);
         
         //LL bf pos key<node val
         if(balancefact>1 && v<n.left.data)
@@ -67,6 +72,53 @@ class BST{
         y.ht=1+Math.max(height(y.left),height(y.right));
         return y;
     }
+    public Node delete(Node n,int key){
+        if(n==null) return null;
+        if(key<n.data)
+        n.left=delete(n.left,key);
+        else if(key>n.data)
+        n.right=delete(n.right,key);
+        else{
+            if(n.left==null && n.right==null)
+            {
+                n=null;
+                return n;
+            }
+            else if(n.left==null)
+            return n.right;
+            else if(n.right==null)
+            return n.left;
+            else{
+                Node minNode=findminNode(n.right);
+                n.data=minNode.data;
+                n.right=delete(n.right,minNode.data);
+            }
+            
+        }
+        n.ht=Math.max(height(n.left),height(n.right))+1;
+        int balancefact=getbalance(n);
+        
+        //LL bf pos key<node val
+        if(balancefact>1 && getbalance(n.left)>0)
+                return rightRotate(n);
+        //LR
+        if(balancefact>1 &&  getbalance(n.left)<0)
+            {n.left=leftRotate(n.left);
+            return rightRotate(n);}
+        //RR
+        if(balancefact<-1 &&  getbalance(n.right)<0)
+                return leftRotate(n);
+        //RL
+        if(balancefact<-1 &&  getbalance(n.right)>0)
+               { n.right=rightRotate(n.right);
+                return leftRotate(n);}
+        return n;
+    }
+    public Node findminNode(Node n){
+        while(n.left!=null)
+        n=n.left;
+        return n;
+    }
     
     public void inOrder(Node n){
         if(n!=null){
@@ -83,7 +135,9 @@ public class Main
 	    tree.insert(9);
 	    tree.insert(19);
 	    tree.insert(2);
-	   
-	    tree.inOrder(tree.root);
+	    tree.insert(20);
+	   	    tree.inOrder(tree.root);
+	   	    
+	   	 tree.delete(tree.root,19);
 	}
 }

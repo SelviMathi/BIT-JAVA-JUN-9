@@ -1,0 +1,67 @@
+A  2-3 Tree is a B-tree of order 3.
+That means each node can contain:
+
+1 data element (2-node)
+→ has 2 children (or none, if it's a leaf)
+
+2 data elements (3-node)
+→ has 3 children (or none, if it's a leaf)
+
+The tree remains perfectly balanced, meaning all leaves are at the same level.
+
+| Property             | Description                                             |
+| -------------------- | ------------------------------------------------------- |
+| Node types           | 2-node (1 key), 3-node (2 keys)                         |
+| Children per node    | 2-node → 2 children; 3-node → 3 children                |
+| Sorted order         | All elements are stored in a sorted manner              |
+| Balanced             | Every leaf is at the same depth                         |
+| Insertion / Deletion | Automatically balances the tree using splitting/merging |
+| Height               | `O(log n)`                                              |
+
+
+
+Databases and file systems (e.g., B-trees)
+
+Memory-efficient searching
+
+Compilers, indexing systems
+****†*************
+
+what is 2_3_4 Trees?!
+
+A 2-3-4 Tree is an extension of a 2-3 Tree. Each node can have:
+
+1 key → 2-node
+
+2 keys → 3-node
+
+3 keys → 4-node (4-node is unique to 2-3-4 trees)
+
+
+
+
+ Red-Black Tree is a self-balancing binary search tree.
+
+It is a practical version of a 2-3-4 Tree, used in:
+
+Java: TreeMap, TreeSet
+
+C++: map, set (STL)
+
+Databases, file systems
+
+Red-Black Tree Rules
+To be a valid red-black tree, it must follow these 5 rules:
+
+| Rule No. | Rule Description                                                            |
+| -------- | --------------------------------------------------------------------------- |
+| 1️⃣      | Every node is either **red or black**                                       |
+| 2️⃣      | The root is always **black**                                                |
+| 3️⃣      | All leaves (nulls) are **black**                                            |
+| 4️⃣      | If a node is **red**, its **children must be black** (no two reds in a row) |
+| 5️⃣      | Every path from root to leaf has the **same number of black nodes**         |
+
+
+
+
+

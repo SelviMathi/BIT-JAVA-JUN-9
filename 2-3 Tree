@@ -1,3 +1,39 @@
+B-Tree is a self-balancing search tree used for storing large amounts of sorted data and allows search, insertion, and deletion in logarithmic time.
+
+It’s mainly used in:
+
+Databases
+
+File systems
+
+Operating systems
+
+Indexing structures (e.g., in MySQL)
+
+| Property                         | Description                                       |
+| -------------------------------- | ------------------------------------------------- |
+| 🔢 **Maximum keys per node**     | `m - 1` keys                                      |
+| 🌿 **Maximum children per node** | `m` children                                      |
+| 🪜 **Sorted keys**               | Keys inside a node are sorted                     |
+| 📏 **Balanced tree**             | All leaf nodes are at the same level              |
+| 🧠 **Multi-way tree**            | Not just binary, supports multiple branches       |
+| ♻️ **Efficient operations**      | Search, Insert, Delete – all in **O(log n)** time |
+
+
+Structure Example (B-Tree of Order 3)
+Each node can have max 2 keys and max 3 children.
+
+          [20]
+         /    \
+     [10]    [30, 40]
+
+
+Root has 1 key → 2 children
+
+Right child has 2 keys → 3 children (if it had them)
+
+
+
 A  2-3 Tree is a B-tree of order 3.
 That means each node can contain:
 
@@ -37,6 +73,8 @@ A 2-3-4 Tree is an extension of a 2-3 Tree. Each node can have:
 
 3 keys → 4-node (4-node is unique to 2-3-4 trees)
 
+
+3 7 4 9 10 0 5 6 8 2 1
 
 
 

@@ -197,7 +197,49 @@ Huffman Coding
 
 Heap Sort
 
+******************************
+Heap Insertion
 
+import java.util.*;
+public class Main
+{
+    static int arr[]=new int[50];
+    static int size=0;
+    
+    public static void add(int v){
+        arr[size]=v;//arr[0]=50//arr[1]=30
+        int i=size;//i=0//i=1
+        size++;//size1//2
+        int p=i-1/2;//p=0//0
+        while(i>0){//true
+        if(arr[p]>arr[i])//arr[p]=50>arr[i]=30
+        {
+            int temp=arr[p];//temp=50
+            arr[p]=arr[i];//arr[p]=30
+            arr[i]=temp;//arr[i]=50
+            i=p;
+        }
+        else
+        break;
+    }
+    }
+	public static void main(String[] args) {
+	    
+		
+	add(50);
+	add(30);
+	add(20);
+	add(15);
+	add(10);
+	add(8);
+	add(16);
+		
+		
+		for(int i=0;i<size;i++)
+		System.out.print(arr[i]+" ");
+		
+	}
+}
 
 
 

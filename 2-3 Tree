@@ -101,5 +101,22 @@ To be a valid red-black tree, it must follow these 5 rules:
 
 
 
+If tree is empty - insert newnode as black
+If tree is not empty - insert newnode as red.
+If parent of newnode is black, insert newnode and exit (i.e., carry on with next in the)
+If parent of newnode is red, then check the parent's sibling.
+
+1,Sibiling Of parent is black or NULL
+(i) rotate (AVL rotation)
+(ii) recolour
+parent
+grandparent.
+
+2,Sibling of parent is red
+(i) recolour
+parent
+parent's sibling
+(ii) check if grandparent of newnode is root node or not.
+If not, then recolour grandparent and recheck.
 
 

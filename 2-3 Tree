@@ -210,8 +210,9 @@ public class Main
         arr[size]=v;//arr[0]=50//arr[1]=30
         int i=size;//i=0//i=1
         size++;//size1//2
-        int p=i-1/2;//p=0//0
+        
         while(i>0){//true
+        int p=(i-1)/2;//p=0//0
         if(arr[p]>arr[i])//arr[p]=50>arr[i]=30
         {
             int temp=arr[p];//temp=50
@@ -240,6 +241,3 @@ public class Main
 		
 	}
 }
-
-
-

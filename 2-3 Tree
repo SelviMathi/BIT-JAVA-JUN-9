@@ -61,6 +61,15 @@ Databases and file systems (e.g., B-trees)
 Memory-efficient searching
 
 Compilers, indexing systems
+
+55 30 15 75 65 45 5.
+
+50 60  70 40 30 20 10 80 90 100
+
+ALGORITHM
+DATABASE
+TECHNOLOGY
+
 ****†*************
 
 what is 2_3_4 Trees?!
@@ -76,7 +85,7 @@ A 2-3-4 Tree is an extension of a 2-3 Tree. Each node can have:
 
 3 7 4 9 10 0 5 6 8 2 1
 
-
+********************************************
 
  Red-Black Tree is a self-balancing binary search tree.
 
@@ -99,7 +108,7 @@ To be a valid red-black tree, it must follow these 5 rules:
 | 4️⃣      | If a node is **red**, its **children must be black** (no two reds in a row) |
 | 5️⃣      | Every path from root to leaf has the **same number of black nodes**         |
 
-
+Tree Insertion Algorithm
 
 If tree is empty - insert newnode as black
 If tree is not empty - insert newnode as red.
@@ -118,5 +127,77 @@ parent
 parent's sibling
 (ii) check if grandparent of newnode is root node or not.
 If not, then recolour grandparent and recheck.
+
+
+1 2 3 4 5 6 7 8 9 10
+
+10 18 7 15 16 30 25 40 60  2 1 70
+
+***************************************
+A heap tree is a binary tree that satisfies:
+
+✅ Complete Binary Tree property
+
+✅ Heap Order Property (either min-heap or max-heap)
+
+Min heap
+        1
+      /   \
+     3     5
+    / \   /
+   7   9  6
+
+Max heap
+
+        9
+      /   \
+     7     6
+    / \   /
+   3   1  5
+
+Heap
+A  heap refers to:
+
+A specialized tree-based data structure
+
+Usually implemented as an array
+
+Follows either min-heap or max-heap rules
+
+✅ Efficient for:
+
+Inserting elements
+
+Deleting min/max
+
+Priority Queue operations
+
+Tree view:
+        1
+      /   \
+     3     5
+    / \   /
+   7   9  6
+
+Array: [1, 3, 5, 7, 9, 6]
+
+Left child: 2*i + 1
+
+Right child: 2*i + 2
+
+Parent: (i - 1) / 2
+
+Applications of Heap
+
+CPU Scheduling (Priority Queue)
+
+Dijkstra’s Algorithm (Min Heap)
+
+Huffman Coding
+
+Heap Sort
+
+
+
 
 

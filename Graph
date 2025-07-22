@@ -1,0 +1,28 @@
+
+public class Main
+{
+    static int V=2;
+    static int arr[][]=new int[V][V];
+    public static void add(int i,int j){
+        arr[i][j]=1;
+        arr[j][i]=1;
+    }
+	public static void display()
+	{
+	    
+	    for(int i=0;i<V;i++){
+	        for(int j=0;j<V;j++){
+	            System.out.print(arr[i][j]+" ");
+	        }
+	        System.out.println();
+	    }
+	}
+	public static void main(String[] args) {
+	    add(0,1);
+	    add(0,1);
+	    add(1,2);
+	    display();
+	
+	    
+	}
+}

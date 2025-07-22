@@ -1,7 +1,7 @@
 
 public class Main
 {
-    static int V=2;
+    static int V=3;
     static int arr[][]=new int[V][V];
     public static void add(int i,int j){
         arr[i][j]=1;
@@ -26,3 +26,49 @@ public class Main
 	    
 	}
 }
+
+10----30
+|
+|
+15----25
+
+public class Main
+{
+    static int V[]={10,15,25,30};
+    static int arr[][]=new int[4][4];
+    public static int getindex(int v)
+    {
+        for(int i=0;i<V.length;i++)
+        {
+            if(v==V[i])
+            return i;
+        }
+        return -1;
+    }
+    public static void add(int v1,int v2){
+        int i1=getindex(v1);
+        int j1=getindex(v2);
+       // System.out.print(i1+ " "+j1);
+        arr[i1][j1]=1;
+        arr[j1][i1]=1;
+    }
+	public static void display()
+	{
+	    //for(int )
+	    for(int i=0;i<4;i++){
+	        for(int j=0;j<4;j++){
+	            System.out.print(arr[i][j]+" ");
+	        }
+	        System.out.println();
+	    }
+	}
+	public static void main(String[] args) {
+	    add(10,30);
+	    add(10,15);
+	    add(15,25);
+	    display();
+	
+	    
+	}
+}
+

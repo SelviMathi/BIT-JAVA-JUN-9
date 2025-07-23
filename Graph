@@ -190,4 +190,22 @@ public static void degree()
 	    }
 	    
 	}
+****************Directed
+
+public static void degree()
+	{
+	    
+	    for(int i=0;i<V;i++){
+	        int inde=0,outde=0;
+	        for(int j=0;j<V;j++){
+	            if(arr[j][i]==1)
+	            inde++;
+	            if(arr[i][j]==1)
+	           outde++;
+	        
+	        }
+	        System.out.println("InD of "+i+" is "+ inde +" OutD "+outde);
+	    }
+	    
+	}
 	

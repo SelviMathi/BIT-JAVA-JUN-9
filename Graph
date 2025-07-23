@@ -212,6 +212,7 @@ public static void degree()
 ***************************BFS
 
 
+
 import java.util.*;
 public class Main
 {
@@ -253,7 +254,7 @@ static int arr[]={1,2,3,4,5,6,7};
 	    seen[start]=true;
 	    while(!q.isEmpty()){
 	        int v=q.remove();
-	        System.out.print(v+" ");
+	        System.out.print(arr[v]+" ");
 	        for(int a:graph.get(v)){
 	            if(!seen[a]){
 	                q.add(a);
@@ -278,7 +279,7 @@ static int arr[]={1,2,3,4,5,6,7};
 	   
 	    display();
 	    System.out.println("BFS Order");
-	    bfs(1);
+	    bfs(getindex(1));
 	    
 	}
 }

@@ -190,8 +190,8 @@ public static void degree()
 	    }
 	    
 	}
-****************Directed
-
+****************Directed 
+//Matrix
 public static void degree()
 	{
 	    
@@ -208,8 +208,24 @@ public static void degree()
 	    }
 	    
 	}
-	
-***************************BFS
+
+//Adjacency List
+public static void degree() {
+    for (int i = 0; i < V; i++) {
+        int outde = graph.get(i).size(); 
+        int inde = 0;
+        for (int j = 0; j < V; j++) {
+            if (graph.get(j).contains(i)) {
+                inde++; 
+                }
+        }
+
+        System.out.println("InD of " + i + " is " + inde + " OutD " + outde);
+    }
+}
+
+
+***************************BFS & DFS
 
 
 

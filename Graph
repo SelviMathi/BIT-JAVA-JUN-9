@@ -209,3 +209,23 @@ public static void degree()
 	    
 	}
 	
+***************************BFS
+
+public static void  bfs(int start){
+	    boolean seen[]=new boolean[arr.length+1];
+	    Queue<Integer> q=new LinkedList<>();
+	    seen[0]=true;
+	    q.add(start);
+	    seen[start]=true;
+	    while(!q.isEmpty()){
+	        int v=q.remove();
+	        System.out.print(v+" ");
+	        for(int a:graph.get(v)){
+	            if(!seen[a]){
+	                q.add(a);
+	                seen[a]=true;
+	                //break;
+	            }
+	        }
+	    }
+	}

@@ -264,7 +264,15 @@ static int arr[]={1,2,3,4,5,6,7};
 	        }
 	    }
 	}
-
+ static boolean seen[]=new boolean[arr.length];
+    public static void dfs(int va){
+        seen[va]=true;
+    System.out.print(arr[va]+" ");
+    for(int a:graph.get(va)){
+        if(!seen[a])
+        dfs(a);
+    }
+    }
 	public static void main(String[] args) {
 	    
 	    for(int i=0;i<arr.length;i++)
@@ -280,6 +288,9 @@ static int arr[]={1,2,3,4,5,6,7};
 	    display();
 	    System.out.println("BFS Order");
 	    bfs(getindex(1));
+ System.out.println("DFS Order");
+	    dfs(getindex(1));
+
 	    
 	}
 }

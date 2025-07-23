@@ -166,3 +166,13 @@ public class Main
 	    
 	}
 }
+
+*********************Degree of Nodes
+
+public static void degree(){
+	    for(int i=0;i<V;i++){
+	        System.out.println(i+"->"+graph.get(i).size());
+	    }
+	}
+
+

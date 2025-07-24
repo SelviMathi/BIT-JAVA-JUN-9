@@ -1,0 +1,97 @@
+Function PrimMST(Graph G, int V):
+
+    Initialize:
+        seen[V] = false for all vertices
+        minCost = 0
+        MST = empty list to store edges
+        pq = empty priority queue (min-heap based on edge weight)
+
+    Start from vertex 0:
+        seen[0] = true
+        Add all edges from vertex 0 to pq
+
+    While pq is not empty:
+        currEdge = pq.remove()  // Get edge with minimum weight
+
+        If currEdge.to is already seen:
+            continue
+
+        Mark currEdge.to as seen
+        Add currEdge to MST
+        Add currEdge.wt to minCost
+
+        For each neighborEdge from currEdge.to:
+            If neighborEdge.to is not seen:
+                Add neighborEdge to pq
+
+    Print MST and minCost
+
+****************
+
+
+KRUSKAL(G):
+  MST = empty set
+  sort all edges of G in increasing order by weight
+  makeSet(V)    // initialize Disjoint Set for all vertices
+
+  for each edge (u, v) in sorted edge list:
+      if find(u) ≠ find(v):       // no cycle
+          add edge (u, v) to MST
+          union(u, v)             // connect components
+
+  return MST
+
+
+
+************
+
+
+Input: Graph G(V, E) with edges and weights
+
+Step 1: Sort all edges in increasing order of weight
+
+Step 2: Initialize Disjoint Set
+    for each vertex v in V:
+        MAKE-SET(v)
+
+Step 3: Initialize MST as empty
+    MST ← ∅
+    totalCost ← 0
+
+Step 4: For each edge (u, v, weight) in sorted edges:
+    if FIND(u) ≠ FIND(v):      // u and v are in different sets
+        ADD (u, v) to MST       // safe to add (no cycle)
+        totalCost ← totalCost + weight
+        UNION(u, v)
+
+Output: MST edges and totalCost
+
+
+
+MAKE-SET(x):
+    parent[x] ← x
+    rank[x] ← 0
+
+FIND(x):
+    if parent[x] ≠ x:
+        parent[x] ← FIND(parent[x])     // Path compression
+    return parent[x]
+
+UNION(x, y):
+    rootX ← FIND(x)
+    rootY ← FIND(y)
+
+    if rootX = rootY:
+        return  // already connected
+
+    if rank[rootX] < rank[rootY]:
+        parent[rootX] ← rootY
+    else if rank[rootX] > rank[rootY]:
+        parent[rootY] ← rootX
+    else:
+        parent[rootY] ← rootX
+        rank[rootX] ← rank[rootX] + 1
+
+
+
+

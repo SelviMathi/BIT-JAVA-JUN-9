@@ -173,4 +173,83 @@ UNION(x, y):
 
 
 
++**************************************Implementation
+
+
+import java.util.*;
+class Edge{
+    int from,to,wt;
+    Edge(int f,int t,int w){
+        from=f;
+        to=t;
+        wt=w;
+    }
+}
+
+
+public class Main
+{
+    static int V=4;
+    static int parent[]=new int[4];
+    static int rank[]=new int[4];
+    static int min=0;
+    static PriorityQueue<Edge> graph=new PriorityQueue<>((a,b)->a.wt-b.wt);
+    
+    public static void display(){
+        while(!graph.isEmpty()){
+            Edge e=graph.poll();
+        System.out.print(e.from+" "+e.to+" "+e.wt+"\n");
+        }
+    }
+    public static int find(int p){//path compression
+        if(p!=parent[p])
+        parent[p]=find(parent[p]);
+        return parent[p];
+    }
+    public static boolean union(int p1,int p2){
+        
+        int n1=find(p1);
+        int n2=find(p2);
+        if(n1==n2) return true;
+        
+        if(rank[n1]<rank[n2])
+            parent[n1]=n2;
+        else if(rank[n1]>rank[n2])
+            parent[n2]=n1;
+        else{
+            parent[n2]=n1;
+            rank[n1]++;
+        }
+        return false;
+    }
+    
+    public static void kruskal(){
+        while(!graph.isEmpty()){
+            Edge e=graph.poll();
+        
+            if(!union(e.from,e.to)){
+                min+=e.wt;
+            }
+        }
+        System.out.print("Min cost: "+min);
+    }
+    public static void main(String[] args) {
+        for(int i=0;i<V;i++){
+        parent[i]=i;
+        rank[i]=1;
+        }
+        graph.add(new Edge(1,2,3));
+	    graph.add(new Edge(1,3,2));
+	    graph.add(new Edge(0,1,1));
+	    graph.add(new Edge(0,2,3));
+	    graph.add(new Edge(2,3,5));
+	   //boolean v= union(0,1);
+	   // System.out.println(Arrays.toString(parent));
+	   // System.out.print(Arrays.toString(rank));
+	  //  display();
+	   kruskal();
+	   
+	}
+}
+
 

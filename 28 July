@@ -1,0 +1,58 @@
+TOWER OF HANOI***************
+public class Main
+{
+    public static void TH(int n,char s,char d,char h){
+        if(n==1){
+        System.out.println("Disk 1 moves from "+s+" to "+d);
+        return;
+        }
+        TH(n-1,s,h,d);
+        System.out.println("Disk "+n+" moves from "+s+" to "+d);
+        TH(n-1,h,d,s);
+    }
+	public static void main(String[] args) {
+	    TH(2,'A','C','B');
+	}
+}
+
+
+UNIQUE PATH COUNT*********************
+
+
+public class Main
+{
+    public static int path(int m,int n){
+        
+        if(m==1 || n==1) return 1;
+       return path(m-1,n)+path(m,n-1);
+    }
+	public static void main(String[] args) {
+	   System.out.print(path(3,3));
+	}
+}
+
+
+
+public class Main
+{
+    public static int path(int m,int n){
+        int dp[][]=new int[m][n];
+        for(int i=0;i<m;i++) dp[0][i]=1;
+        for(int j=0;j<n;j++) dp[j][0]=1;
+        
+        
+        for(int i=1;i<m;i++){
+            for(int j=1;j<n;j++){
+        dp[i][j]=dp[i-1][j]+dp[i][j-1];
+            }
+        }
+        return dp[m-1][n-1];
+        
+        
+        
+    }
+	public static void main(String[] args) {
+	   System.out.print(path(3,3));
+	}
+}
+

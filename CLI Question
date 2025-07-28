@@ -1,0 +1,19 @@
+Design and implement a simple Bank Management System using Java OOP concepts and Command Line Interface (CLI). The program must allow users to create bank accounts and perform basic banking operations.
+
+1. Create a class BankAccount with the following attributes:
+   - accountNumber (int)
+   - accountHolderName (String)
+   - balance (double)
+
+2. Initialize all the above attributes using a constructor. In Main.java, create an object of BankAccount and initialize its values.
+
+3. Make all data members of BankAccount private.
+
+4. Implement a CLI menu in Main.java with the following options:
+   1. Create Account
+   2. Deposit
+   3. Withdraw
+   4. Show Account Details
+   5. Exit
+
+5. Create a subclass SavingsAccount that extends BankAccount and includes a method applyInterest() that adds 5% interest to the balance.

@@ -1,0 +1,233 @@
+MultiTask:
+
+Performing  multiple tasks at one time . There are 2 types of multitasking :
+Process based multitasking
+Thread based multitasking
+
+Process-based multitasking is executing several tasks simultaneously where each task is a separate independent process is Process-based multitasking . 
+For example, process based multitasking enables you to run the Java IDE at the same time that you are using a text editor or visiting a web site using chrome.
+
+Thread-based multitasking is executing several tasks simultaneously where each task is a separate independent part of the same program (called Thread).
+For instance,JUnit uses threads to run test cases in parallel. As an application, you can have computer games. You see objects in games like cars, motor bikes etc. They are just threads that run in the game application.
+******************************8
+
+Which is better process based multitasking or thread based multitasking and why is one of the most asked java interview question and Answers?
+ Thread based multitasking is better.
+
+Multitasking threads require less overhead than multitasking processes. 
+
+Processes are heavyweight tasks that require their own separate address spaces. 
+
+Threads, on the other hand, are lighter weight. They share the same address space and cooperatively share the same heavyweight process. 
+
+Interprocess communication is expensive and limited. Context switching from one process to another is also costly.
+
+******************************
+Thread and its types
+Threads are light-weight processes within a process.
+Java creates threads by using a "Thread Class".
+
+All Java programs have at least one thread, known as the main thread, which is created by the Java Virtual Machine (JVM) at the program’s start, when the main() method is invoked with the main thread.
+
+*****************
+public class Main {
+    public static void main(String[] args) {
+         System.out.println("hello");
+         System.out.println(Thread.currentThread().getName());
+}
+}
+
+**************
+try
+        {Thread.sleep(1000);
+        }catch(Exception e) {} 
+******************
+There are two types of thread – user thread and daemon thread.
+
+//Creating a thread using THREAD class
+class HI extends Thread 
+{
+   public void run()
+    {
+        for(int i=0;i<5;i++)
+        {
+        System.out.println("HI");
+        }
+        
+    }
+}
+class HELLO extends Thread
+{
+    public void run()
+    {
+        for(int i=0;i<5;i++)
+        System.out.println("HELLO");
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+       HI obj=new HI();
+       HELLO obj1=new HELLO();
+       obj.start();
+       obj1.start();
+    }
+}
+
+//Creating a thread using Runnable interface
+
+class HI implements Runnable 
+{
+   public void run()
+    {
+        for(int i=0;i<5;i++)
+        {
+        System.out.println("HI");
+        }
+        
+    }
+}
+class HELLO implements Runnable
+{
+    public void run()
+    {
+        for(int i=0;i<5;i++)
+        System.out.println("HELLO");
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+       Runnable obj=new HI();
+       Runnable obj1=new HELLO();
+       Thread t1=new Thread(obj);
+       Thread t2=new Thread(obj1);
+       t1.start();
+       t2.start();
+    }
+}
+
+//Sleep()
+//isalive
+//getname() Check Bus seat reservation
+//setname()
+//join()
+//getPriority()
+//setPriority()
+
+**************Difference between t.start() and t.run()
+In the case of t.start() a new Thread will be created which is responsible for the execution of run() method.
+
+But in the case of t.run() no new Thread will be created and run() method will be executed just like a normal method by the main Thread
+
+
+class MyThread extends Thread {
+    public void run() {
+        System.out.println("Thread is running."+Thread.currentThread.getName());
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        MyThread t1 = new MyThread();
+        t1.start();  // Starts a new thread and runs the run() method in that thread
+
+        MyThread t2 = new MyThread();
+        t2.run();    // Runs the run() method in the main thread
+    }
+}
+******************************
+//Lambda Expression using THREAD class
+public class Main 
+{
+    public static void main(String[] args) 
+    {
+       Thread t1=new Thread(()->
+      {
+       for(int i=0;i<5;i++)
+       System.out.println("HI");
+       try
+       {
+           Thread.sleep(1000);
+       }
+       catch(Exception e)
+       {
+      }
+      
+});
+t1.start();
+}
+}
+
+
+//Lambda Expression using RUNNABLE interface
+//Lambda Expression using THREAD class
+
+public class Main 
+{
+    public static void main(String[] args)
+    {
+       Runnable obj=()->
+       {
+       for(int i=0;i<5;i++)
+       {
+       System.out.println("HI");
+       try
+       {
+           Thread.sleep(1000);
+       }
+       catch(Exception e)
+       {
+       }
+       }
+       }
+       ;
+       Thread t1=new Thread(obj);
+       t1.start();
+       }
+}
+
+
+How to make a user thread to a Daemon thread
+
+ make a user thread to Daemon by using setDaemon() method of thread class.
+This method is used for making a user thread to Daemon thread or vice versa. For example if I have a user thread t then t.setDaemon(true) would make it Daemon thread. On the other hand if I have a Daemon thread td then by calling td.setDaemon(false) would make it normal thread(user thread/non-daemon thread).
+public boolean isDaemon(): This method is used for checking the status of a thread. It returns true if the thread is Daemon else it returns false.
+setDaemon() method can only be called before starting the thread. This method would throw IllegalThreadStateException if you call this method after Thread.start() method. 
+The main difference between Daemon thread and user threads is that the JVM does not wait for Daemon thread before exiting while it waits for user threads, it does not exit until unless all the user threads finish their execution.      
+      
+class Ex extends Thread{
+public void run(){
+        for(int i=0;i<10000;i++){
+        System.out.println("Child Thread is running "+i);
+        System.out.println("I am Daemon or not "+Thread.currentThread().isDaemon());
+        }
+        }
+}
+
+public class time {
+public static void main(String[] args) {
+    
+        Ex ob=new Ex();
+        ob.setDaemon(true);
+        ob.start(); 
+        for (int i = 0; i < 10; i++)
+                    System.out.println("Main thread is running");
+        }
+}
+*****************
+What if we don’t override Run method?
+Thread class Run method will be called and we won’t get any output.
+
+It’s basically useless as you are saying, please create a thread for me and that thread will do nothing for us. So why did u create it ?
+
+Q*********************
+Can we overload run method during multi threading?
+How do we overload? 
+May be by passing parameters?
+Yes you can but start () will call no arg run () only. 
+
+Q***********************
+Can we override start method of thread in multi threaded environment?
+If you override start () in your custom class then no initializations will be done by thread class for you. 
+
+//SYNCHRONISATION
+//Check Bus Seat reservation program

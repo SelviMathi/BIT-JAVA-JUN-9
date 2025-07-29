@@ -1,3 +1,98 @@
+Operation.java
+interface operation{
+    double add(double a,double b);
+    double sub(double a,double b);
+    double mul(double a,double b);
+    double div(double a,double b);
+    double pow(double a,double b);
+    }
+
+bcal.java
+
+class bcal implements operation{
+    private double n1,n2;
+    public bcal(double n1, double n2) {
+        this.n1 = n1;
+        this.n2 = n2;
+    }
+    public double add(double a, double b) {
+        return a + b;
+    }
+    public double sub(double a, double b) {  
+        return a - b;
+    }
+    public double mul(double a, double b) {
+        return a * b;   
+        }
+    public double div(double a, double b) {
+        if (b == 0) {
+            throw new ArithmeticException("Division by zero is not allowed.");
+        }
+        return a / b;
+    }
+}
+
+scal.java
+
+public class scal extends bcal{
+    public scal(double n1, double n2) {
+        super(n1, n2);
+    }
+    public double pow(double a, double b) {
+        return Math.pow(a, b);
+    }
+}
+
+Main.java 
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int choice;
+        
+        do{
+        System.out.println("1. Addition\n2. Subtraction\n3. Multiplication\n4. Division\n5. Power");
+        System.out.println("Calculator Operations: \n Enter your choice:");
+      
+        choice = scanner.nextInt();
+        double n1, n2;
+        System.out.print("Enter first number: ");
+        n1 = scanner.nextDouble();
+        System.out.print("Enter second number: ");
+        n2 = scanner.nextDouble();
+        scal calculator = new scal(n1, n2);
+        
+        switch(choice){
+            case 1:
+                System.out.println("Addition: " + calculator.add(n1, n2));
+                break;
+            case 2:
+                System.out.println("Subtraction: " + calculator.sub(n1, n2));
+                break;
+            case 3:
+                System.out.println("Multiplication: " + calculator.mul(n1, n2));
+                break;
+            case 4:
+                try {
+                    System.out.println("Division: " + calculator.div(n1, n2));
+                } catch (ArithmeticException e) {
+                    System.out.println(e.getMessage());
+                }
+                break;
+            case 5:
+                System.out.println("Power: " + calculator.pow(n1, n2));
+                break;
+            default:
+                System.out.println("Invalid choice");
+
+        }
+    }while(choice>5);
+}
+}
+
+
 Design and implement a simple Bank Management System using Java OOP concepts and Command Line Interface (CLI). The program must allow users to create bank accounts and perform basic banking operations.
 
 1. Create a class BankAccount with the following attributes:
